@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AUTO-HUB OSS - Main Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-surface-variant": "#c7c6ca",
+                      "error-container": "#93000a",
+                      "on-secondary-fixed-variant": "#92001d",
+                      "on-error-container": "#ffdad6",
+                      "on-error": "#690005",
+                      "on-tertiary": "#002e68",
+                      "on-tertiary-fixed-variant": "#004493",
+                      "inverse-primary": "#5f5e5f",
+                      "primary-fixed": "#e5e2e3",
+                      "primary": "#c8c6c7",
+                      "surface-container-highest": "#333535",
+                      "on-primary-fixed": "#1b1b1c",
+                      "tertiary-fixed-dim": "#adc7ff",
+                      "secondary-container": "#d6042f",
+                      "secondary-fixed": "#ffdad8",
+                      "primary-fixed-dim": "#c8c6c7",
+                      "on-primary-container": "#848283",
+                      "on-primary": "#303031",
+                      "on-secondary-container": "#ffe7e5",
+                      "on-primary-fixed-variant": "#474647",
+                      "inverse-on-surface": "#2f3131",
+                      "surface-container": "#1e2020",
+                      "on-background": "#e2e2e2",
+                      "surface-container-lowest": "#0c0f0f",
+                      "tertiary-container": "#00193e",
+                      "primary-container": "#1a1a1b",
+                      "on-tertiary-fixed": "#001a41",
+                      "inverse-surface": "#e2e2e2",
+                      "surface": "#121414",
+                      "secondary-fixed-dim": "#ffb3b1",
+                      "surface-tint": "#c8c6c7",
+                      "outline-variant": "#46474a",
+                      "tertiary-fixed": "#d8e2ff",
+                      "background": "#121414",
+                      "on-secondary": "#680011",
+                      "surface-bright": "#37393a",
+                      "on-surface": "#e2e2e2",
+                      "outline": "#909094",
+                      "secondary": "#ffb3b1",
+                      "error": "#ffb4ab",
+                      "surface-dim": "#121414",
+                      "tertiary": "#adc7ff",
+                      "on-tertiary-container": "#1c7fff",
+                      "surface-container-high": "#282a2b",
+                      "surface-container-low": "#1a1c1c",
+                      "on-secondary-fixed": "#410007",
+                      "surface-variant": "#333535"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "md": "24px",
+                      "xl": "80px",
+                      "margin": "32px",
+                      "lg": "48px",
+                      "sm": "12px",
+                      "xs": "4px",
+                      "gutter": "24px",
+                      "base": "8px"
+              },
+              "fontFamily": {
+                      "label-md": ["Geist"],
+                      "headline-lg": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "display-lg": ["Inter"],
+                      "body-md": ["Inter"],
+                      "headline-lg-mobile": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "mono-data": ["Geist"]
+              },
+              "fontSize": {
+                      "label-md": ["14px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                      "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                      "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                      "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                      "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                      "headline-lg-mobile": ["24px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                      "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                      "mono-data": ["14px", { "lineHeight": "1", "letterSpacing": "0", "fontWeight": "400" }]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(30, 32, 32, 0.4);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .carbon-pattern {
+            background-color: #121414;
+            background-image: linear-gradient(45deg, rgba(255,255,255,0.02) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.02) 75%, rgba(255,255,255,0.02)), linear-gradient(45deg, rgba(255,255,255,0.02) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.02) 75%, rgba(255,255,255,0.02));
+            background-size: 10px 10px;
+            background-position: 0 0, 5px 5px;
+        }
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -8px rgba(0,0,0,0.5);
+            border-color: #ffb3b1;
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #c8c6c7, #ffb3b1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .btn-primary {
+            background: linear-gradient(180deg, #d6042f 0%, #93000a 100%);
+            transition: all 0.2s ease;
+        }
+        .btn-primary:hover {
+            filter: brightness(1.1);
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 right-0 w-full md:w-[calc(100%-16rem)] h-16 bg-surface/50 dark:bg-surface/50 border-b border-outline-variant backdrop-blur-md flex items-center justify-between px-margin z-40 transition-all duration-300">
+<div class="flex items-center gap-sm md:hidden">
+<span class="material-symbols-outlined text-secondary text-2xl">menu</span>
+<div class="font-headline-md text-headline-md font-black tracking-tighter text-on-surface">AUTO-HUB</div>
+</div>
+<div class="hidden md:flex flex-1 max-w-md mx-auto">
+<div class="relative w-full focus-within:ring-1 ring-secondary rounded-DEFAULT overflow-hidden">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-high border-none text-on-surface placeholder:text-on-surface-variant py-2 pl-10 pr-4 focus:ring-0 focus:outline-none font-body-md text-body-md rounded-DEFAULT" placeholder="Cari aplikasi atau data..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined">mms</span>
+</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden border border-outline-variant ml-2">
+<img alt="Administrator Profile" class="w-full h-full object-cover" data-alt="A macro photography shot of a sleek, futuristic carbon fiber textured surface with a subtle glowing neon blue edge, high contrast, studio lighting, representing a modern avatar placeholder." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDp8prlTDpFWp7pvYKNGCxdmMFRHPVUa6bSz-bgbsYalTqjGjOjhNx6KgGUURKlwA3AEUgkKsitmvZgBxH2_O38rmT9LfrjWw5r3x1z5t4CQv4vWur-XNmRNTLwoFqLLYvtGm_uH-PVSA-mdWRGhFO2pqfbz2Vdo406PPaw4PLZEs0e9BhYKvJ2RCczavWnsCC6sPdJq1rCatHcmEovtGdeAgHGJ4H3Fx5O9BZlgAHbipkUSLth0iUfd0Er1Ay98M74fPK4wsZtDgPz"/>
+</div>
+</div>
+</nav>
+<!-- SideNavBar (Desktop) -->
+<aside class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 border-r border-outline-variant bg-surface/80 backdrop-blur-xl shadow-sm py-md z-50">
+<div class="px-md mb-xl flex items-center gap-sm">
+<div class="w-10 h-10 rounded-DEFAULT bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">speed</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-on-surface tracking-tight">AUTO-HUB</h1>
+<p class="font-label-md text-label-md text-on-surface-variant">V-Performance Portal</p>
+</div>
+</div>
+<nav class="flex-1 px-sm space-y-1">
+<a class="flex items-center gap-sm px-4 py-3 rounded-DEFAULT text-secondary border-r-2 border-secondary bg-secondary-container/10 active:scale-95 duration-100" href="#">
+<span class="material-symbols-outlined">apps</span>
+<span class="font-label-md text-label-md">All Apps</span>
+</a>
+<a class="flex items-center gap-sm px-4 py-3 rounded-DEFAULT text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-200 active:scale-95 duration-100" href="#">
+<span class="material-symbols-outlined">star</span>
+<span class="font-label-md text-label-md">Favorites</span>
+</a>
+<a class="flex items-center gap-sm px-4 py-3 rounded-DEFAULT text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-200 active:scale-95 duration-100" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-label-md text-label-md">Recent</span>
+</a>
+<a class="flex items-center gap-sm px-4 py-3 rounded-DEFAULT text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-200 active:scale-95 duration-100" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</nav>
+<div class="px-md mt-auto pt-4 border-t border-outline-variant/50">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-tertiary-fixed-dim animate-pulse"></div>
+<span class="font-mono-data text-mono-data text-on-surface-variant text-xs">Sistem Online</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="pt-16 md:ml-64 min-h-screen flex flex-col">
+<!-- Hero Section -->
+<section class="relative w-full h-[409px] min-h-[300px] flex items-end justify-start p-margin overflow-hidden border-b border-outline-variant">
+<!-- Background Image -->
+<div class="absolute inset-0 bg-cover bg-center z-0" data-alt="A highly detailed, dramatic close-up of a modern high-performance sports car engine bay or LED headlight assembly in a dark studio. Deep shadows, sleek metallic surfaces, and a striking, razor-thin vibrant red accent light slicing through the darkness. Cinematic, precise, automotive engineering aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAVR3OW9xQo7XUlDNq-coJAPQvT-L22E8oz5EVd7A6c0DbbZ8Gj5kfiyqHLCH09S2CaRNHK8vIS8YuZtbv_mogf3xHDR2_ngtIkJFZz2_qNqKanyANrPfX5w2A9ihnK42nl8xGAbT80K18552SXpID_3WN9Sf7oiB8hO4yLT5_vvDyzHNl5gRQWQckIgfcnDZXPYsGa__lMIn3-hwLeymZaHPUSq8Gsp9M6bQgZMC-XdvjuytyAAa3762tG0wh2lovr435cPvpxI15L')">
+<!-- Overlay gradient -->
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-background via-background/50 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-4xl glass-panel p-md rounded-xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-surface-container border border-outline-variant mb-4">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-fixed"></span>
+<span class="font-mono-data text-mono-data text-on-surface-variant text-xs uppercase tracking-wider">Portal Utama</span>
+</div>
+<h2 class="font-display-lg text-display-lg text-on-surface mb-2">Selamat Datang di <span class="text-gradient">AUTO-HUB OSS</span></h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Akses terpusat untuk seluruh sistem operasional otomotif. Pantau, kelola, dan optimalkan performa pabrik dalam satu antarmuka instrumental.</p>
+</div>
+</section>
+<!-- Apps Grid Section -->
+<section class="flex-1 p-margin max-w-[1600px] w-full mx-auto">
+<div class="flex items-center justify-between mb-8 border-b border-outline-variant pb-4">
+<h3 class="font-headline-md text-headline-md text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">grid_view</span>
+                    Modul Operasional
+                </h3>
+<div class="flex gap-2">
+<button class="p-2 rounded-DEFAULT bg-surface-container-high text-on-surface hover:bg-surface-bright transition-colors border border-outline-variant"><span class="material-symbols-outlined text-sm">filter_list</span></button>
+<button class="p-2 rounded-DEFAULT bg-surface-container-high text-on-surface hover:bg-surface-bright transition-colors border border-outline-variant"><span class="material-symbols-outlined text-sm">sort</span></button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gutter">
+<!-- App Card 1 -->
+<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl text-primary">precision_manufacturing</span>
+</div>
+<div class="p-md flex-1 relative z-10">
+<div class="w-12 h-12 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-center mb-4 text-tertiary-fixed-dim">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">precision_manufacturing</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-2 tracking-tight group-hover:text-secondary transition-colors">Production Line Tracker</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Pemantauan real-time untuk jalur perakitan. Lacak efisiensi dan bottleneck secara langsung.</p>
+</div>
+<div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
+<div class="flex gap-2">
+<span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-tertiary-container text-tertiary-fixed border border-tertiary-fixed/20">LIVE</span>
+</div>
+<button class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2">
+                            Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
+</button>
+</div>
+</article>
+<!-- App Card 2 -->
+<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl text-primary">inventory_2</span>
+</div>
+<div class="p-md flex-1 relative z-10">
+<div class="w-12 h-12 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-center mb-4 text-tertiary-fixed-dim">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-2 tracking-tight group-hover:text-secondary transition-colors">Inventory Management</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Manajemen suku cadang dan tingkat stok di seluruh gudang otomotif.</p>
+</div>
+<div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
+<div class="flex gap-2">
+<span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant">STABLE</span>
+</div>
+<button class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2">
+                            Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
+</button>
+</div>
+</article>
+<!-- App Card 3 -->
+<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl text-primary">fact_check</span>
+</div>
+<div class="p-md flex-1 relative z-10">
+<div class="w-12 h-12 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-center mb-4 text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">fact_check</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-2 tracking-tight group-hover:text-secondary transition-colors">Quality Control</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Log audit komprehensif dan pelacakan cacat produksi. Memastikan standar tertinggi.</p>
+</div>
+<div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
+<div class="flex gap-2">
+<span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-error-container text-on-error-container border border-error/20 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-error"></span> 3 ALERTS</span>
+</div>
+<button class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2">
+                            Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
+</button>
+</div>
+</article>
+<!-- App Card 4 -->
+<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl text-primary">local_shipping</span>
+</div>
+<div class="p-md flex-1 relative z-10">
+<div class="w-12 h-12 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-center mb-4 text-tertiary-fixed-dim">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-2 tracking-tight group-hover:text-secondary transition-colors">Logistics Optimizer</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Pelacakan armada logistik dan pengiriman kendaraan secara real-time via satelit.</p>
+</div>
+<div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
+<div class="flex gap-2">
+<span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant">ACTIVE</span>
+</div>
+<button class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2">
+                            Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
+</button>
+</div>
+</article>
+<!-- App Card 5 -->
+<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl text-primary">groups</span>
+</div>
+<div class="p-md flex-1 relative z-10">
+<div class="w-12 h-12 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-center mb-4 text-tertiary-fixed-dim">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">groups</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-2 tracking-tight group-hover:text-secondary transition-colors">HR Management</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Sistem manajemen shift karyawan pabrik dan evaluasi performa kerja.</p>
+</div>
+<div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
+<div class="flex gap-2">
+<span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant">PORTAL</span>
+</div>
+<button class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2">
+                            Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
+</button>
+</div>
+</article>
+<!-- App Card 6 -->
+<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl text-primary">handshake</span>
+</div>
+<div class="p-md flex-1 relative z-10">
+<div class="w-12 h-12 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-center mb-4 text-tertiary-fixed-dim">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">handshake</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-2 tracking-tight group-hover:text-secondary transition-colors">CRM - Sales Portal</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Manajemen hubungan pelanggan, jaringan dealer, dan analitik penjualan.</p>
+</div>
+<div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
+<div class="flex gap-2">
+<span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant">PORTAL</span>
+</div>
+<button class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2">
+                            Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
+</button>
+</div>
+</article>
+<!-- App Card 7 -->
+<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl text-primary">account_balance</span>
+</div>
+<div class="p-md flex-1 relative z-10">
+<div class="w-12 h-12 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-center mb-4 text-tertiary-fixed-dim">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-2 tracking-tight group-hover:text-secondary transition-colors">Financial Hub</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Analisis biaya produksi, alokasi anggaran, dan pelaporan finansial terintegrasi.</p>
+</div>
+<div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
+<div class="flex gap-2">
+<span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant">SECURE</span>
+</div>
+<button class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2">
+                            Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
+</button>
+</div>
+</article>
+<!-- App Card 8 -->
+<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl text-primary">build_circle</span>
+</div>
+<div class="p-md flex-1 relative z-10">
+<div class="w-12 h-12 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-center mb-4 text-tertiary-fixed-dim">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">build_circle</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-2 tracking-tight group-hover:text-secondary transition-colors">Maintenance Scheduler</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Penjadwalan perawatan preventif untuk mesin pabrik dan log perbaikan.</p>
+</div>
+<div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
+<div class="flex gap-2">
+<span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant">SCHEDULE</span>
+</div>
+<button class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2">
+                            Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
+</button>
+</div>
+</article>
+</div>
+</section>
+<!-- Footer -->
+<footer class="mt-auto w-full py-xs px-margin border-t border-outline-variant bg-surface-container-lowest dark:bg-surface-container-lowest flex justify-between items-center z-40">
+<span class="font-mono-data text-mono-data text-on-surface-variant">© 2024 Automotive Systems Group. v2.4.1-stable</span>
+<div class="flex gap-4">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:underline transition-opacity duration-200" href="#">Support</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:underline transition-opacity duration-200" href="#">Documentation</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:underline transition-opacity duration-200" href="#">API Status</a>
+</div>
+</footer>
+</main>
+</body></html>
