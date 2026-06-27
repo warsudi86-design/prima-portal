@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+<!-- STITCH_THREEJS_START:ANIMATION_7 class="fixed inset-0 w-full h-full bg-transparent" -->
+<div class="fixed inset-0 w-full h-full bg-transparent" style="display:block;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_7" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_7');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  # Contoh Implementasi api.js untuk AUTO-HUB OSS
+
+Gunakan kode di bawah ini di dalam file `assets/js/api.js` Anda. Kode ini menggunakan `fetch` untuk mengambil data dari endpoint Google Apps Script Anda.
+
+### 1. Kode JavaScript (`api.js`)
+
+```javascript
+// Konfigurasi: Ganti dengan URL 'exec' dari Google Apps Script yang sudah di-deploy sebagai Web App
+const GAS_API_URL = 'https://script.google.com/macros/s/AKfycby...your_script_id.../exec';
+
+/**
+ * Fungsi untuk mengambil data notifikasi dan status dari GAS
+ */
+async function fetchDashboardData() {
+  try {
+    // Menambahkan timestamp untuk menghindari caching browser
+    const response = await fetch(`${GAS_API_URL}?action=getNotifications&t=${new Date().getTime()}`);
+    
+    if (!response.ok) {
+      throw new Error('Gagal mengambil data dari server.');
+    }
+
+    const data = await response.json();
+    
+    // Perbarui UI berdasarkan data yang diterima
+    updateNotificationUI(data.notifications);
+    updateAppStatus(data.appStatus);
+
+  } catch (error) {
+    console.error('Error fetching GAS data:', error);
+  }
+}
+
+/**
+ * Memperbarui panel notifikasi di dashboard
+ */
+function updateNotificationUI(notifications) {
+  const notificationContainer = document.querySelector('.notification-list'); // Sesuaikan selector dengan HTML Anda
+  if (!notificationContainer) return;
+
+  // Bersihkan list lama
+  notificationContainer.innerHTML = '';
+
+  notifications.forEach(item => {
+    const notificationHtml = `
+      <div class="flex items-start gap-4 p-4 border-l-4 ${getPriorityColor(item.priority)} bg-surface-container-low mb-2">
+        <div class="flex-1">
+          <p class="font-bold text-on-surface">${item.title}</p>
+          <p class="text-sm text-on-surface-variant">${item.message}</p>
+        </div>
+      </div>
+    `;
+    notificationContainer.insertAdjacentHTML('beforeend', notificationHtml);
+  });
+}
+
+function getPriorityColor(priority) {
+  switch(priority) {
+    case 'high': return 'border-error';
+    case 'medium': return 'border-warning';
+    default: return 'border-primary';
+  }
+}
+
+// Jalankan pengambilan data saat halaman dimuat
+document.addEventListener('DOMContentLoaded', fetchDashboardData);
+
+// Refresh data setiap 5 menit
+setInterval(fetchDashboardData, 300000);
+```
+
+### 2. Kode Google Apps Script (`Code.gs`)
+
+Agar `api.js` di atas bekerja, Anda perlu memiliki fungsi `doGet` di sisi Google Apps Script yang mengembalikan data dalam format JSON.
+
+```javascript
+function doGet(e) {
+  var action = e.parameter.action;
+  var output = {};
+
+  if (action === 'getNotifications') {
+    output = {
+      notifications: [
+        { title: "Maintenance Scheduler", message: "Pemeliharaan rutin selesai", priority: "low" },
+        { title: "Logistics Optimizer", message: "3 armada memerlukan perhatian", priority: "high" },
+        { title: "Quality Control", message: "Laporan baru tersedia", priority: "medium" }
+      ],
+      appStatus: {
+        production: "LIVE",
+        inventory: "STABLE"
+      }
+    };
+  }
+
+  return ContentService.createTextOutput(JSON.stringify(output))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+```
+
+### Tips Penting:
+1. **Deployment GAS:** Pastikan saat men-deploy Web App di GAS, Anda memilih **"Execute as: Me"** dan **"Who has access: Anyone"** (agar Netlify bisa mengaksesnya).
+2. **CORS:** Google Apps Script Web App secara default mendukung CORS untuk permintaan `GET`.
+3. **Selector HTML:** Pastikan class atau ID yang digunakan di `api.js` (seperti `.notification-list`) sesuai dengan yang ada di file `index.html` Anda.
+})();
+</script>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_7 -->
+</body>
+</html>
