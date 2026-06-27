@@ -7,7 +7,6 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
         tailwind.config = {
           darkMode: "class",
@@ -136,13 +135,20 @@
             filter: brightness(1.1);
             transform: scale(1.02);
         }
+        #notifications-panel {
+            transform: translateX(100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        #notifications-panel.active {
+            transform: translateX(0);
+        }
     </style>
 </head>
 <body class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden selection:bg-secondary-container selection:text-on-secondary-container">
 <!-- TopNavBar -->
-<nav class="fixed top-0 right-0 w-full md:w-[calc(100%-16rem)] h-16 bg-surface/50 dark:bg-surface/50 border-b border-outline-variant backdrop-blur-md flex items-center justify-between px-margin z-40 transition-all duration-300">
+<nav class="fixed top-0 right-0 w-full md:w-[calc(100%-16rem)] h-16 bg-surface/50 border-b border-outline-variant backdrop-blur-md flex items-center justify-between px-margin z-40">
 <div class="flex items-center gap-sm md:hidden">
-<span class="material-symbols-outlined text-secondary text-2xl">menu</span>
+<button class="material-symbols-outlined text-secondary text-2xl" onclick="toggleSidebar()">menu</button>
 <div class="font-headline-md text-headline-md font-black tracking-tighter text-on-surface">AUTO-HUB</div>
 </div>
 <div class="hidden md:flex flex-1 max-w-md mx-auto">
@@ -152,17 +158,18 @@
 </div>
 </div>
 <div class="flex items-center gap-sm">
-<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-white/5 transition-colors">
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-white/5 transition-colors relative cursor-pointer" onclick="toggleNotifications()">
 <span class="material-symbols-outlined">notifications</span>
+<span class="hidden absolute top-2 right-2 w-2 h-2 bg-error rounded-full border border-background" id="notification-dot"></span>
 </button>
-<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-white/5 transition-colors">
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-white/5 transition-colors cursor-pointer">
 <span class="material-symbols-outlined">mms</span>
 </button>
-<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-white/5 transition-colors">
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-white/5 transition-colors cursor-pointer">
 <span class="material-symbols-outlined">settings</span>
 </button>
 <div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden border border-outline-variant ml-2">
-<img alt="Administrator Profile" class="w-full h-full object-cover" data-alt="A macro photography shot of a sleek, futuristic carbon fiber textured surface with a subtle glowing neon blue edge, high contrast, studio lighting, representing a modern avatar placeholder." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDp8prlTDpFWp7pvYKNGCxdmMFRHPVUa6bSz-bgbsYalTqjGjOjhNx6KgGUURKlwA3AEUgkKsitmvZgBxH2_O38rmT9LfrjWw5r3x1z5t4CQv4vWur-XNmRNTLwoFqLLYvtGm_uH-PVSA-mdWRGhFO2pqfbz2Vdo406PPaw4PLZEs0e9BhYKvJ2RCczavWnsCC6sPdJq1rCatHcmEovtGdeAgHGJ4H3Fx5O9BZlgAHbipkUSLth0iUfd0Er1Ay98M74fPK4wsZtDgPz"/>
+<img alt="Administrator Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDp8prlTDpFWp7pvYKNGCxdmMFRHPVUa6bSz-bgbsYalTqjGjOjhNx6KgGUURKlwA3AEUgkKsitmvZgBxH2_O38rmT9LfrjWw5r3x1z5t4CQv4vWur-XNmRNTLwoFqLLYvtGm_uH-PVSA-mdWRGhFO2pqfbz2Vdo406PPaw4PLZEs0e9BhYKvJ2RCczavWnsCC6sPdJq1rCatHcmEovtGdeAgHGJ4H3Fx5O9BZlgAHbipkUSLth0iUfd0Er1Ay98M74fPK4wsZtDgPz"/>
 </div>
 </div>
 </nav>
@@ -178,27 +185,27 @@
 </div>
 </div>
 <nav class="flex-1 px-sm space-y-1">
-<a class="flex items-center gap-sm px-4 py-3 rounded-DEFAULT text-secondary border-r-2 border-secondary bg-secondary-container/10 active:scale-95 duration-100" href="#">
+<a class="flex items-center gap-sm px-4 py-3 rounded-DEFAULT text-secondary border-r-2 border-secondary bg-secondary-container/10 active:scale-95 duration-100 cursor-pointer" href="#">
 <span class="material-symbols-outlined">apps</span>
 <span class="font-label-md text-label-md">All Apps</span>
 </a>
-<a class="flex items-center gap-sm px-4 py-3 rounded-DEFAULT text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-200 active:scale-95 duration-100" href="#">
+<a class="flex items-center gap-sm px-4 py-3 rounded-DEFAULT text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-200 active:scale-95 duration-100 cursor-pointer" href="#">
 <span class="material-symbols-outlined">star</span>
 <span class="font-label-md text-label-md">Favorites</span>
 </a>
-<a class="flex items-center gap-sm px-4 py-3 rounded-DEFAULT text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-200 active:scale-95 duration-100" href="#">
+<a class="flex items-center gap-sm px-4 py-3 rounded-DEFAULT text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-200 active:scale-95 duration-100 cursor-pointer" href="#">
 <span class="material-symbols-outlined">history</span>
 <span class="font-label-md text-label-md">Recent</span>
 </a>
-<a class="flex items-center gap-sm px-4 py-3 rounded-DEFAULT text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-200 active:scale-95 duration-100" href="#">
+<a class="flex items-center gap-sm px-4 py-3 rounded-DEFAULT text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-200 active:scale-95 duration-100 cursor-pointer" href="#">
 <span class="material-symbols-outlined">settings</span>
 <span class="font-label-md text-label-md">Settings</span>
 </a>
 </nav>
 <div class="px-md mt-auto pt-4 border-t border-outline-variant/50">
 <div class="flex items-center gap-3">
-<div class="w-2 h-2 rounded-full bg-tertiary-fixed-dim animate-pulse"></div>
-<span class="font-mono-data text-mono-data text-on-surface-variant text-xs">Sistem Online</span>
+<div class="w-2 h-2 rounded-full bg-outline animate-pulse" id="status-indicator"></div>
+<span class="font-mono-data text-mono-data text-on-surface-variant text-xs" id="status-text">Menghubungkan...</span>
 </div>
 </div>
 </aside>
@@ -206,9 +213,7 @@
 <main class="pt-16 md:ml-64 min-h-screen flex flex-col">
 <!-- Hero Section -->
 <section class="relative w-full h-[409px] min-h-[300px] flex items-end justify-start p-margin overflow-hidden border-b border-outline-variant">
-<!-- Background Image -->
-<div class="absolute inset-0 bg-cover bg-center z-0" data-alt="A highly detailed, dramatic close-up of a modern high-performance sports car engine bay or LED headlight assembly in a dark studio. Deep shadows, sleek metallic surfaces, and a striking, razor-thin vibrant red accent light slicing through the darkness. Cinematic, precise, automotive engineering aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAVR3OW9xQo7XUlDNq-coJAPQvT-L22E8oz5EVd7A6c0DbbZ8Gj5kfiyqHLCH09S2CaRNHK8vIS8YuZtbv_mogf3xHDR2_ngtIkJFZz2_qNqKanyANrPfX5w2A9ihnK42nl8xGAbT80K18552SXpID_3WN9Sf7oiB8hO4yLT5_vvDyzHNl5gRQWQckIgfcnDZXPYsGa__lMIn3-hwLeymZaHPUSq8Gsp9M6bQgZMC-XdvjuytyAAa3762tG0wh2lovr435cPvpxI15L')">
-<!-- Overlay gradient -->
+<div class="absolute inset-0 bg-cover bg-center z-0" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAVR3OW9xQo7XUlDNq-coJAPQvT-L22E8oz5EVd7A6c0DbbZ8Gj5kfiyqHLCH09S2CaRNHK8vIS8YuZtbv_mogf3xHDR2_ngtIkJFZz2_qNqKanyANrPfX5w2A9ihnK42nl8xGAbT80K18552SXpID_3WN9Sf7oiB8hO4yLT5_vvDyzHNl5gRQWQckIgfcnDZXPYsGa__lMIn3-hwLeymZaHPUSq8Gsp9M6bQgZMC-XdvjuytyAAa3762tG0wh2lovr435cPvpxI15L')">
 <div class="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
 <div class="absolute inset-0 bg-gradient-to-r from-background via-background/50 to-transparent"></div>
 </div>
@@ -226,16 +231,16 @@
 <div class="flex items-center justify-between mb-8 border-b border-outline-variant pb-4">
 <h3 class="font-headline-md text-headline-md text-on-surface flex items-center gap-2">
 <span class="material-symbols-outlined text-secondary">grid_view</span>
-                    Modul Operasional
-                </h3>
+                Modul Operasional
+            </h3>
 <div class="flex gap-2">
 <button class="p-2 rounded-DEFAULT bg-surface-container-high text-on-surface hover:bg-surface-bright transition-colors border border-outline-variant"><span class="material-symbols-outlined text-sm">filter_list</span></button>
 <button class="p-2 rounded-DEFAULT bg-surface-container-high text-on-surface hover:bg-surface-bright transition-colors border border-outline-variant"><span class="material-symbols-outlined text-sm">sort</span></button>
 </div>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gutter">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gutter" id="apps-grid">
 <!-- App Card 1 -->
-<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative">
+<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative" data-app-id="prod_tracker">
 <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
 <span class="material-symbols-outlined text-6xl text-primary">precision_manufacturing</span>
 </div>
@@ -247,16 +252,16 @@
 <p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Pemantauan real-time untuk jalur perakitan. Lacak efisiensi dan bottleneck secara langsung.</p>
 </div>
 <div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
-<div class="flex gap-2">
+<div class="flex gap-2 status-container">
 <span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-tertiary-container text-tertiary-fixed border border-tertiary-fixed/20">LIVE</span>
 </div>
-<button class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2">
-                            Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
-</button>
+<a class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2 cursor-pointer launch-btn" href="https://script.google.com/macros/s/AKfycbxFGn9YxIcy-SLjeyQqxHDG5aXcNV0crp7_KMJ0Xm-flV2A_m7BqQKnBp4_FbVxeMTF/exec" target="_blank">
+                        Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
+</a>
 </div>
 </article>
 <!-- App Card 2 -->
-<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative">
+<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative" data-app-id="inventory">
 <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
 <span class="material-symbols-outlined text-6xl text-primary">inventory_2</span>
 </div>
@@ -268,16 +273,16 @@
 <p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Manajemen suku cadang dan tingkat stok di seluruh gudang otomotif.</p>
 </div>
 <div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
-<div class="flex gap-2">
+<div class="flex gap-2 status-container">
 <span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant">STABLE</span>
 </div>
-<button class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2">
-                            Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
-</button>
+<a class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2 cursor-pointer launch-btn" href="https://script.google.com/macros/s/AKfycbxFGn9YxIcy-SLjeyQqxHDG5aXcNV0crp7_KMJ0Xm-flV2A_m7BqQKnBp4_FbVxeMTF/exec" target="_blank">
+                        Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
+</a>
 </div>
 </article>
 <!-- App Card 3 -->
-<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative">
+<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative" data-app-id="quality_control">
 <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
 <span class="material-symbols-outlined text-6xl text-primary">fact_check</span>
 </div>
@@ -289,16 +294,16 @@
 <p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Log audit komprehensif dan pelacakan cacat produksi. Memastikan standar tertinggi.</p>
 </div>
 <div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
-<div class="flex gap-2">
+<div class="flex gap-2 status-container">
 <span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-error-container text-on-error-container border border-error/20 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-error"></span> 3 ALERTS</span>
 </div>
-<button class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2">
-                            Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
-</button>
+<a class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2 cursor-pointer launch-btn" href="https://script.google.com/macros/s/AKfycbxFGn9YxIcy-SLjeyQqxHDG5aXcNV0crp7_KMJ0Xm-flV2A_m7BqQKnBp4_FbVxeMTF/exec" target="_blank">
+                        Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
+</a>
 </div>
 </article>
 <!-- App Card 4 -->
-<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative">
+<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative" data-app-id="logistics">
 <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
 <span class="material-symbols-outlined text-6xl text-primary">local_shipping</span>
 </div>
@@ -310,16 +315,16 @@
 <p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Pelacakan armada logistik dan pengiriman kendaraan secara real-time via satelit.</p>
 </div>
 <div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
-<div class="flex gap-2">
+<div class="flex gap-2 status-container">
 <span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant">ACTIVE</span>
 </div>
-<button class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2">
-                            Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
-</button>
+<a class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2 cursor-pointer launch-btn" href="https://script.google.com/macros/s/AKfycbxFGn9YxIcy-SLjeyQqxHDG5aXcNV0crp7_KMJ0Xm-flV2A_m7BqQKnBp4_FbVxeMTF/exec" target="_blank">
+                        Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
+</a>
 </div>
 </article>
 <!-- App Card 5 -->
-<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative">
+<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative" data-app-id="hr">
 <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
 <span class="material-symbols-outlined text-6xl text-primary">groups</span>
 </div>
@@ -331,16 +336,16 @@
 <p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Sistem manajemen shift karyawan pabrik dan evaluasi performa kerja.</p>
 </div>
 <div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
-<div class="flex gap-2">
+<div class="flex gap-2 status-container">
 <span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant">PORTAL</span>
 </div>
-<button class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2">
-                            Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
-</button>
+<a class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2 cursor-pointer launch-btn" href="https://script.google.com/macros/s/AKfycbxFGn9YxIcy-SLjeyQqxHDG5aXcNV0crp7_KMJ0Xm-flV2A_m7BqQKnBp4_FbVxeMTF/exec" target="_blank">
+                        Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
+</a>
 </div>
 </article>
 <!-- App Card 6 -->
-<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative">
+<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative" data-app-id="crm">
 <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
 <span class="material-symbols-outlined text-6xl text-primary">handshake</span>
 </div>
@@ -352,16 +357,16 @@
 <p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Manajemen hubungan pelanggan, jaringan dealer, dan analitik penjualan.</p>
 </div>
 <div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
-<div class="flex gap-2">
+<div class="flex gap-2 status-container">
 <span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant">PORTAL</span>
 </div>
-<button class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2">
-                            Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
-</button>
+<a class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2 cursor-pointer launch-btn" href="https://script.google.com/macros/s/AKfycbxFGn9YxIcy-SLjeyQqxHDG5aXcNV0crp7_KMJ0Xm-flV2A_m7BqQKnBp4_FbVxeMTF/exec" target="_blank">
+                        Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
+</a>
 </div>
 </article>
 <!-- App Card 7 -->
-<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative">
+<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative" data-app-id="finance">
 <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
 <span class="material-symbols-outlined text-6xl text-primary">account_balance</span>
 </div>
@@ -373,16 +378,16 @@
 <p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Analisis biaya produksi, alokasi anggaran, dan pelaporan finansial terintegrasi.</p>
 </div>
 <div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
-<div class="flex gap-2">
+<div class="flex gap-2 status-container">
 <span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant">SECURE</span>
 </div>
-<button class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2">
-                            Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
-</button>
+<a class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2 cursor-pointer launch-btn" href="https://script.google.com/macros/s/AKfycbxFGn9YxIcy-SLjeyQqxHDG5aXcNV0crp7_KMJ0Xm-flV2A_m7BqQKnBp4_FbVxeMTF/exec" target="_blank">
+                        Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
+</a>
 </div>
 </article>
 <!-- App Card 8 -->
-<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative">
+<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative" data-app-id="maintenance">
 <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
 <span class="material-symbols-outlined text-6xl text-primary">build_circle</span>
 </div>
@@ -394,18 +399,18 @@
 <p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Penjadwalan perawatan preventif untuk mesin pabrik dan log perbaikan.</p>
 </div>
 <div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
-<div class="flex gap-2">
+<div class="flex gap-2 status-container">
 <span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant">SCHEDULE</span>
 </div>
-<button class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2">
-                            Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
-</button>
+<a class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2 cursor-pointer launch-btn" href="https://script.google.com/macros/s/AKfycbxFGn9YxIcy-SLjeyQqxHDG5aXcNV0crp7_KMJ0Xm-flV2A_m7BqQKnBp4_FbVxeMTF/exec" target="_blank">
+                        Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
+</a>
 </div>
 </article>
 </div>
 </section>
 <!-- Footer -->
-<footer class="mt-auto w-full py-xs px-margin border-t border-outline-variant bg-surface-container-lowest dark:bg-surface-container-lowest flex justify-between items-center z-40">
+<footer class="mt-auto w-full py-xs px-margin border-t border-outline-variant bg-surface-container-lowest flex justify-between items-center z-40">
 <span class="font-mono-data text-mono-data text-on-surface-variant">© 2024 Automotive Systems Group. v2.4.1-stable</span>
 <div class="flex gap-4">
 <a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:underline transition-opacity duration-200" href="#">Support</a>
@@ -414,4 +419,134 @@
 </div>
 </footer>
 </main>
+<!-- Notifications Sidebar -->
+<aside class="fixed top-0 right-0 h-screen w-[320px] bg-surface-container/95 backdrop-blur-xl border-l border-outline-variant z-50 flex flex-col shadow-2xl" id="notifications-panel">
+<div class="p-md border-b border-outline-variant flex items-center justify-between">
+<h2 class="font-headline-md text-headline-md text-on-surface">Notifikasi Sistem</h2>
+<button class="p-2 hover:bg-white/5 rounded-full text-on-surface-variant hover:text-on-surface transition-colors" onclick="toggleNotifications()">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto p-4 space-y-4" id="notifications-list">
+<!-- Initial skeleton/placeholder notifications will be replaced by API data -->
+<div class="animate-pulse space-y-4">
+<div class="h-20 bg-surface-container-high rounded-lg"></div>
+<div class="h-20 bg-surface-container-high rounded-lg"></div>
+<div class="h-20 bg-surface-container-high rounded-lg"></div>
+</div>
+</div>
+<div class="p-4 border-t border-outline-variant">
+<button class="w-full py-2 text-sm font-label-md text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer" onclick="clearNotifications()">Bersihkan Semua</button>
+</div>
+</aside>
+<script>
+    const GAS_API_URL = 'https://script.google.com/macros/s/AKfycbxFGn9YxIcy-SLjeyQqxHDG5aXcNV0crp7_KMJ0Xm-flV2A_m7BqQKnBp4_FbVxeMTF/exec';
+
+    function toggleNotifications() {
+        document.getElementById('notifications-panel').classList.toggle('active');
+    }
+
+    function clearNotifications() {
+        document.getElementById('notifications-list').innerHTML = `
+            <div class="text-center py-8 text-on-surface-variant">
+                <span class="material-symbols-outlined text-4xl mb-2">notifications_off</span>
+                <p class="text-sm">Tidak ada notifikasi baru</p>
+            </div>
+        `;
+        document.getElementById('notification-dot').classList.add('hidden');
+    }
+
+    async function fetchSystemData() {
+        const statusIndicator = document.getElementById('status-indicator');
+        const statusText = document.getElementById('status-text');
+
+        try {
+            const response = await fetch(GAS_API_URL);
+            const data = await response.json();
+            
+            if (data) {
+                updateNotifications(data.notifications || []);
+                updateAppStatuses(data.apps || {});
+                
+                statusIndicator.classList.remove('bg-outline', 'animate-pulse');
+                statusIndicator.classList.add('bg-tertiary-fixed-dim');
+                statusText.innerText = 'Sistem Online';
+            }
+        } catch (error) {
+            console.error('Error fetching data from GAS:', error);
+            statusIndicator.classList.add('bg-error');
+            statusText.innerText = 'API Offline';
+            
+            // Fallback content if API fails for demo purposes
+            updateNotifications([
+                { type: 'success', title: 'Maintenance Scheduler', msg: 'Pemeliharaan rutin selesai' },
+                { type: 'warning', title: 'Logistics Optimizer', msg: '3 armada memerlukan perhatian' }
+            ]);
+        }
+    }
+
+    function updateNotifications(notifications) {
+        const list = document.getElementById('notifications-list');
+        const dot = document.getElementById('notification-dot');
+        
+        if (notifications.length === 0) {
+            clearNotifications();
+            return;
+        }
+
+        dot.classList.remove('hidden');
+        list.innerHTML = notifications.map(notif => {
+            const borderColor = notif.type === 'error' ? 'border-error' : (notif.type === 'warning' ? 'border-secondary' : 'border-tertiary');
+            const icon = notif.type === 'error' ? 'cancel' : (notif.type === 'warning' ? 'warning' : 'check_circle');
+            const iconColor = notif.type === 'error' ? 'text-error' : (notif.type === 'warning' ? 'text-secondary' : 'text-tertiary');
+
+            return `
+                <div class="p-4 rounded-lg bg-surface-container-high border-l-4 ${borderColor} flex gap-3 transform transition-all hover:scale-[1.02]">
+                    <span class="material-symbols-outlined ${iconColor}">${icon}</span>
+                    <div>
+                        <p class="font-label-md text-on-surface">${notif.title}</p>
+                        <p class="text-sm text-on-surface-variant">${notif.msg}</p>
+                    </div>
+                </div>
+            `;
+        }).join('');
+    }
+
+    function updateAppStatuses(appData) {
+        // App IDs map to data-app-id attributes in HTML
+        // Example structure expected from GAS: { prod_tracker: { status: 'LIVE', type: 'info', alerts: 0 }, ... }
+        Object.entries(appData).forEach(([appId, config]) => {
+            const card = document.querySelector(`[data-app-id="${appId}"]`);
+            if (!card) return;
+
+            const statusContainer = card.querySelector('.status-container');
+            let badgeHtml = '';
+
+            if (config.alerts > 0) {
+                badgeHtml = `
+                    <span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-error-container text-on-error-container border border-error/20 flex items-center gap-1">
+                        <span class="w-1.5 h-1.5 rounded-full bg-error"></span> ${config.alerts} ALERTS
+                    </span>
+                `;
+            } else {
+                const colors = {
+                    'LIVE': 'bg-tertiary-container text-tertiary-fixed border-tertiary-fixed/20',
+                    'STABLE': 'bg-surface-container-high text-on-surface-variant border-outline-variant',
+                    'ACTIVE': 'bg-surface-container-high text-on-surface-variant border-outline-variant',
+                    'PORTAL': 'bg-surface-container-high text-on-surface-variant border-outline-variant',
+                    'SECURE': 'bg-surface-container-high text-on-surface-variant border-outline-variant',
+                    'SCHEDULE': 'bg-surface-container-high text-on-surface-variant border-outline-variant'
+                };
+                const colorClass = colors[config.status] || colors['STABLE'];
+                badgeHtml = `<span class="px-2 py-0.5 rounded text-[10px] font-mono-data ${colorClass} border">${config.status}</span>`;
+            }
+
+            statusContainer.innerHTML = badgeHtml;
+        });
+    }
+
+    // Initialize fetch and set interval
+    fetchSystemData();
+    setInterval(fetchSystemData, 30000); // Refresh every 30s
+</script>
 </body></html>
