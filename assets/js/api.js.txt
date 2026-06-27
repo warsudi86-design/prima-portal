@@ -32,7 +32,7 @@ Gunakan kode di bawah ini di dalam file `assets/js/api.js` Anda. Kode ini menggu
 
 ```javascript
 // Konfigurasi: Ganti dengan URL 'exec' dari Google Apps Script yang sudah di-deploy sebagai Web App
-const GAS_API_URL = 'https://script.google.com/macros/s/AKfycby...your_script_id.../exec';
+const GAS_API_URL = 'https://script.google.com/macros/s/AKfycbwPZkQ065ZlM4kBRRi7vJ8pp21jSaNWkUiC-ZWirKcaNbTxlryE8-Owfjb347FKPyr9eg/exec';
 
 /**
  * Fungsi untuk mengambil data notifikasi dan status dari GAS
