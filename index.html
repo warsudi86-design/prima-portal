@@ -145,10 +145,14 @@
 <body class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden selection:bg-secondary-container selection:text-on-secondary-container">
 <!-- TopNavBar -->
 <nav class="fixed top-0 right-0 w-full md:w-[calc(100%-16rem)] h-16 bg-surface/50 border-b border-outline-variant backdrop-blur-md flex items-center justify-between px-margin z-40">
-<div class="flex items-center gap-sm md:hidden">
-<button class="material-symbols-outlined text-secondary text-2xl" onclick="toggleSidebar()">menu</button>
-<img src="https://www.prima-portal.com/images/prima.png" alt="PRIMA Logo" class="h-8 w-auto object-contain">
+<div class="flex items-center gap-sm md:hidden"><button class="material-symbols-outlined text-secondary text-2xl mr-2" onclick="toggleSidebar()">menu</button>
+<div class="flex flex-col">
+<img alt="PRIMA Logo" class="w-20 object-contain object-left mb-1 h-8" src="https://www.prima-portal.com/images/prima.png">
+<div class="flex flex-col">
+<span class="font-bold text-on-surface text-sm leading-none">PRIMA-OSS</span>
+<span class="text-[10px] text-on-surface-variant leading-none">V-Performance Portal</span>
 </div>
+</div></div>
 <div class="hidden md:flex flex-1 max-w-md mx-auto">
 <div class="relative w-full focus-within:ring-1 ring-secondary rounded-DEFAULT overflow-hidden">
 <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
@@ -173,13 +177,7 @@
 </nav>
 <!-- SideNavBar (Desktop) -->
 <aside class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 border-r border-outline-variant bg-surface/80 backdrop-blur-xl shadow-sm py-md z-50">
-<div class="px-md mb-xl flex items-center gap-sm">
-<div class="w-10 h-10 rounded-DEFAULT overflow-hidden flex items-center justify-center"><img src="https://www.prima-portal.com/images/prima.png" alt="PRIMA Logo" class="w-full h-full object-contain"></div>
-<div>
-<h1 class="font-headline-md text-headline-md font-bold text-on-surface tracking-tight">PRIMA-OSS</h1>
-<p class="font-label-md text-label-md text-on-surface-variant">V-Performance Portal</p>
-</div>
-</div>
+<div class="px-md mb-xl flex items-center gap-sm"><div class="flex flex-col gap-4 w-full"><img alt="PRIMA Logo" class="w-full max-h-12 object-contain object-left" src="https://www.prima-portal.com/images/prima.png"><div><h1 class="font-headline-md text-headline-md font-bold text-on-surface tracking-tight">PRIMA-OSS</h1><p class="font-label-md text-label-md text-on-surface-variant">OSS-WULING</p></div></div></div>
 <nav class="flex-1 px-sm space-y-1">
 <a class="flex items-center gap-sm px-4 py-3 rounded-DEFAULT text-secondary border-r-2 border-secondary bg-secondary-container/10 active:scale-95 duration-100 cursor-pointer" href="#">
 <span class="material-symbols-outlined">apps</span>
@@ -263,7 +261,7 @@
 </div>
 <div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
 <div class="flex gap-2 status-container">
-<span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant">STABLE</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant">LIVE</span>
 </div>
 <a class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2 cursor-pointer launch-btn" href="https://estimasi-prima.netlify.app" rel="noopener noreferrer" target="_blank">
                         Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
@@ -284,7 +282,7 @@
 </div>
 <div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
 <div class="flex gap-2 status-container">
-<span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-error-container text-on-error-container border border-error/20 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-error"></span> 3 ALERTS</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-error-container text-on-error-container border border-error/20 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-error"></span> LIVE</span>
 </div>
 <a class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2 cursor-pointer launch-btn" href="https://gatepass-system.netlify.app" rel="noopener noreferrer" target="_blank">
                         Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
@@ -305,7 +303,7 @@
 </div>
 <div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
 <div class="flex gap-2 status-container">
-<span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant">ACTIVE</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant">LIVE</span>
 </div>
 <a class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2 cursor-pointer launch-btn" href="https://sm-reportdaily.netlify.app" rel="noopener noreferrer" target="_blank">
                         Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
@@ -326,7 +324,7 @@
 </div>
 <div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
 <div class="flex gap-2 status-container">
-<span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant">PORTAL</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant">LIVE</span>
 </div>
 <a class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2 cursor-pointer launch-btn" href="https://wms-prima.netlify.app" rel="noopener noreferrer" target="_blank">
                         Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
@@ -347,7 +345,7 @@
 </div>
 <div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
 <div class="flex gap-2 status-container">
-<span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant">PORTAL</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant">LIVE</span>
 </div>
 <a class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2 cursor-pointer launch-btn" href="https://service-board.netlify.app" rel="noopener noreferrer" target="_blank">
                         Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
@@ -368,12 +366,13 @@
 </main>
 <!-- Notifications Sidebar -->
 <aside class="fixed top-0 right-0 h-screen w-[320px] bg-surface-container/95 backdrop-blur-xl border-l border-outline-variant z-50 flex flex-col shadow-2xl" id="notifications-panel">
-<div class="p-md border-b border-outline-variant flex items-center justify-between">
-<h2 class="font-headline-md text-headline-md text-on-surface">Notifikasi Sistem</h2>
-<button class="p-2 hover:bg-white/5 rounded-full text-on-surface-variant hover:text-on-surface transition-colors" onclick="toggleNotifications()">
-<span class="material-symbols-outlined">close</span>
-</button>
+<div class="p-md border-b border-outline-variant flex items-center justify-between"><div class="flex flex-col gap-2">
+<img alt="PRIMA Logo" class="h-8 w-24 object-contain object-left" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAViq-halKK6mPl1hC8FfUpRzA9jnEa53MSt4ZNBUoyK1wBWXoTR1-zDr9OiZ0gxPtQSGVpdA_wGHHchOk7403hz2O_zfd6IhBL_sveAMKRxY4nAZEl8DHDJBx4QXDCbvjT5xnDpFCjNpjmRoEYtItxb9oAzS6tYWMs765YwO7I-QhneIkM1Pn_aTxqfbzuFo42MUkegvyiKHLUeHY3YiNrWgcU5eVvYMChiAF4peS-6R18bXNV1iQIT1ORpWzHE6OtoNX71xvKK_IR">
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-on-surface tracking-tight">PRIMA-OSS</h1>
+<p class="font-label-md text-label-md text-on-surface-variant">OSS-WULING</p>
 </div>
+</div></div>
 <div class="flex-1 overflow-y-auto p-4 space-y-4" id="notifications-list">
                 <div class="p-4 rounded-lg bg-surface-container-high border-l-4 border-tertiary flex gap-3 transform transition-all hover:scale-[1.02]">
                     <span class="material-symbols-outlined text-tertiary">check_circle</span>
