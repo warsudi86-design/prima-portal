@@ -3,7 +3,7 @@
 <html class="dark" lang="id"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>AUTO-HUB OSS - Main Dashboard</title>
+<title>PRIMA WULING-HUB OSS - Main Dashboard</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
@@ -149,7 +149,7 @@
 <nav class="fixed top-0 right-0 w-full md:w-[calc(100%-16rem)] h-16 bg-surface/50 border-b border-outline-variant backdrop-blur-md flex items-center justify-between px-margin z-40">
 <div class="flex items-center gap-sm md:hidden">
 <button class="material-symbols-outlined text-secondary text-2xl" onclick="toggleSidebar()">menu</button>
-<div class="font-headline-md text-headline-md font-black tracking-tighter text-on-surface">AUTO-HUB</div>
+<div class="font-headline-md text-headline-md font-black tracking-tighter text-on-surface">PRIMA-HUB</div>
 </div>
 <div class="hidden md:flex flex-1 max-w-md mx-auto">
 <div class="relative w-full focus-within:ring-1 ring-secondary rounded-DEFAULT overflow-hidden">
@@ -222,7 +222,7 @@
 <span class="w-1.5 h-1.5 rounded-full bg-secondary-fixed"></span>
 <span class="font-mono-data text-mono-data text-on-surface-variant text-xs uppercase tracking-wider">Portal Utama</span>
 </div>
-<h2 class="font-display-lg text-display-lg text-on-surface mb-2">Selamat Datang di <span class="text-gradient">PRIMA PORTAL AUTO-HUB OSS</span></h2>
+<h2 class="font-display-lg text-display-lg text-on-surface mb-2">Selamat Datang di <span class="text-gradient">PRIMA-HUB OSS</span></h2>
 <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Akses terpusat untuk seluruh sistem operasional dealer. Pantau, kelola, dan optimalkan performa dealer dalam satu antarmuka instrumental.</p>
 </div>
 </section>
@@ -239,26 +239,65 @@
 </div>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gutter" id="apps-grid">
-</a>
-</div>
-</article>
-<!-- App Card 5 -->
-<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative" data-app-id="hr">
+<!-- App Card 1 -->
+<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative" data-app-id="Workshop Control Board">
 <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-<span class="material-symbols-outlined text-6xl text-primary">groups</span>
+<span class="material-symbols-outlined text-6xl text-primary">fact_check</span>
 </div>
 <div class="p-md flex-1 relative z-10">
 <div class="w-12 h-12 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-center mb-4 text-tertiary-fixed-dim">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">groups</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">worksho_control board</span>
 </div>
-<h4 class="font-headline-md text-headline-md text-on-surface mb-2 tracking-tight group-hover:text-secondary transition-colors">WMS Tracker - ERA & Home Service</h4>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">WMS Tracking Secara Real Time Dengan Menggunakan GPS Satelit.</p>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-2 tracking-tight group-hover:text-secondary transition-colors">Workshop Line Tracker</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Pemantauan real-time untuk jalur workshop. Lacak efisiensi dan bottleneck secara langsung.</p>
 </div>
 <div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
 <div class="flex gap-2 status-container">
-<span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant">PORTAL</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-tertiary-container text-tertiary-fixed border border-tertiary-fixed/20">LIVE</span>
+</div>
+<a class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2 cursor-pointer launch-btn" href="https://script.google.com/macros/s/AKfycbxFGn9YxIcy-SLjeyQqxHDG5aXcNV0crp7_KMJ0Xm-flV2A_m7BqQKnBp4_FbVxeMTF/exec" target="_blank">
+                        Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
+</a>
+</div>
+</article>
+<!-- App Card 2 -->
+<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative" data-app-id="WMS Mobile Tracker">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl text-primary">fact_check</span>
+</div>
+<div class="p-md flex-1 relative z-10">
+<div class="w-12 h-12 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-center mb-4 text-tertiary-fixed-dim">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">Home Service_Emergency Road Assistance</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-2 tracking-tight group-hover:text-secondary transition-colors">WMS Mobile Tracker</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Pemantauan real-time untuk kegiatan WMS Mobile ERA dan Home Service melalui GPS Satelit.</p>
+</div>
+<div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
+<div class="flex gap-2 status-container">
+<span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant">STABLE</span>
 </div>
 <a class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2 cursor-pointer launch-btn" href="https://script.google.com/macros/s/AKfycbzobcbX0P6IvS8lx-y6XW72pG6pdlPYWWhc_CnJzUul0iLdw-nnrKgts6su0mk9XsTW/exec" target="_blank">
+                        Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
+</a>
+</div>
+</article>
+<!-- App Card 3 -->
+<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative" data-app-id="Daily_Report">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl text-primary">fact_check</span>
+</div>
+<div class="p-md flex-1 relative z-10">
+<div class="w-12 h-12 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-center mb-4 text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">fact_check</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-2 tracking-tight group-hover:text-secondary transition-colors">Service Manager Daily Report</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Laporan Kegiatan Harian Meliputi Pencapaian Harian, Eskalasi Masalah dan pelaporan harian lain nya.</p>
+</div>
+<div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
+<div class="flex gap-2 status-container">
+<span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-error-container text-on-error-container border border-error/20 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-error"></span> 3 ALERTS</span>
+</div>
+<a class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2 cursor-pointer launch-btn" href="https://script.google.com/macros/s/AKfycbwPZkQ065ZlM4kBRRi7vJ8pp21jSaNWkUiC-ZWirKcaNbTxlryE8-Owfjb347FKPyr9eg/exec" target="_blank">
                         Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
 </a>
 </div>
@@ -266,14 +305,14 @@
 <!-- App Card 4 -->
 <article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative" data-app-id="Gate-Pass">
 <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-<span class="material-symbols-outlined text-6xl text-primary">Kontrol Keluar - Masuk Kendaraan</span>
+<span class="material-symbols-outlined text-6xl text-primary">Keluar_Masuk Kendaraan</span>
 </div>
 <div class="p-md flex-1 relative z-10">
 <div class="w-12 h-12 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-center mb-4 text-tertiary-fixed-dim">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">Kontrol Keluar - Masuk Kendaraan</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">In_Out</span>
 </div>
-<h4 class="font-headline-md text-headline-md text-on-surface mb-2 tracking-tight group-hover:text-secondary transition-colors">Gate-Pass System</h4>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Memantau setiap kendaraan yang masuk dan keluar dari Dealer baik kendaraan service maupun operasiona.</p>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-2 tracking-tight group-hover:text-secondary transition-colors">Kontrol Keluar Masuk Kendaraan</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Mencatat semua kendaraan secara real-time yang masuk dan keluar dari dealer Prima.</p>
 </div>
 <div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
 <div class="flex gap-2 status-container">
@@ -285,7 +324,7 @@
 </div>
 </article>
 <!-- App Card 5 -->
-<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative" data-app-id="hr">
+<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative" data-app-id="Est">
 <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
 <span class="material-symbols-outlined text-6xl text-primary">groups</span>
 </div>
@@ -293,20 +332,20 @@
 <div class="w-12 h-12 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-center mb-4 text-tertiary-fixed-dim">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">groups</span>
 </div>
-<h4 class="font-headline-md text-headline-md text-on-surface mb-2 tracking-tight group-hover:text-secondary transition-colors">WMS Tracker - ERA & Home Service</h4>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">WMS Tracking Secara Real Time Dengan Menggunakan GPS Satelit.</p>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-2 tracking-tight group-hover:text-secondary transition-colors">Sistem Estimasi</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Sistem pembuatan estimasi biaya service secara cepat untuk kendaraan dalam masa garansi.</p>
 </div>
 <div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
 <div class="flex gap-2 status-container">
 <span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant">PORTAL</span>
 </div>
-<a class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2 cursor-pointer launch-btn" href="https://script.google.com/macros/s/AKfycbzobcbX0P6IvS8lx-y6XW72pG6pdlPYWWhc_CnJzUul0iLdw-nnrKgts6su0mk9XsTW/exec" target="_blank">
+<a class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2 cursor-pointer launch-btn" href="https://script.google.com/macros/s/AKfycby4K-bB6jGnUZCguy8X8iIIWYEUu_mzmSx_C1dowxMX8L3zmwkhpcko0a16Hn0Z9Lni2w/exec" target="_blank">
                         Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
 </a>
 </div>
 </article>
 <!-- App Card 6 -->
-<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative" data-app-id="crm">
+<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative" data-app-id="est">
 <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
 <span class="material-symbols-outlined text-6xl text-primary">handshake</span>
 </div>
@@ -314,14 +353,14 @@
 <div class="w-12 h-12 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-center mb-4 text-tertiary-fixed-dim">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">handshake</span>
 </div>
-<h4 class="font-headline-md text-headline-md text-on-surface mb-2 tracking-tight group-hover:text-secondary transition-colors">CRM - Sales Portal</h4>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Manajemen hubungan pelanggan, jaringan dealer, dan analitik penjualan.</p>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-2 tracking-tight group-hover:text-secondary transition-colors">EST - General Service</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Estimaasi biaya service, jasa, part dan sublet/opl yang sudah tidak masuk masa garansi.</p>
 </div>
 <div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
 <div class="flex gap-2 status-container">
 <span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant">PORTAL</span>
 </div>
-<a class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2 cursor-pointer launch-btn" href="#" target="_blank">
+<a class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2 cursor-pointer launch-btn" href="https://script.google.com/macros/s/AKfycbw7-fVaWV915bCRjoHx60uVAEfKRW1Xq_dJ12Ac8f4F0dc4mLOi7w9b6W8kC7vYx8mi/exec" target="_blank">
                         Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
 </a>
 </div>
@@ -342,7 +381,7 @@
 <div class="flex gap-2 status-container">
 <span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant">SECURE</span>
 </div>
-<a class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2 cursor-pointer launch-btn" href="#" target="_blank">
+<a class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2 cursor-pointer launch-btn" href="https://script.google.com/macros/s/AKfycbxFGn9YxIcy-SLjeyQqxHDG5aXcNV0crp7_KMJ0Xm-flV2A_m7BqQKnBp4_FbVxeMTF/exec" target="_blank">
                         Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
 </a>
 </div>
@@ -363,112 +402,7 @@
 <div class="flex gap-2 status-container">
 <span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant">SCHEDULE</span>
 </div>
-<a class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2 cursor-pointer launch-btn" href="#" target="_blank">
-                        Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
-</a>
-</div>
-</article>
-<!-- App Card 9 -->
-<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative" data-app-id="energy_monitor">
-<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-<span class="material-symbols-outlined text-6xl text-primary">bolt</span>
-</div>
-<div class="p-md flex-1 relative z-10">
-<div class="w-12 h-12 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-center mb-4 text-tertiary-fixed-dim">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bolt</span>
-</div>
-<h4 class="font-headline-md text-headline-md text-on-surface mb-2 tracking-tight group-hover:text-secondary transition-colors">Energy Monitor</h4>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Pantau konsumsi energi dan jejak karbon di seluruh fasilitas produksi secara real-time.</p>
-</div>
-<div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
-<div class="flex gap-2 status-container">
-<span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant">STABLE</span>
-</div>
-<a class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2 cursor-pointer launch-btn" href="#" target="_blank">
-                        Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
-</a>
-</div>
-</article>
-<!-- App Card 10 -->
-<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative" data-app-id="fleet_tracking">
-<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-<span class="material-symbols-outlined text-6xl text-primary">directions_car</span>
-</div>
-<div class="p-md flex-1 relative z-10">
-<div class="w-12 h-12 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-center mb-4 text-tertiary-fixed-dim">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">directions_car</span>
-</div>
-<h4 class="font-headline-md text-headline-md text-on-surface mb-2 tracking-tight group-hover:text-secondary transition-colors">Fleet Tracking</h4>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Visibilitas penuh atas armada pengiriman dan operasional internal pabrik.</p>
-</div>
-<div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
-<div class="flex gap-2 status-container">
-<span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-tertiary-container text-tertiary-fixed border border-tertiary-fixed/20">LIVE</span>
-</div>
-<a class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2 cursor-pointer launch-btn" href="#" target="_blank">
-                        Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
-</a>
-</div>
-</article>
-<!-- App Card 11 -->
-<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative" data-app-id="compliance">
-<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-<span class="material-symbols-outlined text-6xl text-primary">gavel</span>
-</div>
-<div class="p-md flex-1 relative z-10">
-<div class="w-12 h-12 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-center mb-4 text-tertiary-fixed-dim">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">gavel</span>
-</div>
-<h4 class="font-headline-md text-headline-md text-on-surface mb-2 tracking-tight group-hover:text-secondary transition-colors">Compliance Portal</h4>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Manajemen dokumen perizinan, standar ISO, dan audit kepatuhan.</p>
-</div>
-<div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
-<div class="flex gap-2 status-container">
-<span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant">SECURE</span>
-</div>
-<a class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2 cursor-pointer launch-btn" href="#" target="_blank">
-                        Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
-</a>
-</div>
-</article>
-<!-- App Card 12 -->
-<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative" data-app-id="supply_chain">
-<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-<span class="material-symbols-outlined text-6xl text-primary">hub</span>
-</div>
-<div class="p-md flex-1 relative z-10">
-<div class="w-12 h-12 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-center mb-4 text-tertiary-fixed-dim">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">hub</span>
-</div>
-<h4 class="font-headline-md text-headline-md text-on-surface mb-2 tracking-tight group-hover:text-secondary transition-colors">Supply Chain Link</h4>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Integrasi dengan sistem pemasok eksternal untuk manajemen bahan baku.</p>
-</div>
-<div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
-<div class="flex gap-2 status-container">
-<span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant">ACTIVE</span>
-</div>
-<a class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2 cursor-pointer launch-btn" href="#" target="_blank">
-                        Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
-</a>
-</div>
-</article>
-<!-- App Card 13 -->
-<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative" data-app-id="rd_portal">
-<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-<span class="material-symbols-outlined text-6xl text-primary">science</span>
-</div>
-<div class="p-md flex-1 relative z-10">
-<div class="w-12 h-12 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-center mb-4 text-tertiary-fixed-dim">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">science</span>
-</div>
-<h4 class="font-headline-md text-headline-md text-on-surface mb-2 tracking-tight group-hover:text-secondary transition-colors">R&amp;D Portal</h4>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Kolaborasi proyek inovasi, desain kendaraan, dan pengujian prototipe.</p>
-</div>
-<div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
-<div class="flex gap-2 status-container">
-<span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant">PORTAL</span>
-</div>
-<a class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2 cursor-pointer launch-btn" href="#" target="_blank">
+<a class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2 cursor-pointer launch-btn" href="https://script.google.com/macros/s/AKfycbxFGn9YxIcy-SLjeyQqxHDG5aXcNV0crp7_KMJ0Xm-flV2A_m7BqQKnBp4_FbVxeMTF/exec" target="_blank">
                         Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
 </a>
 </div>
@@ -526,14 +460,10 @@
         const statusIndicator = document.getElementById('status-indicator');
         const statusText = document.getElementById('status-text');
 
-        console.log('Fetching system data from GAS...');
-
         try {
             const response = await fetch(GAS_API_URL);
             const data = await response.json();
             
-            console.log('API Data received:', data);
-
             if (data) {
                 updateNotifications(data.notifications || []);
                 updateAppStatuses(data.apps || {});
@@ -583,16 +513,11 @@
     }
 
     function updateAppStatuses(appData) {
-        console.log('Updating app statuses with data:', appData);
         // App IDs map to data-app-id attributes in HTML
         // Example structure expected from GAS: { prod_tracker: { status: 'LIVE', type: 'info', alerts: 0 }, ... }
         Object.entries(appData).forEach(([appId, config]) => {
-            console.log(`Processing app: ${appId} with config:`, config);
             const card = document.querySelector(`[data-app-id="${appId}"]`);
-            if (!card) {
-                console.warn(`Card with data-app-id="${appId}" not found in the DOM.`);
-                return;
-            }
+            if (!card) return;
 
             const statusContainer = card.querySelector('.status-container');
             let badgeHtml = '';
