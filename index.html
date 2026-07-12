@@ -1,11 +1,14 @@
-<!DOCTYPE html><html class="dark" lang="id" style=""><head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>WULING - Main Dashboard</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
-<script id="tailwind-config">
+<!DOCTYPE html>
+<html class="dark" lang="id" style="">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>WULING - Main Dashboard</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <script id="tailwind-config">
         tailwind.config = {
           darkMode: "class",
           theme: {
@@ -59,600 +62,616 @@
                       "on-secondary-fixed": "#410007",
                       "surface-variant": "#333535"
               },
-              "borderRadius": {
-                      "DEFAULT": "0.125rem",
-                      "lg": "0.25rem",
-                      "xl": "0.5rem",
-                      "full": "0.75rem"
-              },
-              "spacing": {
-                      "md": "24px",
-                      "xl": "80px",
-                      "margin": "32px",
-                      "lg": "48px",
-                      "sm": "12px",
-                      "xs": "4px",
-                      "gutter": "24px",
-                      "base": "8px"
-              },
               "fontFamily": {
                       "label-md": ["Geist"],
-                      "headline-lg": ["Inter"],
                       "headline-md": ["Inter"],
                       "display-lg": ["Inter"],
                       "body-md": ["Inter"],
-                      "headline-lg-mobile": ["Inter"],
                       "body-lg": ["Inter"],
                       "mono-data": ["Geist"]
-              },
-              "fontSize": {
-                      "label-md": ["14px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500" }],
-                      "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
-                      "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
-                      "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
-                      "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
-                      "headline-lg-mobile": ["24px", { "lineHeight": "1.2", "fontWeight": "700" }],
-                      "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
-                      "mono-data": ["14px", { "lineHeight": "1", "letterSpacing": "0", "fontWeight": "400" }]
               }
             }
           }
         }
     </script>
-<style>
+    <style>
+        /* Animasi Modern */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-up {
+            opacity: 0;
+            animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        
         .glass-panel {
-            background: rgba(30, 32, 32, 0.4);
+            background: rgba(30, 32, 32, 0.55);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
         }
+        
         .carbon-pattern {
             background-color: #121414;
-            background-image: linear-gradient(45deg, rgba(255,255,255,0.02) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.02) 75%, rgba(255,255,255,0.02)), linear-gradient(45deg, rgba(255,255,255,0.02) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.02) 75%, rgba(255,255,255,0.02));
+            background-image: linear-gradient(45deg, rgba(255,255,255,0.02) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.02) 75%, rgba(255,255,255,0.02)), 
+                              linear-gradient(45deg, rgba(255,255,255,0.02) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.02) 75%, rgba(255,255,255,0.02));
             background-size: 10px 10px;
             background-position: 0 0, 5px 5px;
         }
+        
         .card-hover {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
+        
         .card-hover:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px -8px rgba(0,0,0,0.5);
-            border-color: #ffb3b1;
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px -10px rgba(255, 179, 177, 0.15), 0 0 20px rgba(0,0,0,0.5);
+            border-color: rgba(255, 179, 177, 0.5);
         }
+
         .text-gradient {
-            background: linear-gradient(to right, #c8c6c7, #ffb3b1);
+            background: linear-gradient(to right, #ffffff, #ffb3b1, #c8c6c7);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: shine 5s linear infinite;
         }
+        
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
         .btn-primary {
-            background: linear-gradient(180deg, #d6042f 0%, #93000a 100%);
-            transition: all 0.2s ease;
+            background: linear-gradient(135deg, #d6042f 0%, #93000a 100%);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
+        
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
+            transform: skewX(-20deg);
+            transition: 0.5s;
+        }
+        
+        .btn-primary:hover::after {
+            left: 150%;
+        }
+
         .btn-primary:hover {
-            filter: brightness(1.1);
-            transform: scale(1.02);
+            filter: brightness(1.2);
+            transform: scale(1.03);
+            box-shadow: 0 0 15px rgba(214, 4, 47, 0.4);
         }
+
         #notifications-panel {
             transform: translateX(100%);
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
+        
         #notifications-panel.active {
             transform: translateX(0);
+        }
+
+        /* Custom Scrollbar for activity list */
+        .custom-scroll::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background-color: #46474a;
+            border-radius: 4px;
         }
     </style>
 </head>
 <body class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden selection:bg-secondary-container selection:text-on-secondary-container">
+
 <!-- TopNavBar -->
-<nav class="fixed top-0 right-0 w-full md:w-[calc(100%-16rem)] h-16 bg-surface/50 border-b border-outline-variant backdrop-blur-md flex items-center justify-between px-margin z-40">
-<div class="flex items-center gap-sm md:hidden"><button class="material-symbols-outlined text-secondary text-2xl mr-2" onclick="toggleSidebar()">menu</button>
-<div class="flex flex-col"><img alt="PRIMA Logo" class="w-24 object-contain object-left h-8 mb-1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCN62OANmZeZuRPxLXgtqjW4X2j_rTKbFyF5tA2ss2ZtGe7UUr5t7ys7dnrnGhMl0jxh0ovTNWv7ursQ8S0Cza8bfPwLdSCNsGFGP6R5u5Qa2Mi-XvUJGjBbmmxdhDXtZIa-vWUnKMGqutjlgbHuRXtMDUcQHXed31CXv4qWia54xF1SDJuR7OTGWhdGe9qw4TPIq4Y7PjRNlERZussLDPQcFfiSAScRK9t8nJoN6TtY4_U1jslyO6HOPhoJ6o84W3AfVBKINQ8V45y"><div class="flex flex-col"><span class="font-extrabold text-on-surface text-base leading-none tracking-tighter uppercase">PRIMA-WULING</span><span class="text-[10px] text-secondary leading-none tracking-wider uppercase">Performance Portal</span></div></div></div>
-<div class="hidden md:flex flex-1 max-w-md mx-auto">
-<div class="relative w-full focus-within:ring-1 ring-secondary rounded-DEFAULT overflow-hidden">
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
-<input class="w-full bg-surface-container-high border-none text-on-surface placeholder:text-on-surface-variant py-2 pl-10 pr-4 focus:ring-0 focus:outline-none font-body-md text-body-md rounded-DEFAULT" placeholder="Cari aplikasi atau data..." type="text">
-</div>
-</div>
-<div class="flex items-center gap-sm">
-<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-white/5 transition-colors relative cursor-pointer" onclick="toggleNotifications()">
-<span class="material-symbols-outlined">notifications</span>
-<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full border border-background" id="notification-dot"></span>
-</button>
-<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-white/5 transition-colors cursor-pointer">
-<span class="material-symbols-outlined">mms</span>
-</button>
-<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-white/5 transition-colors cursor-pointer">
-<span class="material-symbols-outlined">settings</span>
-</button>
-<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden border border-outline-variant ml-2">
-<img alt="Administrator Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDp8prlTDpFWp7pvYKNGCxdmMFRHPVUa6bSz-bgbsYalTqjGjOjhNx6KgGUURKlwA3AEUgkKsitmvZgBxH2_O38rmT9LfrjWw5r3x1z5t4CQv4vWur-XNmRNTLwoFqLLYvtGm_uH-PVSA-mdWRGhFO2pqfbz2Vdo406PPaw4PLZEs0e9BhYKvJ2RCczavWnsCC6sPdJq1rCatHcmEovtGdeAgHGJ4H3Fx5O9BZlgAHbipkUSLth0iUfd0Er1Ay98M74fPK4wsZtDgPz">
-</div>
-</div>
+<nav class="fixed top-0 right-0 w-full md:w-[calc(100%-16rem)] h-16 bg-surface/70 border-b border-outline-variant backdrop-blur-lg flex items-center justify-between px-6 z-40">
+    <div class="flex items-center gap-3 md:hidden">
+        <button class="material-symbols-outlined text-secondary text-2xl" onclick="toggleSidebar()">menu</button>
+        <div class="flex flex-col">
+            <span class="font-extrabold text-on-surface text-base leading-none tracking-tighter uppercase">PRIMA-WULING</span>
+        </div>
+    </div>
+    
+    <!-- Smart Search Bar -->
+    <div class="hidden md:flex flex-1 max-w-xl mx-auto">
+        <div class="relative w-full focus-within:ring-2 ring-secondary/50 rounded-full overflow-hidden transition-all duration-300 bg-surface-container-high/80 backdrop-blur">
+            <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+            <input id="searchInput" class="w-full bg-transparent border-none text-on-surface placeholder:text-on-surface-variant py-2.5 pl-12 pr-4 focus:ring-0 focus:outline-none font-body-md text-sm" placeholder="Cari modul atau aplikasi (misal: Estimasi, Audit)..." type="text" autocomplete="off">
+        </div>
+    </div>
+
+    <div class="flex items-center gap-2">
+        <button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:text-white hover:bg-white/10 transition-colors relative cursor-pointer group" onclick="toggleNotifications()">
+            <span class="material-symbols-outlined group-hover:scale-110 transition-transform">notifications</span>
+            <span class="absolute top-2 right-2 w-2.5 h-2.5 bg-error rounded-full border-2 border-background animate-pulse" id="notification-dot"></span>
+        </button>
+        <div class="w-9 h-9 rounded-full bg-surface-container-highest overflow-hidden border border-outline-variant ml-4 cursor-pointer hover:border-secondary transition-colors">
+            <img alt="Administrator Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDp8prlTDpFWp7pvYKNGCxdmMFRHPVUa6bSz-bgbsYalTqjGjOjhNx6KgGUURKlwA3AEUgkKsitmvZgBxH2_O38rmT9LfrjWw5r3x1z5t4CQv4vWur-XNmRNTLwoFqLLYvtGm_uH-PVSA-mdWRGhFO2pqfbz2Vdo406PPaw4PLZEs0e9BhYKvJ2RCczavWnsCC6sPdJq1rCatHcmEovtGdeAgHGJ4H3Fx5O9BZlgAHbipkUSLth0iUfd0Er1Ay98M74fPK4wsZtDgPz">
+        </div>
+    </div>
 </nav>
+
 <!-- SideNavBar (Desktop) -->
-<aside class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 border-r border-outline-variant bg-surface/80 backdrop-blur-xl shadow-sm py-md z-50">
-<div class="px-md mb-xl flex flex-col w-full"><img alt="PRIMA Logo" class="w-full h-auto max-h-20 object-contain object-left mb-4" src="https://www.prima-portal.com/images/prima.png"><div class="mt-2"><h1 class="text-3xl font-extrabold text-on-surface tracking-tighter leading-none uppercase">WULING</h1><p class="font-label-md text-label-md text-secondary tracking-widest uppercase mt-1 opacity-80">Performance Portal</p></div></div>
-<nav class="flex-1 px-sm space-y-1">
-<a class="flex items-center gap-sm px-4 py-3 rounded-DEFAULT text-secondary border-r-2 border-secondary bg-secondary-container/10 active:scale-95 duration-100 cursor-pointer" href="#">
-<span class="material-symbols-outlined">apps</span>
-<span class="font-label-md text-label-md">All Apps</span>
-</a>
-<a class="flex items-center gap-sm px-4 py-3 rounded-DEFAULT text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-200 active:scale-95 duration-100 cursor-pointer" href="#">
-<span class="material-symbols-outlined">star</span>
-<span class="font-label-md text-label-md">Favorites</span>
-</a>
-<a class="flex items-center gap-sm px-4 py-3 rounded-DEFAULT text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-200 active:scale-95 duration-100 cursor-pointer" href="#">
-<span class="material-symbols-outlined">history</span>
-<span class="font-label-md text-label-md">Recent</span>
-</a>
-<a class="flex items-center gap-sm px-4 py-3 rounded-DEFAULT text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-200 active:scale-95 duration-100 cursor-pointer" href="#">
-<span class="material-symbols-outlined">settings</span>
-<span class="font-label-md text-label-md">Settings</span>
-</a>
-</nav>
-<div class="px-md mt-auto pt-4 border-t border-outline-variant/50">
-<div class="flex items-center gap-3">
-<div class="w-2 h-2 rounded-full bg-outline animate-pulse bg-error" id="status-indicator"></div>
-<span class="font-mono-data text-mono-data text-on-surface-variant text-xs" id="status-text">API Offline</span>
-</div>
-</div>
+<aside id="sidebar" class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 border-r border-outline-variant bg-surface/90 backdrop-blur-2xl shadow-xl py-6 z-50 transition-transform duration-300">
+    <div class="px-6 mb-8 flex flex-col w-full">
+        <img alt="PRIMA Logo" class="w-full h-auto max-h-16 object-contain object-left mb-6" src="https://www.prima-portal.com/images/prima.png">
+        <div>
+            <h1 class="text-3xl font-extrabold text-on-surface tracking-tighter leading-none uppercase text-gradient">WULING</h1>
+            <p class="font-label-md text-xs text-secondary tracking-widest uppercase mt-2 opacity-90">Performance Portal</p>
+        </div>
+    </div>
+    <nav class="flex-1 px-4 space-y-2">
+        <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-secondary border-r-2 border-secondary bg-secondary-container/10 transition-all cursor-pointer" href="#">
+            <span class="material-symbols-outlined">dashboard</span>
+            <span class="font-label-md text-sm font-semibold">Dashboard</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all cursor-pointer group" href="#">
+            <span class="material-symbols-outlined group-hover:text-primary transition-colors">monitoring</span>
+            <span class="font-label-md text-sm">Analytics</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all cursor-pointer group" href="#">
+            <span class="material-symbols-outlined group-hover:text-primary transition-colors">history</span>
+            <span class="font-label-md text-sm">Activity Log</span>
+        </a>
+    </nav>
+    <div class="px-6 mt-auto pt-6 border-t border-outline-variant/50">
+        <div class="flex items-center gap-3 p-3 rounded-lg bg-surface-container border border-outline-variant/50">
+            <div class="w-2.5 h-2.5 rounded-full bg-error shadow-[0_0_8px_rgba(255,0,0,0.8)] animate-pulse" id="status-indicator"></div>
+            <span class="font-mono-data text-xs text-on-surface-variant" id="status-text">Memeriksa API...</span>
+        </div>
+    </div>
 </aside>
+
 <!-- Main Content Canvas -->
-<main class="pt-16 md:ml-64 min-h-screen flex flex-col">
-<!-- Hero Section -->
-<section class="relative w-full min-h-[300px] flex justify-start overflow-hidden border-b border-outline-variant min-h-[500px] items-center pt-margin pb-margin pl-margin">
-<div class="absolute inset-0 bg-cover bg-center z-0" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAVR3OW9xQo7XUlDNq-coJAPQvT-L22E8oz5EVd7A6c0DbbZ8Gj5kfiyqHLCH09S2CaRNHK8vIS8YuZtbv_mogf3xHDR2_ngtIkJFZz2_qNqKanyANrPfX5w2A9ihnK42nl8xGAbT80K18552SXpID_3WN9Sf7oiB8hO4yLT5_vvDyzHNl5gRQWQckIgfcnDZXPYsGa__lMIn3-hwLeymZaHPUSq8Gsp9M6bQgZMC-XdvjuytyAAa3762tG0wh2lovr435cPvpxI15L')">
-<div class="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
-<div class="absolute inset-0 bg-gradient-to-r from-background via-background/50 to-transparent"></div>
-</div>
-<div class="relative z-10 glass-panel p-md rounded-xl w-full">
-<div class="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-surface-container border border-outline-variant mb-4">
-<span class="w-1.5 h-1.5 rounded-full bg-secondary-fixed"></span>
-<span class="font-mono-data text-mono-data text-on-surface-variant text-xs uppercase tracking-wider">Portal Utama</span>
-</div>
-<h2 class="font-display-lg text-display-lg text-on-surface mb-2"><span class="block text-2xl md:text-3xl font-semibold mb-1 leading-tight">Selamat Datang di</span><span class="block text-gradient font-extrabold tracking-tighter mb-2">PT.PRIMA WAHANA AUTO MOBIL</span><span class="block text-xl md:text-2xl text-primary tracking-widest uppercase opacity-90">ONE STOP SYSTEM - AFTERSALES DEPT</span></h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Pusat kendali operasional PT.PRIMA WAHANA AUTO MOBIL. Pantau, kelola, dan optimalkan seluruh layanan After Sales Service (AFS) dalam satu platform terintegrasi.</p>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4 border-t border-outline-variant/30 pt-6 mt-12">
-<div class="space-y-4">
-<h4 class="text-label-md font-semibold text-secondary uppercase tracking-widest flex items-center gap-2">
-<span class="material-symbols-outlined text-sm">analytics</span> Traffic Overview
-        </h4>
-<div class="grid grid-cols-2 gap-3">
-<div class="bg-surface-container/50 p-3 rounded border border-outline-variant/50">
-<p class="text-[10px] text-on-surface-variant uppercase">Total Akses</p>
-<p class="text-xl font-mono-data text-primary" id="total-akses-value">1,284</p>
-</div>
-<div class="bg-surface-container/50 p-3 rounded border border-outline-variant/50">
-<p class="text-[10px] text-on-surface-variant uppercase">User Aktif</p>
-<p class="text-xl font-mono-data text-live-indicator flex items-center gap-1" id="user-aktif-value">
-                    42 <span class="w-1.5 h-1.5 rounded-full bg-error animate-pulse"></span>
-</p>
-</div>
-</div>
-</div>
-<div class="space-y-3">
-<h4 class="text-label-md font-semibold text-secondary uppercase tracking-widest flex items-center gap-2">
-<span class="material-symbols-outlined text-sm">history</span> Recent Activity
-        </h4>
-<div class="space-y-2" id="activity-list">
-</div>
-</div>
-</div></div>
-</section>
-<!-- Apps Grid Section -->
-<section class="flex-1 p-margin max-w-[1600px] w-full mx-auto">
-<div class="flex items-center justify-between mb-8 border-b border-outline-variant pb-4">
-<h3 class="font-headline-md text-headline-md text-on-surface flex items-center gap-2">
-<span class="material-symbols-outlined text-secondary">grid_view</span>
-                Modul Operasional
-            </h3>
-<div class="flex gap-2">
-<button class="p-2 rounded-DEFAULT bg-surface-container-high text-on-surface hover:bg-surface-bright transition-colors border border-outline-variant"><span class="material-symbols-outlined text-sm">filter_list</span></button>
-<button class="p-2 rounded-DEFAULT bg-surface-container-high text-on-surface hover:bg-surface-bright transition-colors border border-outline-variant"><span class="material-symbols-outlined text-sm">sort</span></button>
-</div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gutter" id="apps-grid">
-<!-- App Card 1 -->
-<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative" data-app-id="prod_tracker">
-<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-<span class="material-symbols-outlined text-6xl text-primary">precision_manufacturing</span>
-</div>
-<div class="p-md flex-1 relative z-10">
-<div class="w-12 h-12 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-center mb-4 text-tertiary-fixed-dim">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">precision_manufacturing</span>
-</div>
-<h4 class="font-headline-md text-headline-md text-on-surface mb-2 tracking-tight group-hover:text-secondary transition-colors">Estimasi Non Warranty</h4>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Pembuatan estimasi untuk non warranty. Jasa, Sparepart, Sublet Opl.</p>
-</div>
-<div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between"><div class="flex gap-2 status-container"><span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-tertiary-container text-tertiary-fixed border border-tertiary-fixed/20">LIVE</span></div><a class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2 cursor-pointer launch-btn" href="https://nonwarranty-estimasi.netlify.app" rel="noopener noreferrer" target="_blank">Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span></a></div>
-</article>
-<!-- App Card 2 -->
-<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative" data-app-id="inventory">
-<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-<span class="material-symbols-outlined text-6xl text-primary">inventory_2</span>
-</div>
-<div class="p-md flex-1 relative z-10">
-<div class="w-12 h-12 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-center mb-4 text-tertiary-fixed-dim">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
-</div>
-<h4 class="font-headline-md text-headline-md text-on-surface mb-2 tracking-tight group-hover:text-secondary transition-colors">Estimasi Free Service</h4>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Pembuatan estimasi khusus untuk perawatan berkala warranty.</p>
-</div>
-<div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
-<div class="flex gap-2 status-container">
-<span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant">LIVE</span>
-</div>
-<a class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2 cursor-pointer launch-btn" href="https://estimasi-prima.netlify.app" rel="noopener noreferrer" target="_blank">
-                        Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
-</a>
-</div>
-</article>
-<!-- App Card 3 -->
-<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative" data-app-id="quality_control">
-<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-<span class="material-symbols-outlined text-6xl text-primary">fact_check</span>
-</div>
-<div class="p-md flex-1 relative z-10">
-<div class="w-12 h-12 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-center mb-4 text-secondary">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">fact_check</span>
-</div>
-<h4 class="font-headline-md text-headline-md text-on-surface mb-2 tracking-tight group-hover:text-secondary transition-colors">Gate Pass System</h4>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Log In-Out dan pelacakan kendaraan keluar masuk dealer (unit service &amp; Operasional).</p>
-</div>
-<div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
-<div class="flex gap-2 status-container">
-<span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-error-container text-on-error-container border border-error/20 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-error"></span> LIVE</span>
-</div>
-<a class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2 cursor-pointer launch-btn" href="https://gatepass-system.netlify.app" rel="noopener noreferrer" target="_blank">
-                        Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
-</a>
-</div>
-</article>
-<!-- App Card 4 -->
-<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative" data-app-id="logistics">
-<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-<span class="material-symbols-outlined text-6xl text-primary">local_shipping</span>
-</div>
-<div class="p-md flex-1 relative z-10">
-<div class="w-12 h-12 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-center mb-4 text-tertiary-fixed-dim">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
-</div>
-<h4 class="font-headline-md text-headline-md text-on-surface mb-2 tracking-tight group-hover:text-secondary transition-colors">Daily Report SM</h4>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Laporan harian service manager danpelaporan terkait kondisi operasional secara harian.</p>
-</div>
-<div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
-<div class="flex gap-2 status-container">
-<span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant">LIVE</span>
-</div>
-<a class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2 cursor-pointer launch-btn" href="https://sm-reportdaily.netlify.app" rel="noopener noreferrer" target="_blank">
-                        Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
-</a>
-</div>
-</article>
-<!-- App Card 5 -->
-<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative" data-app-id="hr">
-<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-<span class="material-symbols-outlined text-6xl text-primary">groups</span>
-</div>
-<div class="p-md flex-1 relative z-10">
-<div class="w-12 h-12 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-center mb-4 text-tertiary-fixed-dim">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">groups</span>
-</div>
-<h4 class="font-headline-md text-headline-md text-on-surface mb-2 tracking-tight group-hover:text-secondary transition-colors">Mobile Service</h4>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Monitor secara real time aktifitas mobile service mekanik untuk kunjungan service atau ERA.</p>
-</div>
-<div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
-<div class="flex gap-2 status-container">
-<span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant">LIVE</span>
-</div>
-<a class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2 cursor-pointer launch-btn" href="https://wms-prima.netlify.app" rel="noopener noreferrer" target="_blank">
-                        Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
-</a>
-</div>
-</article>
-<!-- App Card 6 -->
-<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative" data-app-id="crm">
-<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-<span class="material-symbols-outlined text-6xl text-primary">handshake</span>
-</div>
-<div class="p-md flex-1 relative z-10">
-<div class="w-12 h-12 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-center mb-4 text-tertiary-fixed-dim">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">handshake</span>
-</div>
-<h4 class="font-headline-md text-headline-md text-on-surface mb-2 tracking-tight group-hover:text-secondary transition-colors">Service Board</h4>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Monitoring aktifitas service secara real time dan aktifitas mekanik.</p>
-</div>
-<div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
-<div class="flex gap-2 status-container">
-<span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant">LIVE</span>
-</div>
-<a class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2 cursor-pointer launch-btn" href="https://service-board.netlify.app" rel="noopener noreferrer" target="_blank">
-                        Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
-</a>
-</div>
-</article>
-<!-- App Card 7 -->
-<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative" data-app-id="crm">
-<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-<span class="material-symbols-outlined text-6xl text-primary">handshake</span>
-</div>
-<div class="p-md flex-1 relative z-10">
-<div class="w-12 h-12 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-center mb-4 text-tertiary-fixed-dim">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">handshake</span>
-</div>
-<h4 class="font-headline-md text-headline-md text-on-surface mb-2 tracking-tight group-hover:text-secondary transition-colors">E-Dealer Audit System</h4>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Sistem ini dirancang untuk memverifikasi kepatuhan operasional, standar layanan, dan operasional dealer terhadap regulasi pusat atau main dealer.</p>
-</div>
-<div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
-<div class="flex gap-2 status-container">
-<span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant">LIVE</span>
-</div>
-<a class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2 cursor-pointer launch-btn" href="https://dealer-audit.netlify.app" rel="noopener noreferrer" target="_blank">
-                        Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
-</a>
-</div>
-</article>
-<!-- App Card 8 -->
-<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative" data-app-id="crm">
-<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-<span class="material-symbols-outlined text-6xl text-primary">handshake</span>
-</div>
-<div class="p-md flex-1 relative z-10">
-<div class="w-12 h-12 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-center mb-4 text-tertiary-fixed-dim">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">handshake</span>
-</div>
-<h4 class="font-headline-md text-headline-md text-on-surface mb-2 tracking-tight group-hover:text-secondary transition-colors">Overnight Monitoring System</h4>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Sistem ini dirancang untuk memonitor kendaraan inap yang masih dalam tahap WIP di dealer PRIMA.</p>
-</div>
-<div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
-<div class="flex gap-2 status-container">
-<span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant">LIVE</span>
-</div>
-<a class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2 cursor-pointer launch-btn" href="https://overnight-prima.netlify.app" rel="noopener noreferrer" target="_blank">
-                        Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
-</a>
-</div>
-</article>
-<!-- App Card 9 -->
-<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative" data-app-id="crm">
-<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-<span class="material-symbols-outlined text-6xl text-primary">handshake</span>
-</div>
-<div class="p-md flex-1 relative z-10">
-<div class="w-12 h-12 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-center mb-4 text-tertiary-fixed-dim">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">handshake</span>
-</div>
-<h4 class="font-headline-md text-headline-md text-on-surface mb-2 tracking-tight group-hover:text-secondary transition-colors">Problem Solving System</h4>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Sistem ini dirancang untuk memonitor project improvement service manager.</p>
-</div>
-<div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
-<div class="flex gap-2 status-container">
-<span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant">LIVE</span>
-</div>
-<a class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2 cursor-pointer launch-btn" href="https://psr-system.netlify.app" rel="noopener noreferrer" target="_blank">
-                        Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
-</a>
-</div>
-</article>
-<!-- App Card 10 -->
-<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative" data-app-id="crm">
-<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-<span class="material-symbols-outlined text-6xl text-primary">handshake</span>
-</div>
-<div class="p-md flex-1 relative z-10">
-<div class="w-12 h-12 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-center mb-4 text-tertiary-fixed-dim">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">handshake</span>
-</div>
-<h4 class="font-headline-md text-headline-md text-on-surface mb-2 tracking-tight group-hover:text-secondary transition-colors">Retention Monitoring System</h4>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Sistem ini dirancang untuk memonitor Customer yang sudah masuk waktunya service dan kinerja follow CCO.</p>
-</div>
-<div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
-<div class="flex gap-2 status-container">
-<span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant">LIVE</span>
-</div>
-<a class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2 cursor-pointer launch-btn" href="https://retension-system.netlify.app" rel="noopener noreferrer" target="_blank">
-                        Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
-</a>
-</div>
-</article>
-<!-- App Card 11 -->
-<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative" data-app-id="crm">
-<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-<span class="material-symbols-outlined text-6xl text-primary">handshake</span>
-</div>
-<div class="p-md flex-1 relative z-10">
-<div class="w-12 h-12 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-center mb-4 text-tertiary-fixed-dim">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">handshake</span>
-</div>
-<h4 class="font-headline-md text-headline-md text-on-surface mb-2 tracking-tight group-hover:text-secondary transition-colors">Fleet-Care Monitoring System</h4>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Sistem ini dirancang untuk memonitor Customer Fleet untuk waktunya service dan kinerja follow CCO.</p>
-</div>
-<div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
-<div class="flex gap-2 status-container">
-<span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant">LIVE</span>
-</div>
-<a class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2 cursor-pointer launch-btn" href="https://fleet-prima.netlify.app" rel="noopener noreferrer" target="_blank">
-                        Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
-</a>
-</div>
-</article>
-<!-- App Card 12 -->
-<article class="carbon-pattern rounded-xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative" data-app-id="crm">
-<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-<span class="material-symbols-outlined text-6xl text-primary">handshake</span>
-</div>
-<div class="p-md flex-1 relative z-10">
-<div class="w-12 h-12 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-center mb-4 text-tertiary-fixed-dim">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">handshake</span>
-</div>
-<h4 class="font-headline-md text-headline-md text-on-surface mb-2 tracking-tight group-hover:text-secondary transition-colors">Virtual Account System</h4>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Sistem ini dirancang untuk memonitor dana VA dan kapan harus order.</p>
-</div>
-<div class="p-4 border-t border-outline-variant/50 bg-surface-container-lowest/80 backdrop-blur-sm z-10 flex items-center justify-between">
-<div class="flex gap-2 status-container">
-<span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant">LIVE</span>
-</div>
-<a class="btn-primary px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-secondary-container flex items-center gap-2 cursor-pointer launch-btn" href="https://va-inventory.netlify.app" rel="noopener noreferrer" target="_blank">
-                        Luncurkan <span class="material-symbols-outlined text-sm">open_in_new</span>
-</a>
-</div>
-</article>
-</div>
-</section>
-<!-- Footer -->
-<footer class="mt-auto w-full py-xs px-margin border-t border-outline-variant bg-surface-container-lowest flex justify-between items-center z-40">
-<span class="font-mono-data text-mono-data text-on-surface-variant">© 2024 Automotive Systems Group. v2.4.1-stable</span>
-<div class="flex gap-4">
-<a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:underline transition-opacity duration-200" href="#">Support</a>
-<a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:underline transition-opacity duration-200" href="#">Documentation</a>
-<a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:underline transition-opacity duration-200" href="#">API Status</a>
-</div>
-</footer>
-</main>
-<!-- Notifications Sidebar -->
-<aside class="fixed top-0 right-0 h-screen w-[320px] bg-surface-container/95 backdrop-blur-xl border-l border-outline-variant z-50 flex flex-col shadow-2xl" id="notifications-panel">
-<div class="p-md border-b border-outline-variant flex items-center justify-between"><div class="flex flex-col gap-2 w-full"><img alt="PRIMA Logo" class="w-full max-h-16 object-contain object-left -ml-1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7KxpFfEOeTjsitO2yjNbPK6tTLODQW2WNm-tHKabbOiGUhe-JDl5LZK4YsRRdKh1-b17Wd1XUwF-F6jqfEUjkd1HsjdAeyMIjlqjy4CBbIDNo00zq2ydwDFnLZePjgVEB2T6OV_SgP5RN5Q0wiKh7NfiY_ixqIrw9mbPWU3ukt4srsCE5aX3yt1kDe86T1155yY9TrLqTLi8DCrSPH2J3pnYZTaSHlt1__bAyGOSMctTvr93djVGiVpHgaZKl4DJBdm_1j80SGSh8"><div class="mt-2"><h1 class="text-3xl font-extrabold text-on-surface tracking-tighter leading-none uppercase">WULING</h1><p class="font-label-md text-label-md text-secondary tracking-widest uppercase mt-1 opacity-80">Performance Portal</p></div></div></div>
-<div class="flex-1 overflow-y-auto p-4 space-y-4" id="notifications-list">
-                <div class="p-4 rounded-lg bg-surface-container-high border-l-4 border-tertiary flex gap-3 transform transition-all hover:scale-[1.02]">
-                    <span class="material-symbols-outlined text-tertiary">check_circle</span>
-                    <div>
-                        <p class="font-label-md text-on-surface">Maintenance Scheduler</p>
-                        <p class="text-sm text-on-surface-variant">Pemeliharaan rutin selesai</p>
+<main class="pt-16 md:ml-64 min-h-screen flex flex-col relative">
+    <!-- Hero Section -->
+    <section class="relative w-full flex justify-start overflow-hidden border-b border-outline-variant p-6 md:p-10">
+        <!-- Abstract Background -->
+        <div class="absolute inset-0 bg-cover bg-center z-0 opacity-40 mix-blend-luminosity" style="background-image: url('https://images.unsplash.com/photo-1560958089-b8a1929cea89?q=80&w=2071&auto=format&fit=crop');"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-transparent z-0"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-0"></div>
+        
+        <div class="relative z-10 glass-panel p-8 rounded-2xl w-full max-w-7xl mx-auto animate-fade-up" style="animation-delay: 0.1s;">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container border border-outline-variant mb-6 shadow-inner">
+                <span class="material-symbols-outlined text-sm text-secondary">explore</span>
+                <span class="font-mono-data text-xs text-on-surface-variant uppercase tracking-wider font-semibold">Portal Interaktif Utama</span>
+            </div>
+            
+            <h2 class="font-display-lg text-on-surface mb-3">
+                <span id="dynamic-greeting" class="block text-xl md:text-2xl font-medium mb-1 text-on-surface-variant">Selamat Datang di</span>
+                <span class="block text-4xl md:text-5xl text-gradient font-extrabold tracking-tighter mb-2">PT.PRIMA WAHANA AUTO MOBIL</span>
+                <span class="block text-lg md:text-xl text-primary tracking-widest uppercase opacity-90 font-semibold mt-2">ONE STOP SYSTEM - AFTERSALES DEPT</span>
+            </h2>
+            <p class="font-body-lg text-on-surface-variant max-w-3xl mt-4 text-sm md:text-base leading-relaxed">
+                Pusat kendali operasional pintar. Pantau, kelola, dan optimalkan seluruh layanan After Sales Service (AFS) dengan data real-time dan log aktivitas interaktif.
+            </p>
+            
+            <!-- Analytics Dashboard Mini -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 border-t border-outline-variant/40 pt-8 mt-8">
+                <!-- Traffic Stats -->
+                <div class="md:col-span-5 space-y-4">
+                    <h4 class="text-sm font-semibold text-secondary uppercase tracking-widest flex items-center gap-2">
+                        <span class="material-symbols-outlined text-base">donut_large</span> Ringkasan Trafik
+                    </h4>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-surface-container/60 p-4 rounded-xl border border-outline-variant/50 hover:border-outline-variant transition-colors">
+                            <p class="text-[11px] text-on-surface-variant uppercase tracking-wider mb-1">Total Modul Diakses</p>
+                            <p class="text-3xl font-mono-data text-white font-bold" id="total-akses-value">0</p>
+                        </div>
+                        <div class="bg-surface-container/60 p-4 rounded-xl border border-outline-variant/50 hover:border-outline-variant transition-colors">
+                            <p class="text-[11px] text-on-surface-variant uppercase tracking-wider mb-1">User Aktif (Mock)</p>
+                            <p class="text-3xl font-mono-data text-secondary font-bold flex items-center gap-2" id="user-aktif-value">
+                                42 <span class="w-2 h-2 rounded-full bg-error animate-pulse shadow-[0_0_8px_rgba(214,4,47,0.8)]"></span>
+                            </p>
+                        </div>
                     </div>
                 </div>
-            
-                <div class="p-4 rounded-lg bg-surface-container-high border-l-4 border-secondary flex gap-3 transform transition-all hover:scale-[1.02]">
-                    <span class="material-symbols-outlined text-secondary">warning</span>
-                    <div>
-                        <p class="font-label-md text-on-surface">Logistics Optimizer</p>
-                        <p class="text-sm text-on-surface-variant">3 armada memerlukan perhatian</p>
+                
+                <!-- Recent Activity Log (Interactive) -->
+                <div class="md:col-span-7 space-y-4">
+                    <h4 class="text-sm font-semibold text-secondary uppercase tracking-widest flex items-center gap-2">
+                        <span class="material-symbols-outlined text-base">history</span> Riwayat Aktivitas Anda
+                    </h4>
+                    <div class="bg-surface-container-lowest/50 border border-outline-variant/50 rounded-xl p-4 h-32 overflow-y-auto custom-scroll" id="activity-log-container">
+                        <!-- Diisi oleh JS -->
+                        <div class="text-center text-on-surface-variant text-sm mt-8 opacity-60">Belum ada aktivitas. Silakan luncurkan modul.</div>
                     </div>
                 </div>
             </div>
-<div class="p-4 border-t border-outline-variant">
-<button class="w-full py-2 text-sm font-label-md text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer" onclick="clearNotifications()">Bersihkan Semua</button>
-</div>
-</aside>
-<script>
-    const GAS_API_URL = 'https://script.google.com/macros/s/AKfycbxFGn9YxIcy-SLjeyQqxHDG5aXcNV0crp7_KMJ0Xm-flV2A_m7BqQKnBp4_FbVxeMTF/exec';
+        </div>
+    </section>
 
+    <!-- Apps Grid Section -->
+    <section class="flex-1 p-6 md:p-10 max-w-7xl w-full mx-auto relative z-10">
+        <!-- Filter Bar -->
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-8 gap-4 border-b border-outline-variant pb-6">
+            <h3 class="text-2xl font-bold text-on-surface flex items-center gap-3">
+                <span class="material-symbols-outlined text-secondary text-3xl">apps</span>
+                Modul Operasional
+            </h3>
+            
+            <!-- Category Chips -->
+            <div class="flex flex-wrap gap-2" id="category-filters">
+                <button class="px-4 py-1.5 rounded-full text-sm font-medium bg-secondary text-on-secondary hover:bg-secondary/90 transition-colors filter-btn active" data-filter="all">Semua</button>
+                <button class="px-4 py-1.5 rounded-full text-sm font-medium bg-surface-container border border-outline-variant text-on-surface-variant hover:text-white transition-colors filter-btn" data-filter="service">Service</button>
+                <button class="px-4 py-1.5 rounded-full text-sm font-medium bg-surface-container border border-outline-variant text-on-surface-variant hover:text-white transition-colors filter-btn" data-filter="crm">CRM / Audit</button>
+                <button class="px-4 py-1.5 rounded-full text-sm font-medium bg-surface-container border border-outline-variant text-on-surface-variant hover:text-white transition-colors filter-btn" data-filter="report">Report</button>
+            </div>
+        </div>
+
+        <!-- Grid Container -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="apps-grid">
+            
+            <!-- App Card: Estimasi Non Warranty -->
+            <article class="app-card carbon-pattern rounded-2xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative animate-fade-up" style="animation-delay: 0.2s;" data-category="service" data-name="estimasi non warranty">
+                <div id="badge-prod_tracker" class="absolute top-4 right-4 z-20"></div> <!-- Placeholder for Popular Badge -->
+                <div class="absolute -right-6 -top-6 p-4 opacity-5 group-hover:opacity-10 transition-opacity transform group-hover:scale-110 duration-500 pointer-events-none">
+                    <span class="material-symbols-outlined text-9xl text-primary">precision_manufacturing</span>
+                </div>
+                <div class="p-6 flex-1 relative z-10">
+                    <div class="w-14 h-14 rounded-xl bg-surface-container-high shadow-lg border border-outline-variant flex items-center justify-center mb-5 text-tertiary-fixed-dim group-hover:text-secondary group-hover:border-secondary/50 transition-colors">
+                        <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">precision_manufacturing</span>
+                    </div>
+                    <h4 class="text-lg font-bold text-on-surface mb-2 tracking-tight group-hover:text-white transition-colors line-clamp-1">Estimasi Non Warranty</h4>
+                    <p class="text-sm text-on-surface-variant mb-6 line-clamp-2">Pembuatan estimasi untuk non warranty. Jasa, Sparepart, Sublet Opl.</p>
+                </div>
+                <div class="p-4 border-t border-outline-variant/30 bg-surface-container-lowest/90 backdrop-blur-md z-10 flex items-center justify-between">
+                    <div class="flex gap-2 status-container">
+                        <span class="px-2 py-1 rounded text-[10px] font-mono-data bg-tertiary-container text-tertiary-fixed border border-tertiary-fixed/20 tracking-wider font-semibold">LIVE</span>
+                    </div>
+                    <a class="btn-primary px-4 py-2 rounded-lg text-sm font-semibold text-white flex items-center gap-2 cursor-pointer launch-btn shadow-lg" href="https://nonwarranty-estimasi.netlify.app" data-appid="prod_tracker" data-appname="Estimasi Non Warranty" target="_blank">
+                        Buka <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- App Card: Estimasi Free Service -->
+            <article class="app-card carbon-pattern rounded-2xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative animate-fade-up" style="animation-delay: 0.3s;" data-category="service" data-name="estimasi free service inventory">
+                <div id="badge-inventory" class="absolute top-4 right-4 z-20"></div>
+                <div class="absolute -right-6 -top-6 p-4 opacity-5 group-hover:opacity-10 transition-opacity transform group-hover:scale-110 duration-500 pointer-events-none">
+                    <span class="material-symbols-outlined text-9xl text-primary">inventory_2</span>
+                </div>
+                <div class="p-6 flex-1 relative z-10">
+                    <div class="w-14 h-14 rounded-xl bg-surface-container-high shadow-lg border border-outline-variant flex items-center justify-center mb-5 text-tertiary-fixed-dim group-hover:text-secondary group-hover:border-secondary/50 transition-colors">
+                        <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+                    </div>
+                    <h4 class="text-lg font-bold text-on-surface mb-2 tracking-tight group-hover:text-white transition-colors line-clamp-1">Estimasi Free Service</h4>
+                    <p class="text-sm text-on-surface-variant mb-6 line-clamp-2">Pembuatan estimasi khusus untuk perawatan berkala warranty.</p>
+                </div>
+                <div class="p-4 border-t border-outline-variant/30 bg-surface-container-lowest/90 backdrop-blur-md z-10 flex items-center justify-between">
+                    <div class="flex gap-2 status-container">
+                        <span class="px-2 py-1 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant tracking-wider font-semibold">STABLE</span>
+                    </div>
+                    <a class="btn-primary px-4 py-2 rounded-lg text-sm font-semibold text-white flex items-center gap-2 cursor-pointer launch-btn shadow-lg" href="https://estimasi-prima.netlify.app" data-appid="inventory" data-appname="Estimasi Free Service" target="_blank">
+                        Buka <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- App Card: Gate Pass System -->
+            <article class="app-card carbon-pattern rounded-2xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative animate-fade-up" style="animation-delay: 0.4s;" data-category="report" data-name="gate pass system quality control">
+                <div id="badge-quality_control" class="absolute top-4 right-4 z-20"></div>
+                <div class="absolute -right-6 -top-6 p-4 opacity-5 group-hover:opacity-10 transition-opacity transform group-hover:scale-110 duration-500 pointer-events-none">
+                    <span class="material-symbols-outlined text-9xl text-primary">fact_check</span>
+                </div>
+                <div class="p-6 flex-1 relative z-10">
+                    <div class="w-14 h-14 rounded-xl bg-surface-container-high shadow-lg border border-outline-variant flex items-center justify-center mb-5 text-secondary group-hover:border-secondary/50 transition-colors">
+                        <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">fact_check</span>
+                    </div>
+                    <h4 class="text-lg font-bold text-on-surface mb-2 tracking-tight group-hover:text-white transition-colors line-clamp-1">Gate Pass System</h4>
+                    <p class="text-sm text-on-surface-variant mb-6 line-clamp-2">Log In-Out dan pelacakan kendaraan keluar masuk dealer.</p>
+                </div>
+                <div class="p-4 border-t border-outline-variant/30 bg-surface-container-lowest/90 backdrop-blur-md z-10 flex items-center justify-between">
+                    <div class="flex gap-2 status-container">
+                        <span class="px-2 py-1 rounded text-[10px] font-mono-data bg-error-container text-on-error-container border border-error/20 flex items-center gap-1 tracking-wider font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-error animate-pulse"></span> ALERT</span>
+                    </div>
+                    <a class="btn-primary px-4 py-2 rounded-lg text-sm font-semibold text-white flex items-center gap-2 cursor-pointer launch-btn shadow-lg" href="https://gatepass-system.netlify.app" data-appid="quality_control" data-appname="Gate Pass System" target="_blank">
+                        Buka <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- App Card: Daily Report SM -->
+            <article class="app-card carbon-pattern rounded-2xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative animate-fade-up" style="animation-delay: 0.5s;" data-category="report" data-name="daily report sm logistics">
+                <div id="badge-logistics" class="absolute top-4 right-4 z-20"></div>
+                <div class="absolute -right-6 -top-6 p-4 opacity-5 group-hover:opacity-10 transition-opacity transform group-hover:scale-110 duration-500 pointer-events-none">
+                    <span class="material-symbols-outlined text-9xl text-primary">local_shipping</span>
+                </div>
+                <div class="p-6 flex-1 relative z-10">
+                    <div class="w-14 h-14 rounded-xl bg-surface-container-high shadow-lg border border-outline-variant flex items-center justify-center mb-5 text-tertiary-fixed-dim group-hover:text-secondary group-hover:border-secondary/50 transition-colors">
+                        <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+                    </div>
+                    <h4 class="text-lg font-bold text-on-surface mb-2 tracking-tight group-hover:text-white transition-colors line-clamp-1">Daily Report SM</h4>
+                    <p class="text-sm text-on-surface-variant mb-6 line-clamp-2">Laporan harian service manager terkait kondisi operasional.</p>
+                </div>
+                <div class="p-4 border-t border-outline-variant/30 bg-surface-container-lowest/90 backdrop-blur-md z-10 flex items-center justify-between">
+                    <div class="flex gap-2 status-container">
+                        <span class="px-2 py-1 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant tracking-wider font-semibold">STABLE</span>
+                    </div>
+                    <a class="btn-primary px-4 py-2 rounded-lg text-sm font-semibold text-white flex items-center gap-2 cursor-pointer launch-btn shadow-lg" href="https://sm-reportdaily.netlify.app" data-appid="logistics" data-appname="Daily Report SM" target="_blank">
+                        Buka <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- App Card: E-Dealer Audit -->
+            <article class="app-card carbon-pattern rounded-2xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative animate-fade-up" style="animation-delay: 0.6s;" data-category="crm" data-name="edealer audit system crm">
+                <div id="badge-audit" class="absolute top-4 right-4 z-20"></div>
+                <div class="absolute -right-6 -top-6 p-4 opacity-5 group-hover:opacity-10 transition-opacity transform group-hover:scale-110 duration-500 pointer-events-none">
+                    <span class="material-symbols-outlined text-9xl text-primary">assignment_turned_in</span>
+                </div>
+                <div class="p-6 flex-1 relative z-10">
+                    <div class="w-14 h-14 rounded-xl bg-surface-container-high shadow-lg border border-outline-variant flex items-center justify-center mb-5 text-tertiary-fixed-dim group-hover:text-secondary group-hover:border-secondary/50 transition-colors">
+                        <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">assignment_turned_in</span>
+                    </div>
+                    <h4 class="text-lg font-bold text-on-surface mb-2 tracking-tight group-hover:text-white transition-colors line-clamp-1">E-Dealer Audit</h4>
+                    <p class="text-sm text-on-surface-variant mb-6 line-clamp-2">Sistem verifikasi kepatuhan operasional dan standar layanan.</p>
+                </div>
+                <div class="p-4 border-t border-outline-variant/30 bg-surface-container-lowest/90 backdrop-blur-md z-10 flex items-center justify-between">
+                    <div class="flex gap-2 status-container">
+                        <span class="px-2 py-1 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant tracking-wider font-semibold">LIVE</span>
+                    </div>
+                    <a class="btn-primary px-4 py-2 rounded-lg text-sm font-semibold text-white flex items-center gap-2 cursor-pointer launch-btn shadow-lg" href="https://dealer-audit.netlify.app" data-appid="audit" data-appname="E-Dealer Audit" target="_blank">
+                        Buka <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                </div>
+            </article>
+
+             <!-- App Card: Service Board -->
+             <article class="app-card carbon-pattern rounded-2xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative animate-fade-up" style="animation-delay: 0.7s;" data-category="service" data-name="service board crm">
+                <div id="badge-board" class="absolute top-4 right-4 z-20"></div>
+                <div class="absolute -right-6 -top-6 p-4 opacity-5 group-hover:opacity-10 transition-opacity transform group-hover:scale-110 duration-500 pointer-events-none">
+                    <span class="material-symbols-outlined text-9xl text-primary">view_timeline</span>
+                </div>
+                <div class="p-6 flex-1 relative z-10">
+                    <div class="w-14 h-14 rounded-xl bg-surface-container-high shadow-lg border border-outline-variant flex items-center justify-center mb-5 text-tertiary-fixed-dim group-hover:text-secondary group-hover:border-secondary/50 transition-colors">
+                        <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">view_timeline</span>
+                    </div>
+                    <h4 class="text-lg font-bold text-on-surface mb-2 tracking-tight group-hover:text-white transition-colors line-clamp-1">Service Board</h4>
+                    <p class="text-sm text-on-surface-variant mb-6 line-clamp-2">Monitoring aktifitas service secara real time dan aktifitas mekanik.</p>
+                </div>
+                <div class="p-4 border-t border-outline-variant/30 bg-surface-container-lowest/90 backdrop-blur-md z-10 flex items-center justify-between">
+                    <div class="flex gap-2 status-container">
+                        <span class="px-2 py-1 rounded text-[10px] font-mono-data bg-tertiary-container text-tertiary-fixed border border-tertiary-fixed/20 tracking-wider font-semibold">LIVE</span>
+                    </div>
+                    <a class="btn-primary px-4 py-2 rounded-lg text-sm font-semibold text-white flex items-center gap-2 cursor-pointer launch-btn shadow-lg" href="https://service-board.netlify.app" data-appid="board" data-appname="Service Board" target="_blank">
+                        Buka <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Anda bisa tambahkan card lainnya dengan format yang sama, pastikan attribute data-category dan data-name diisi -->
+
+        </div>
+        
+        <!-- Empty State for Search -->
+        <div id="empty-state" class="hidden text-center py-20 animate-fade-up">
+            <span class="material-symbols-outlined text-6xl text-on-surface-variant/50 mb-4">search_off</span>
+            <h4 class="text-xl font-semibold text-on-surface">Modul Tidak Ditemukan</h4>
+            <p class="text-on-surface-variant mt-2">Coba gunakan kata kunci lain atau pilih kategori "Semua".</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-auto w-full py-4 px-6 md:px-10 border-t border-outline-variant bg-surface-container-lowest flex flex-col md:flex-row justify-between items-center z-40 gap-4">
+        <span class="font-mono-data text-xs text-on-surface-variant">© 2024 Wuling Motors - PT Prima Wahana Auto Mobil. v3.0-modern</span>
+        <div class="flex gap-6">
+            <a class="text-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Panduan</a>
+            <a class="text-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Support IT</a>
+        </div>
+    </footer>
+</main>
+
+<!-- Notifications Sidebar -->
+<aside class="fixed top-0 right-0 h-screen w-[340px] bg-surface-container/95 backdrop-blur-2xl border-l border-outline-variant z-50 flex flex-col shadow-2xl" id="notifications-panel">
+    <div class="p-6 border-b border-outline-variant flex items-center justify-between">
+        <h3 class="text-lg font-bold text-on-surface flex items-center gap-2">
+            <span class="material-symbols-outlined text-secondary">notifications_active</span> Notifikasi
+        </h3>
+        <button class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center hover:bg-white/10 transition-colors" onclick="toggleNotifications()">
+            <span class="material-symbols-outlined text-sm">close</span>
+        </button>
+    </div>
+    <div class="flex-1 overflow-y-auto p-4 space-y-3 custom-scroll" id="notifications-list">
+        <!-- Notif Items -->
+        <div class="p-4 rounded-xl bg-surface-container border border-outline-variant hover:border-tertiary/50 transition-colors flex gap-3 group">
+            <div class="w-8 h-8 rounded-full bg-tertiary/10 flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-tertiary text-sm">campaign</span>
+            </div>
+            <div>
+                <p class="text-sm font-bold text-on-surface mb-1">Update Sistem v3.0</p>
+                <p class="text-xs text-on-surface-variant leading-relaxed">Tampilan UI baru dan fitur analitik interaktif telah ditambahkan.</p>
+                <span class="text-[10px] text-on-surface-variant/50 mt-2 block font-mono-data">Baru Saja</span>
+            </div>
+        </div>
+    </div>
+    <div class="p-4 border-t border-outline-variant bg-surface-container-lowest">
+        <button class="w-full py-2.5 rounded-lg text-sm font-semibold text-on-surface-variant hover:text-white hover:bg-surface-container-high transition-all border border-outline-variant/50" onclick="clearNotifications()">Bersihkan Semua</button>
+    </div>
+</aside>
+
+<script>
+    // --- 1. Dynamic Greeting ---
+    function setDynamicGreeting() {
+        const hour = new Date().getHours();
+        let greeting = "Selamat Datang";
+        if (hour >= 5 && hour < 11) greeting = "Selamat Pagi";
+        else if (hour >= 11 && hour < 15) greeting = "Selamat Siang";
+        else if (hour >= 15 && hour < 18) greeting = "Selamat Sore";
+        else greeting = "Selamat Malam";
+        
+        document.getElementById('dynamic-greeting').innerText = `${greeting} di`;
+    }
+
+    // --- 2. Analytics & Local Storage Tracker ---
+    // Menyimpan klik aplikasi ke local storage untuk simulasi log
+    const STORAGE_KEY_STATS = 'wuling_app_stats';
+    const STORAGE_KEY_LOGS = 'wuling_app_logs';
+
+    function initAnalytics() {
+        const launchBtns = document.querySelectorAll('.launch-btn');
+        let appStats = JSON.parse(localStorage.getItem(STORAGE_KEY_STATS)) || {};
+        
+        // Update Total Clicks Display
+        const totalClicks = Object.values(appStats).reduce((a, b) => a + b, 0);
+        document.getElementById('total-akses-value').innerText = totalClicks.toLocaleString('id-ID');
+
+        launchBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const appId = btn.getAttribute('data-appid');
+                const appName = btn.getAttribute('data-appname');
+                
+                // Track Stats (Most Visited)
+                appStats[appId] = (appStats[appId] || 0) + 1;
+                localStorage.setItem(STORAGE_KEY_STATS, JSON.stringify(appStats));
+                
+                // Track Logs (Recent Activity)
+                let logs = JSON.parse(localStorage.getItem(STORAGE_KEY_LOGS)) || [];
+                logs.unshift({ id: appId, name: appName, time: new Date().getTime() });
+                if (logs.length > 5) logs.pop(); // Keep only last 5
+                localStorage.setItem(STORAGE_KEY_LOGS, JSON.stringify(logs));
+                
+                // Refresh UI (tanpa reload)
+                setTimeout(() => { renderAnalyticsUI(); }, 500);
+            });
+        });
+
+        renderAnalyticsUI();
+    }
+
+    function renderAnalyticsUI() {
+        // Render Recent Logs
+        const logs = JSON.parse(localStorage.getItem(STORAGE_KEY_LOGS)) || [];
+        const logContainer = document.getElementById('activity-log-container');
+        
+        if (logs.length > 0) {
+            logContainer.innerHTML = logs.map(log => {
+                const date = new Date(log.time);
+                const timeStr = `${date.getHours().toString().padStart(2,'0')}:${date.getMinutes().toString().padStart(2,'0')}`;
+                return `
+                    <div class="flex items-center gap-3 py-2 border-b border-outline-variant/30 last:border-0 animate-fade-up">
+                        <div class="w-2 h-2 rounded-full bg-secondary/50"></div>
+                        <div class="flex-1">
+                            <p class="text-sm text-on-surface font-medium">${log.name}</p>
+                            <p class="text-[10px] text-on-surface-variant font-mono-data">Diakses hari ini pukul ${timeStr}</p>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Highlight Most Popular App
+        const appStats = JSON.parse(localStorage.getItem(STORAGE_KEY_STATS)) || {};
+        if (Object.keys(appStats).length > 0) {
+            const topAppId = Object.keys(appStats).reduce((a, b) => appStats[a] > appStats[b] ? a : b);
+            
+            // Clear existing badges
+            document.querySelectorAll('[id^="badge-"]').forEach(el => el.innerHTML = '');
+            
+            // Set new badge
+            const badgeContainer = document.getElementById(`badge-${topAppId}`);
+            if(badgeContainer) {
+                badgeContainer.innerHTML = `
+                    <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold bg-gradient-to-r from-orange-500 to-secondary text-white shadow-lg animate-pulse">
+                        🔥 POPULER
+                    </span>
+                `;
+            }
+        }
+    }
+
+    // --- 3. Smart Search & Filtering ---
+    function initSearchAndFilter() {
+        const searchInput = document.getElementById('searchInput');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.app-card');
+        const emptyState = document.getElementById('empty-state');
+        let currentFilter = 'all';
+
+        function filterCards() {
+            const query = searchInput.value.toLowerCase();
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const name = card.getAttribute('data-name').toLowerCase();
+                const category = card.getAttribute('data-category');
+                
+                const matchesSearch = name.includes(query);
+                const matchesCategory = currentFilter === 'all' || category === currentFilter;
+
+                if (matchesSearch && matchesCategory) {
+                    card.style.display = 'flex';
+                    // Re-trigger animation
+                    card.style.animation = 'none';
+                    card.offsetHeight; // trigger reflow
+                    card.style.animation = null; 
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            if (visibleCount === 0) {
+                emptyState.classList.remove('hidden');
+            } else {
+                emptyState.classList.add('hidden');
+            }
+        }
+
+        // Event Listener Search
+        searchInput.addEventListener('input', filterCards);
+
+        // Event Listener Filter Buttons
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update Button Styles
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-secondary', 'text-on-secondary');
+                    b.classList.add('bg-surface-container', 'text-on-surface-variant');
+                });
+                btn.classList.remove('bg-surface-container', 'text-on-surface-variant');
+                btn.classList.add('bg-secondary', 'text-on-secondary');
+
+                currentFilter = btn.getAttribute('data-filter');
+                filterCards();
+            });
+        });
+    }
+
+    // --- Core UI Functions ---
     function toggleNotifications() {
         document.getElementById('notifications-panel').classList.toggle('active');
+        document.getElementById('notification-dot').classList.add('hidden'); // Hilangkan titik merah saat dibuka
+    }
+
+    function toggleSidebar() {
+        // Implementasi sederhana untuk mobile, bisa dikembangkan lebih lanjut
+        alert("Menu Sidebar Mobile di klik!"); 
     }
 
     function clearNotifications() {
         document.getElementById('notifications-list').innerHTML = `
-            <div class="text-center py-8 text-on-surface-variant">
-                <span class="material-symbols-outlined text-4xl mb-2">notifications_off</span>
-                <p class="text-sm">Tidak ada notifikasi baru</p>
+            <div class="text-center py-10 text-on-surface-variant flex flex-col items-center">
+                <span class="material-symbols-outlined text-5xl mb-3 opacity-20">notifications_off</span>
+                <p class="text-sm font-medium">Tidak ada notifikasi baru</p>
             </div>
         `;
-        document.getElementById('notification-dot').classList.add('hidden');
     }
 
-    async function fetchSystemData() {
-        const statusIndicator = document.getElementById('status-indicator');
-        const statusText = document.getElementById('status-text');
+    // Initialize Everything on Load
+    document.addEventListener('DOMContentLoaded', () => {
+        setDynamicGreeting();
+        initAnalytics();
+        initSearchAndFilter();
+    });
 
-        console.log('Fetching system data from GAS...');
-
-        try {
-            const response = await fetch(GAS_API_URL);
-            const data = await response.json();
-            
-            console.log('API Data received:', data);
-
-            if (data) {
-                updateNotifications(data.notifications || []);
-                updateAppStatuses(data.apps || {});
-                
-                statusIndicator.classList.remove('bg-outline', 'animate-pulse');
-                statusIndicator.classList.add('bg-tertiary-fixed-dim');
-                statusText.innerText = 'Sistem Online';
-            }
-        } catch (error) {
-            console.error('Error fetching data from GAS:', error);
-            statusIndicator.classList.add('bg-error');
-            statusText.innerText = 'API Offline';
-            
-            // Fallback content if API fails for demo purposes
-            updateNotifications([
-                { type: 'success', title: 'Maintenance Scheduler', msg: 'Pemeliharaan rutin selesai' },
-                { type: 'warning', title: 'Logistics Optimizer', msg: '3 armada memerlukan perhatian' }
-            ]);
-        }
-    }
-
-    function updateNotifications(notifications) {
-        const list = document.getElementById('notifications-list');
-        const dot = document.getElementById('notification-dot');
-        
-        if (notifications.length === 0) {
-            clearNotifications();
-            return;
-        }
-
-        dot.classList.remove('hidden');
-        list.innerHTML = notifications.map(notif => {
-            const borderColor = notif.type === 'error' ? 'border-error' : (notif.type === 'warning' ? 'border-secondary' : 'border-tertiary');
-            const icon = notif.type === 'error' ? 'cancel' : (notif.type === 'warning' ? 'warning' : 'check_circle');
-            const iconColor = notif.type === 'error' ? 'text-error' : (notif.type === 'warning' ? 'text-secondary' : 'text-tertiary');
-
-            return `
-                <div class="p-4 rounded-lg bg-surface-container-high border-l-4 ${borderColor} flex gap-3 transform transition-all hover:scale-[1.02]">
-                    <span class="material-symbols-outlined ${iconColor}">${icon}</span>
-                    <div>
-                        <p class="font-label-md text-on-surface">${notif.title}</p>
-                        <p class="text-sm text-on-surface-variant">${notif.msg}</p>
-                    </div>
-                </div>
-            `;
-        }).join('');
-    }
-
-    function updateAppStatuses(appData) {
-        console.log('Updating app statuses with data:', appData);
-        // App IDs map to data-app-id attributes in HTML
-        // Example structure expected from GAS: { prod_tracker: { status: 'LIVE', type: 'info', alerts: 0 }, ... }
-        Object.entries(appData).forEach(([appId, config]) => {
-            console.log(`Processing app: ${appId} with config:`, config);
-            const card = document.querySelector(`[data-app-id="${appId}"]`);
-            if (!card) {
-                console.warn(`Card with data-app-id="${appId}" not found in the DOM.`);
-                return;
-            }
-
-            const statusContainer = card.querySelector('.status-container');
-            let badgeHtml = '';
-
-            if (config.alerts > 0) {
-                badgeHtml = `
-                    <span class="px-2 py-0.5 rounded text-[10px] font-mono-data bg-error-container text-on-error-container border border-error/20 flex items-center gap-1">
-                        <span class="w-1.5 h-1.5 rounded-full bg-error"></span> ${config.alerts} ALERTS
-                    </span>
-                `;
-            } else {
-                const colors = {
-                    'LIVE': 'bg-tertiary-container text-tertiary-fixed border-tertiary-fixed/20',
-                    'STABLE': 'bg-surface-container-high text-on-surface-variant border-outline-variant',
-                    'ACTIVE': 'bg-surface-container-high text-on-surface-variant border-outline-variant',
-                    'PORTAL': 'bg-surface-container-high text-on-surface-variant border-outline-variant',
-                    'SECURE': 'bg-surface-container-high text-on-surface-variant border-outline-variant',
-                    'SCHEDULE': 'bg-surface-container-high text-on-surface-variant border-outline-variant'
-                };
-                const colorClass = colors[config.status] || colors['STABLE'];
-                badgeHtml = `<span class="px-2 py-0.5 rounded text-[10px] font-mono-data ${colorClass} border">${config.status}</span>`;
-            }
-
-            statusContainer.innerHTML = badgeHtml;
-        });
-    }
-
-    // Initialize fetch and set interval
-    fetchSystemData();
-    setInterval(fetchSystemData, 30000); // Refresh every 30s
 </script>
-<script src="api.js"></script>
-
-
-</body></html>
+</body>
+</html>
