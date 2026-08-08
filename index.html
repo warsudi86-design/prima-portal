@@ -1,813 +1,799 @@
 <!DOCTYPE html>
-<html class="dark" lang="id" style="">
+<html class="dark" lang="id">
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>WULING - Main Dashboard</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-    
-    <script id="tailwind-config">
-        tailwind.config = {
-          darkMode: "class",
-          theme: {
-            extend: {
-              "colors": {
-                      "on-surface-variant": "#c7c6ca",
-                      "error-container": "#93000a",
-                      "on-secondary-fixed-variant": "#92001d",
-                      "on-error-container": "#ffdad6",
-                      "on-error": "#690005",
-                      "on-tertiary": "#002e68",
-                      "on-tertiary-fixed-variant": "#004493",
-                      "inverse-primary": "#5f5e5f",
-                      "primary-fixed": "#e5e2e3",
-                      "primary": "#c8c6c7",
-                      "surface-container-highest": "#333535",
-                      "on-primary-fixed": "#1b1b1c",
-                      "tertiary-fixed-dim": "#adc7ff",
-                      "secondary-container": "#d6042f",
-                      "secondary-fixed": "#ffdad8",
-                      "primary-fixed-dim": "#c8c6c7",
-                      "on-primary-container": "#848283",
-                      "on-primary": "#303031",
-                      "on-secondary-container": "#ffe7e5",
-                      "on-primary-fixed-variant": "#474647",
-                      "inverse-on-surface": "#2f3131",
-                      "surface-container": "#1e2020",
-                      "on-background": "#e2e2e2",
-                      "surface-container-lowest": "#0c0f0f",
-                      "tertiary-container": "#00193e",
-                      "primary-container": "#1a1a1b",
-                      "on-tertiary-fixed": "#001a41",
-                      "inverse-surface": "#e2e2e2",
-                      "surface": "#121414",
-                      "secondary-fixed-dim": "#ffb3b1",
-                      "surface-tint": "#c8c6c7",
-                      "outline-variant": "#46474a",
-                      "tertiary-fixed": "#d8e2ff",
-                      "background": "#121414",
-                      "on-secondary": "#680011",
-                      "surface-bright": "#37393a",
-                      "on-surface": "#e2e2e2",
-                      "outline": "#909094",
-                      "secondary": "#ffb3b1",
-                      "error": "#ffb4ab",
-                      "surface-dim": "#121414",
-                      "tertiary": "#adc7ff",
-                      "on-tertiary-container": "#1c7fff",
-                      "surface-container-high": "#282a2b",
-                      "surface-container-low": "#1a1c1c",
-                      "on-secondary-fixed": "#410007",
-                      "surface-variant": "#333535"
-              },
-              "fontFamily": {
-                      "label-md": ["Geist"],
-                      "headline-md": ["Inter"],
-                      "display-lg": ["Inter"],
-                      "body-md": ["Inter"],
-                      "body-lg": ["Inter"],
-                      "mono-data": ["Geist"]
-              }
-            }
-          }
-        }
-    </script>
-    <style>
-        /* Animasi Modern */
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-up {
-            opacity: 0;
-            animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        
-        .glass-panel {
-            background: rgba(30, 32, 32, 0.55);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-        }
-        
-        .carbon-pattern {
-            background-color: #121414;
-            background-image: linear-gradient(45deg, rgba(255,255,255,0.02) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.02) 75%, rgba(255,255,255,0.02)), 
-                              linear-gradient(45deg, rgba(255,255,255,0.02) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.02) 75%, rgba(255,255,255,0.02));
-            background-size: 10px 10px;
-            background-position: 0 0, 5px 5px;
-        }
-        
-        .card-hover {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px -10px rgba(255, 179, 177, 0.15), 0 0 20px rgba(0,0,0,0.5);
-            border-color: rgba(255, 179, 177, 0.5);
-        }
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta name="theme-color" content="#0B0E14">
+<title>PRIMA WULING · Aftersales Control Center</title>
 
-        .text-gradient {
-            background: linear-gradient(to right, #ffffff, #ffb3b1, #c8c6c7);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-size: 200% auto;
-            animation: shine 5s linear infinite;
-        }
-        
-        @keyframes shine {
-            to { background-position: 200% center; }
-        }
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
-        .btn-primary {
-            background: linear-gradient(135deg, #d6042f 0%, #93000a 100%);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+<script>
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          ink:      "#070910",
+          base:     "#0B0E14",
+          panel:    "#12161F",
+          panel2:   "#171C28",
+          line:     "#232A38",
+          muted:    "#8B94A7",
+          fg:       "#E9EDF5",
+          brand:    "#E10A2F",
+          brandDim: "#8E0018",
+          service:  "#FF8A3D",
+          parts:    "#22D3EE",
+          unit:     "#A3E635",
+          crm:      "#C084FC",
+          report:   "#34D399"
+        },
+        fontFamily: {
+          display: ["Archivo", "system-ui", "sans-serif"],
+          body:    ["'Plus Jakarta Sans'", "system-ui", "sans-serif"],
+          data:    ["'JetBrains Mono'", "ui-monospace", "monospace"]
         }
-        
-        .btn-primary::after {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%; width: 50%; height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
-            transform: skewX(-20deg);
-            transition: 0.5s;
-        }
-        
-        .btn-primary:hover::after {
-            left: 150%;
-        }
+      }
+    }
+  }
+</script>
 
-        .btn-primary:hover {
-            filter: brightness(1.2);
-            transform: scale(1.03);
-            box-shadow: 0 0 15px rgba(214, 4, 47, 0.4);
-        }
+<style>
+  :root { --acc: #E10A2F; }
 
-        #notifications-panel {
-            transform: translateX(100%);
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        #notifications-panel.active {
-            transform: translateX(0);
-        }
+  .ms {
+    font-family: 'Material Symbols Rounded';
+    font-weight: normal; font-style: normal;
+    line-height: 1; letter-spacing: normal; text-transform: none;
+    display: inline-block; white-space: nowrap; word-wrap: normal;
+    direction: ltr; -webkit-font-feature-settings: 'liga'; -webkit-font-smoothing: antialiased;
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+  .ms-fill { font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24; }
 
-        /* Custom Scrollbar for activity list */
-        .custom-scroll::-webkit-scrollbar {
-            width: 4px;
-        }
-        .custom-scroll::-webkit-scrollbar-thumb {
-            background-color: #46474a;
-            border-radius: 4px;
-        }
-    </style>
+  html { scroll-behavior: smooth; }
+  body { background-color: #0B0E14; }
+
+  /* ---------- Ambient background ---------- */
+  .aurora { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .aurora span {
+    position: absolute; border-radius: 50%; filter: blur(90px); opacity: .16;
+    animation: drift 26s ease-in-out infinite alternate;
+  }
+  .aurora .a1 { width: 46vw; height: 46vw; background: #E10A2F; top: -14vw; left: -10vw; }
+  .aurora .a2 { width: 38vw; height: 38vw; background: #22D3EE; top: 24vh; right: -12vw; animation-delay: -8s; }
+  .aurora .a3 { width: 34vw; height: 34vw; background: #C084FC; bottom: -14vw; left: 32vw; animation-delay: -15s; }
+  @keyframes drift {
+    from { transform: translate3d(0,0,0) scale(1); }
+    to   { transform: translate3d(4vw,-3vh,0) scale(1.18); }
+  }
+  .grid-mesh {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: .5;
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,.028) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,.028) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, #000 40%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, #000 40%, transparent 100%);
+  }
+
+  /* ---------- Motion ---------- */
+  @keyframes riseIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  .rise { opacity: 0; animation: riseIn .55s cubic-bezier(.16,1,.3,1) forwards; }
+
+  /* ---------- Panels ---------- */
+  .glass {
+    background: linear-gradient(150deg, rgba(255,255,255,.05), rgba(255,255,255,.012));
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,.08);
+  }
+
+  /* ---------- Module card ---------- */
+  .mod {
+    position: relative; overflow: hidden; isolation: isolate;
+    background: linear-gradient(165deg, rgba(255,255,255,.045), rgba(255,255,255,0)) , #12161F;
+    border: 1px solid #232A38; border-radius: 18px;
+    transition: transform .35s cubic-bezier(.16,1,.3,1), border-color .3s, box-shadow .35s;
+  }
+  .mod::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+    background: var(--acc); opacity: .4; transition: opacity .3s, box-shadow .3s;
+  }
+  .mod::after {
+    content: ''; position: absolute; inset: 0; z-index: -1; opacity: 0; transition: opacity .4s;
+    background: radial-gradient(120% 80% at 0% 0%, color-mix(in srgb, var(--acc) 22%, transparent), transparent 60%);
+  }
+  .mod:hover, .mod:focus-within {
+    transform: translateY(-5px);
+    border-color: color-mix(in srgb, var(--acc) 45%, #232A38);
+    box-shadow: 0 22px 48px -22px color-mix(in srgb, var(--acc) 70%, transparent);
+  }
+  .mod:hover::before, .mod:focus-within::before { opacity: 1; box-shadow: 0 0 16px var(--acc); }
+  .mod:hover::after, .mod:focus-within::after { opacity: 1; }
+
+  .mod-icon {
+    background: linear-gradient(145deg, color-mix(in srgb, var(--acc) 26%, transparent), rgba(255,255,255,.02));
+    border: 1px solid color-mix(in srgb, var(--acc) 32%, transparent);
+    color: var(--acc);
+    transition: transform .35s cubic-bezier(.16,1,.3,1);
+  }
+  .mod:hover .mod-icon { transform: scale(1.06) rotate(-3deg); }
+
+  .mod-ghost {
+    position: absolute; right: -18px; top: -18px; font-size: 128px; line-height: 1;
+    color: var(--acc); opacity: .06; pointer-events: none;
+    transition: opacity .4s, transform .5s;
+  }
+  .mod:hover .mod-ghost { opacity: .13; transform: scale(1.08) rotate(6deg); }
+
+  .cat-tag {
+    color: var(--acc);
+    background: color-mix(in srgb, var(--acc) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--acc) 26%, transparent);
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn-open {
+    position: relative; overflow: hidden;
+    background: linear-gradient(135deg, #E10A2F, #8E0018);
+    box-shadow: 0 6px 18px -8px rgba(225,10,47,.9);
+    transition: filter .25s, transform .25s, box-shadow .25s;
+  }
+  .btn-open::after {
+    content: ''; position: absolute; top: 0; left: -110%; width: 55%; height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,.35), transparent);
+    transform: skewX(-20deg); transition: left .55s;
+  }
+  .mod:hover .btn-open::after { left: 160%; }
+  .btn-open:hover { filter: brightness(1.12); transform: translateY(-1px); }
+
+  .chip { transition: background-color .25s, color .25s, border-color .25s, box-shadow .25s; }
+  .chip[aria-pressed="true"] {
+    background: color-mix(in srgb, var(--acc) 16%, transparent);
+    border-color: color-mix(in srgb, var(--acc) 55%, transparent);
+    color: var(--acc);
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--acc) 22%, transparent) inset;
+  }
+
+  .star.on { color: #FBBF24; }
+  .star.on .ms { font-variation-settings: 'FILL' 1, 'wght' 500; }
+
+  /* ---------- Panels / drawers ---------- */
+  #notif-panel, #mobile-nav { transition: transform .4s cubic-bezier(.4,0,.2,1); }
+  #notif-panel { transform: translateX(105%); }
+  #notif-panel.open { transform: none; }
+  #mobile-nav { transform: translateX(-105%); }
+  #mobile-nav.open { transform: none; }
+
+  /* ---------- Misc ---------- */
+  .scroll-thin::-webkit-scrollbar { width: 5px; height: 5px; }
+  .scroll-thin::-webkit-scrollbar-thumb { background: #2C3446; border-radius: 8px; }
+  .scroll-thin::-webkit-scrollbar-track { background: transparent; }
+
+  :focus-visible { outline: 2px solid #22D3EE; outline-offset: 3px; border-radius: 6px; }
+
+  .line-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+    .rise { opacity: 1; }
+  }
+</style>
 </head>
-<body class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden selection:bg-secondary-container selection:text-on-secondary-container">
 
-<!-- TopNavBar -->
-<nav class="fixed top-0 right-0 w-full md:w-[calc(100%-16rem)] h-16 bg-surface/70 border-b border-outline-variant backdrop-blur-lg flex items-center justify-between px-6 z-40">
-    <div class="flex items-center gap-3 md:hidden">
-        <button class="material-symbols-outlined text-secondary text-2xl" onclick="toggleSidebar()">menu</button>
-        <div class="flex flex-col">
-            <span class="font-extrabold text-on-surface text-base leading-none tracking-tighter uppercase">PRIMA-WULING</span>
-        </div>
-    </div>
-    
-    <!-- Smart Search Bar -->
-    <div class="hidden md:flex flex-1 max-w-xl mx-auto">
-        <div class="relative w-full focus-within:ring-2 ring-secondary/50 rounded-full overflow-hidden transition-all duration-300 bg-surface-container-high/80 backdrop-blur">
-            <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
-            <input id="searchInput" class="w-full bg-transparent border-none text-on-surface placeholder:text-on-surface-variant py-2.5 pl-12 pr-4 focus:ring-0 focus:outline-none font-body-md text-sm" placeholder="Cari modul atau aplikasi (misal: Estimasi, Audit, Mobile)..." type="text" autocomplete="off">
-        </div>
-    </div>
+<body class="bg-base text-fg font-body antialiased overflow-x-hidden selection:bg-brand/30">
 
-    <div class="flex items-center gap-2">
-        <button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:text-white hover:bg-white/10 transition-colors relative cursor-pointer group" onclick="toggleNotifications()">
-            <span class="material-symbols-outlined group-hover:scale-110 transition-transform">notifications</span>
-            <span class="absolute top-2 right-2 w-2.5 h-2.5 bg-error rounded-full border-2 border-background animate-pulse" id="notification-dot"></span>
-        </button>
-        <div class="w-9 h-9 rounded-full bg-surface-container-highest overflow-hidden border border-outline-variant ml-4 cursor-pointer hover:border-secondary transition-colors">
-            <img alt="Administrator Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDp8prlTDpFWp7pvYKNGCxdmMFRHPVUa6bSz-bgbsYalTqjGjOjhNx6KgGUURKlwA3AEUgkKsitmvZgBxH2_O38rmT9LfrjWw5r3x1z5t4CQv4vWur-XNmRNTLwoFqLLYvtGm_uH-PVSA-mdWRGhFO2pqfbz2Vdo406PPaw4PLZEs0e9BhYKvJ2RCczavWnsCC6sPdJq1rCatHcmEovtGdeAgHGJ4H3Fx5O9BZlgAHbipkUSLth0iUfd0Er1Ay98M74fPK4wsZtDgPz">
-        </div>
-    </div>
-</nav>
+<div class="aurora" aria-hidden="true"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
+<div class="grid-mesh" aria-hidden="true"></div>
 
-<!-- SideNavBar (Desktop) -->
-<aside id="sidebar" class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 border-r border-outline-variant bg-surface/90 backdrop-blur-2xl shadow-xl py-6 z-50 transition-transform duration-300">
-    <div class="px-6 mb-8 flex flex-col w-full">
-        <img alt="PRIMA Logo" class="w-full h-auto max-h-16 object-contain object-left mb-6" src="https://www.prima-portal.com/images/prima.png">
-        <div>
-            <h1 class="text-3xl font-extrabold text-on-surface tracking-tighter leading-none uppercase text-gradient">WULING</h1>
-            <p class="font-label-md text-xs text-secondary tracking-widest uppercase mt-2 opacity-90">Performance Portal</p>
-        </div>
+<!-- ══════════ SIDEBAR (desktop) ══════════ -->
+<aside class="hidden lg:flex flex-col fixed left-0 top-0 h-screen w-[264px] border-r border-line bg-panel/80 backdrop-blur-xl z-40">
+  <div class="px-6 pt-7 pb-6">
+    <img src="https://www.prima-portal.com/images/prima.png" alt="Logo PT Prima Wahana Auto Mobil"
+         class="h-9 w-auto object-contain object-left mb-6 opacity-95">
+    <h1 class="font-display text-[26px] font-extrabold tracking-[-.04em] leading-none">
+      WULING<span class="text-brand">.</span>
+    </h1>
+    <p class="font-data text-[10px] tracking-[.28em] text-muted uppercase mt-2">Aftersales Control</p>
+  </div>
+
+  <nav class="px-3 flex-1 overflow-y-auto scroll-thin" aria-label="Kategori modul">
+    <p class="px-3 pb-2 font-data text-[10px] tracking-[.2em] text-muted/70 uppercase">Kategori</p>
+    <div id="side-cats" class="space-y-1"><!-- diisi JS --></div>
+
+    <p class="px-3 pt-6 pb-2 font-data text-[10px] tracking-[.2em] text-muted/70 uppercase">Pintasan</p>
+    <button type="button" data-scroll="#grid-section"
+            class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-muted hover:text-fg hover:bg-white/5 transition-colors">
+      <span class="ms text-[20px]">apps</span> Semua modul
+    </button>
+    <button type="button" id="side-activity"
+            class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-muted hover:text-fg hover:bg-white/5 transition-colors">
+      <span class="ms text-[20px]">history</span> Riwayat akses
+    </button>
+  </nav>
+
+  <div class="p-4 border-t border-line">
+    <div class="rounded-xl bg-panel2 border border-line px-3 py-3">
+      <div class="flex items-center gap-2 mb-1.5">
+        <span class="w-2 h-2 rounded-full bg-report shadow-[0_0_10px_rgba(52,211,153,.9)]"></span>
+        <span class="text-xs font-semibold text-fg">Semua modul aktif</span>
+      </div>
+      <p class="font-data text-[11px] text-muted"><span id="clock">--:--:--</span> WIB</p>
     </div>
-    <nav class="flex-1 px-4 space-y-2">
-        <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-secondary border-r-2 border-secondary bg-secondary-container/10 transition-all cursor-pointer" href="#">
-            <span class="material-symbols-outlined">dashboard</span>
-            <span class="font-label-md text-sm font-semibold">Dashboard</span>
-        </a>
-        <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all cursor-pointer group" href="#">
-            <span class="material-symbols-outlined group-hover:text-primary transition-colors">monitoring</span>
-            <span class="font-label-md text-sm">Analytics</span>
-        </a>
-        <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all cursor-pointer group" href="#">
-            <span class="material-symbols-outlined group-hover:text-primary transition-colors">history</span>
-            <span class="font-label-md text-sm">Activity Log</span>
-        </a>
-    </nav>
-    <div class="px-6 mt-auto pt-6 border-t border-outline-variant/50">
-        <div class="flex items-center gap-3 p-3 rounded-lg bg-surface-container border border-outline-variant/50">
-            <div class="w-2.5 h-2.5 rounded-full bg-error shadow-[0_0_8px_rgba(255,0,0,0.8)] animate-pulse" id="status-indicator"></div>
-            <span class="font-mono-data text-xs text-on-surface-variant" id="status-text">Memeriksa API...</span>
-        </div>
-    </div>
+  </div>
 </aside>
 
-<!-- Main Content Canvas -->
-<main class="pt-16 md:ml-64 min-h-screen flex flex-col relative">
-    <!-- Hero Section -->
-    <section class="relative w-full flex justify-start overflow-hidden border-b border-outline-variant p-6 md:p-10">
-        <!-- Abstract Background -->
-        <div class="absolute inset-0 bg-cover bg-center z-0 opacity-40 mix-blend-luminosity" style="background-image: url('https://images.unsplash.com/photo-1560958089-b8a1929cea89?q=80&w=2071&auto=format&fit=crop');"></div>
-        <div class="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-transparent z-0"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-0"></div>
-        
-        <div class="relative z-10 glass-panel p-8 rounded-2xl w-full max-w-7xl mx-auto animate-fade-up" style="animation-delay: 0.1s;">
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container border border-outline-variant mb-6 shadow-inner">
-                <span class="material-symbols-outlined text-sm text-secondary">explore</span>
-                <span class="font-mono-data text-xs text-on-surface-variant uppercase tracking-wider font-semibold">Portal Interaktif Utama</span>
-            </div>
-            
-            <h2 class="font-display-lg text-on-surface mb-3">
-                <span id="dynamic-greeting" class="block text-xl md:text-2xl font-medium mb-1 text-on-surface-variant">Selamat Datang di</span>
-                <span class="block text-4xl md:text-5xl text-gradient font-extrabold tracking-tighter mb-2">PT.PRIMA WAHANA AUTO MOBIL</span>
-                <span class="block text-lg md:text-xl text-primary tracking-widest uppercase opacity-90 font-semibold mt-2">ONE STOP SYSTEM - AFTERSALES DEPT</span>
-            </h2>
-            <p class="font-body-lg text-on-surface-variant max-w-3xl mt-4 text-sm md:text-base leading-relaxed">
-                Pusat kendali operasional pintar. Pantau, kelola, dan optimalkan seluruh layanan After Sales Service (AFS) dengan data real-time dan log aktivitas interaktif.
-            </p>
-            
-            <!-- Analytics Dashboard Mini -->
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 border-t border-outline-variant/40 pt-8 mt-8">
-                <!-- Traffic Stats -->
-                <div class="md:col-span-5 space-y-4">
-                    <h4 class="text-sm font-semibold text-secondary uppercase tracking-widest flex items-center gap-2">
-                        <span class="material-symbols-outlined text-base">donut_large</span> Ringkasan Trafik
-                    </h4>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-surface-container/60 p-4 rounded-xl border border-outline-variant/50 hover:border-outline-variant transition-colors">
-                            <p class="text-[11px] text-on-surface-variant uppercase tracking-wider mb-1">Total Modul Diakses</p>
-                            <p class="text-3xl font-mono-data text-white font-bold" id="total-akses-value">0</p>
-                        </div>
-                        <div class="bg-surface-container/60 p-4 rounded-xl border border-outline-variant/50 hover:border-outline-variant transition-colors">
-                            <p class="text-[11px] text-on-surface-variant uppercase tracking-wider mb-1">User Aktif (Mock)</p>
-                            <p class="text-3xl font-mono-data text-secondary font-bold flex items-center gap-2" id="user-aktif-value">
-                                42 <span class="w-2 h-2 rounded-full bg-error animate-pulse shadow-[0_0_8px_rgba(214,4,47,0.8)]"></span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Recent Activity Log (Interactive) -->
-                <div class="md:col-span-7 space-y-4">
-                    <h4 class="text-sm font-semibold text-secondary uppercase tracking-widest flex items-center gap-2">
-                        <span class="material-symbols-outlined text-base">history</span> Riwayat Aktivitas Anda
-                    </h4>
-                    <div class="bg-surface-container-lowest/50 border border-outline-variant/50 rounded-xl p-4 h-32 overflow-y-auto custom-scroll" id="activity-log-container">
-                        <!-- Diisi oleh JS -->
-                        <div class="text-center text-on-surface-variant text-sm mt-8 opacity-60">Belum ada aktivitas. Silakan luncurkan modul.</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- ══════════ SIDEBAR (mobile drawer) ══════════ -->
+<div id="nav-overlay" class="fixed inset-0 bg-ink/70 backdrop-blur-sm z-40 hidden lg:hidden"></div>
+<aside id="mobile-nav" class="lg:hidden fixed left-0 top-0 h-screen w-[272px] bg-panel border-r border-line z-50 flex flex-col">
+  <div class="px-5 pt-6 pb-5 flex items-start justify-between">
+    <div>
+      <h1 class="font-display text-2xl font-extrabold tracking-[-.04em]">WULING<span class="text-brand">.</span></h1>
+      <p class="font-data text-[10px] tracking-[.24em] text-muted uppercase mt-1.5">Aftersales Control</p>
+    </div>
+    <button type="button" data-close-nav class="w-9 h-9 rounded-full bg-panel2 border border-line grid place-items-center text-muted" aria-label="Tutup menu">
+      <span class="ms text-[18px]">close</span>
+    </button>
+  </div>
+  <nav class="px-3 flex-1 overflow-y-auto scroll-thin" aria-label="Kategori modul (mobile)">
+    <div id="side-cats-mobile" class="space-y-1"></div>
+  </nav>
+  <div class="p-4 border-t border-line font-data text-[11px] text-muted">
+    <span id="clock-mobile">--:--:--</span> WIB · semua modul aktif
+  </div>
+</aside>
 
-    <!-- Apps Grid Section -->
-    <section class="flex-1 p-6 md:p-10 max-w-7xl w-full mx-auto relative z-10">
-        <!-- Filter Bar -->
-        <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-8 gap-4 border-b border-outline-variant pb-6">
-            <h3 class="text-2xl font-bold text-on-surface flex items-center gap-3">
-                <span class="material-symbols-outlined text-secondary text-3xl">apps</span>
-                Modul Operasional
-            </h3>
-            
-            <!-- Category Chips -->
-            <div class="flex flex-wrap gap-2" id="category-filters">
-                <button class="px-4 py-1.5 rounded-full text-sm font-medium bg-secondary text-on-secondary hover:bg-secondary/90 transition-colors filter-btn active" data-filter="all">Semua</button>
-                <button class="px-4 py-1.5 rounded-full text-sm font-medium bg-surface-container border border-outline-variant text-on-surface-variant hover:text-white transition-colors filter-btn" data-filter="service">Service</button>
-                <button class="px-4 py-1.5 rounded-full text-sm font-medium bg-surface-container border border-outline-variant text-on-surface-variant hover:text-white transition-colors filter-btn" data-filter="crm">CRM / Audit</button>
-                <button class="px-4 py-1.5 rounded-full text-sm font-medium bg-surface-container border border-outline-variant text-on-surface-variant hover:text-white transition-colors filter-btn" data-filter="report">Report</button>
-            </div>
+<!-- ══════════ TOP BAR ══════════ -->
+<header class="fixed top-0 right-0 left-0 lg:left-[264px] h-16 z-30 bg-base/75 backdrop-blur-xl border-b border-line flex items-center gap-3 px-4 md:px-6">
+  <button type="button" id="open-nav" class="lg:hidden w-10 h-10 rounded-xl grid place-items-center text-fg hover:bg-white/5" aria-label="Buka menu">
+    <span class="ms">menu</span>
+  </button>
+  <span class="lg:hidden font-display font-extrabold tracking-[-.03em] text-base">WULING<span class="text-brand">.</span></span>
+
+  <div class="flex-1 max-w-xl mx-auto hidden sm:block">
+    <div class="relative group">
+      <span class="ms absolute left-4 top-1/2 -translate-y-1/2 text-muted text-[20px] group-focus-within:text-brand transition-colors">search</span>
+      <input id="search" type="search" autocomplete="off"
+             class="w-full bg-panel2/80 border border-line rounded-full py-2.5 pl-12 pr-16 text-sm placeholder:text-muted/80 focus:outline-none focus:border-brand/60 focus:bg-panel2 transition-colors"
+             placeholder="Cari modul — estimasi, stok, retensi, laporan…">
+      <kbd class="absolute right-3 top-1/2 -translate-y-1/2 font-data text-[10px] text-muted border border-line rounded px-1.5 py-0.5 hidden md:block">/</kbd>
+    </div>
+  </div>
+
+  <div class="flex items-center gap-1 ml-auto">
+    <button type="button" id="open-search-mobile" class="sm:hidden w-10 h-10 rounded-xl grid place-items-center text-muted hover:text-fg hover:bg-white/5" aria-label="Cari modul">
+      <span class="ms">search</span>
+    </button>
+    <button type="button" id="open-notif" class="relative w-10 h-10 rounded-xl grid place-items-center text-muted hover:text-fg hover:bg-white/5 transition-colors" aria-label="Buka notifikasi">
+      <span class="ms">notifications</span>
+      <span id="notif-dot" class="absolute top-2 right-2 w-2 h-2 rounded-full bg-brand ring-2 ring-base"></span>
+    </button>
+    <div class="w-9 h-9 rounded-full overflow-hidden border border-line ml-2 shrink-0">
+      <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDp8prlTDpFWp7pvYKNGCxdmMFRHPVUa6bSz-bgbsYalTqjGjOjhNx6KgGUURKlwA3AEUgkKsitmvZgBxH2_O38rmT9LfrjWw5r3x1z5t4CQv4vWur-XNmRNTLwoFqLLYvtGm_uH-PVSA-mdWRGhFO2pqfbz2Vdo406PPaw4PLZEs0e9BhYKvJ2RCczavWnsCC6sPdJq1rCatHcmEovtGdeAgHGJ4H3Fx5O9BZlgAHbipkUSLth0iUfd0Er1Ay98M74fPK4wsZtDgPz"
+           alt="Foto profil pengguna" class="w-full h-full object-cover">
+    </div>
+  </div>
+</header>
+
+<!-- mobile search sheet -->
+<div id="search-mobile" class="sm:hidden fixed top-16 left-0 right-0 z-30 px-4 py-3 bg-base/95 backdrop-blur-xl border-b border-line hidden">
+  <div class="relative">
+    <span class="ms absolute left-4 top-1/2 -translate-y-1/2 text-muted text-[20px]">search</span>
+    <input id="search-m" type="search" autocomplete="off"
+           class="w-full bg-panel2 border border-line rounded-full py-2.5 pl-12 pr-4 text-sm placeholder:text-muted/80 focus:outline-none focus:border-brand/60"
+           placeholder="Cari modul…">
+  </div>
+</div>
+
+<!-- ══════════ MAIN ══════════ -->
+<main class="relative z-10 lg:ml-[264px] pt-16 min-h-screen flex flex-col">
+
+  <!-- ─── HERO ─── -->
+  <section class="px-4 md:px-8 lg:px-10 pt-8 pb-2">
+    <div class="max-w-[1400px] mx-auto">
+
+      <div class="glass rounded-3xl p-6 md:p-9 rise" style="animation-delay:.05s">
+        <div class="inline-flex items-center gap-2 rounded-full border border-line bg-panel2/70 px-3 py-1.5 mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-report animate-pulse"></span>
+          <span class="font-data text-[10px] uppercase tracking-[.18em] text-muted">One Stop System · Aftersales Dept</span>
         </div>
 
-        <!-- Grid Container -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="apps-grid">
-            
-            <!-- App Card 1: Estimasi Non Warranty -->
-            <article class="app-card carbon-pattern rounded-2xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative animate-fade-up" style="animation-delay: 0.1s;" data-category="service" data-name="estimasi non warranty">
-                <div id="badge-prod_tracker" class="absolute top-4 right-4 z-20"></div>
-                <div class="absolute -right-6 -top-6 p-4 opacity-5 group-hover:opacity-10 transition-opacity transform group-hover:scale-110 duration-500 pointer-events-none">
-                    <span class="material-symbols-outlined text-9xl text-primary">precision_manufacturing</span>
-                </div>
-                <div class="p-6 flex-1 relative z-10">
-                    <div class="w-14 h-14 rounded-xl bg-surface-container-high shadow-lg border border-outline-variant flex items-center justify-center mb-5 text-tertiary-fixed-dim group-hover:text-secondary group-hover:border-secondary/50 transition-colors">
-                        <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">precision_manufacturing</span>
-                    </div>
-                    <h4 class="text-lg font-bold text-on-surface mb-2 tracking-tight group-hover:text-white transition-colors line-clamp-1">Estimasi Non Warranty</h4>
-                    <p class="text-sm text-on-surface-variant mb-6 line-clamp-2">Pembuatan estimasi untuk non warranty. Jasa, Sparepart, Sublet Opl.</p>
-                </div>
-                <div class="p-4 border-t border-outline-variant/30 bg-surface-container-lowest/90 backdrop-blur-md z-10 flex items-center justify-between">
-                    <div class="flex gap-2 status-container">
-                        <span class="px-2 py-1 rounded text-[10px] font-mono-data bg-tertiary-container text-tertiary-fixed border border-tertiary-fixed/20 tracking-wider font-semibold">LIVE</span>
-                    </div>
-                    <a class="btn-primary px-4 py-2 rounded-lg text-sm font-semibold text-white flex items-center gap-2 cursor-pointer launch-btn shadow-lg" href="https://nonwarranty-estimasi.netlify.app" data-appid="prod_tracker" data-appname="Estimasi Non Warranty" target="_blank">
-                        Buka <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                    </a>
-                </div>
-            </article>
+        <p id="greeting" class="text-muted text-base md:text-lg mb-1">Selamat datang di</p>
+        <h2 class="font-display font-extrabold tracking-[-.045em] leading-[.95] text-[34px] md:text-[54px] mb-3">
+          PT PRIMA WAHANA<br class="hidden md:block"> AUTO MOBIL
+        </h2>
+        <p class="text-muted max-w-2xl text-sm md:text-[15px] leading-relaxed">
+          Pusat kendali operasional after sales. Pilih modul di bawah untuk memantau service, stok,
+          retensi pelanggan, dan pelaporan harian — semuanya dari satu halaman.
+        </p>
 
-            <!-- App Card 2: Estimasi Free Service -->
-            <article class="app-card carbon-pattern rounded-2xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative animate-fade-up" style="animation-delay: 0.15s;" data-category="service" data-name="estimasi free service inventory">
-                <div id="badge-inventory" class="absolute top-4 right-4 z-20"></div>
-                <div class="absolute -right-6 -top-6 p-4 opacity-5 group-hover:opacity-10 transition-opacity transform group-hover:scale-110 duration-500 pointer-events-none">
-                    <span class="material-symbols-outlined text-9xl text-primary">inventory_2</span>
-                </div>
-                <div class="p-6 flex-1 relative z-10">
-                    <div class="w-14 h-14 rounded-xl bg-surface-container-high shadow-lg border border-outline-variant flex items-center justify-center mb-5 text-tertiary-fixed-dim group-hover:text-secondary group-hover:border-secondary/50 transition-colors">
-                        <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
-                    </div>
-                    <h4 class="text-lg font-bold text-on-surface mb-2 tracking-tight group-hover:text-white transition-colors line-clamp-1">Estimasi Free Service</h4>
-                    <p class="text-sm text-on-surface-variant mb-6 line-clamp-2">Pembuatan estimasi khusus untuk perawatan berkala warranty.</p>
-                </div>
-                <div class="p-4 border-t border-outline-variant/30 bg-surface-container-lowest/90 backdrop-blur-md z-10 flex items-center justify-between">
-                    <div class="flex gap-2 status-container">
-                        <span class="px-2 py-1 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant tracking-wider font-semibold">STABLE</span>
-                    </div>
-                    <a class="btn-primary px-4 py-2 rounded-lg text-sm font-semibold text-white flex items-center gap-2 cursor-pointer launch-btn shadow-lg" href="https://estimasi-prima.netlify.app" data-appid="inventory" data-appname="Estimasi Free Service" target="_blank">
-                        Buka <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                    </a>
-                </div>
-            </article>
-
-            <!-- App Card 3: Gate Pass System -->
-            <article class="app-card carbon-pattern rounded-2xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative animate-fade-up" style="animation-delay: 0.2s;" data-category="report" data-name="gate pass system quality control">
-                <div id="badge-quality_control" class="absolute top-4 right-4 z-20"></div>
-                <div class="absolute -right-6 -top-6 p-4 opacity-5 group-hover:opacity-10 transition-opacity transform group-hover:scale-110 duration-500 pointer-events-none">
-                    <span class="material-symbols-outlined text-9xl text-primary">fact_check</span>
-                </div>
-                <div class="p-6 flex-1 relative z-10">
-                    <div class="w-14 h-14 rounded-xl bg-surface-container-high shadow-lg border border-outline-variant flex items-center justify-center mb-5 text-secondary group-hover:border-secondary/50 transition-colors">
-                        <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">fact_check</span>
-                    </div>
-                    <h4 class="text-lg font-bold text-on-surface mb-2 tracking-tight group-hover:text-white transition-colors line-clamp-1">Gate Pass System</h4>
-                    <p class="text-sm text-on-surface-variant mb-6 line-clamp-2">Log In-Out dan pelacakan kendaraan keluar masuk dealer.</p>
-                </div>
-                <div class="p-4 border-t border-outline-variant/30 bg-surface-container-lowest/90 backdrop-blur-md z-10 flex items-center justify-between">
-                    <div class="flex gap-2 status-container">
-                        <span class="px-2 py-1 rounded text-[10px] font-mono-data bg-error-container text-on-error-container border border-error/20 flex items-center gap-1 tracking-wider font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-error animate-pulse"></span> ALERT</span>
-                    </div>
-                    <a class="btn-primary px-4 py-2 rounded-lg text-sm font-semibold text-white flex items-center gap-2 cursor-pointer launch-btn shadow-lg" href="https://gatepass-system.netlify.app" data-appid="quality_control" data-appname="Gate Pass System" target="_blank">
-                        Buka <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                    </a>
-                </div>
-            </article>
-
-            <!-- App Card 4: Daily Report SM -->
-            <article class="app-card carbon-pattern rounded-2xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative animate-fade-up" style="animation-delay: 0.25s;" data-category="report" data-name="daily report sm logistics">
-                <div id="badge-logistics" class="absolute top-4 right-4 z-20"></div>
-                <div class="absolute -right-6 -top-6 p-4 opacity-5 group-hover:opacity-10 transition-opacity transform group-hover:scale-110 duration-500 pointer-events-none">
-                    <span class="material-symbols-outlined text-9xl text-primary">local_shipping</span>
-                </div>
-                <div class="p-6 flex-1 relative z-10">
-                    <div class="w-14 h-14 rounded-xl bg-surface-container-high shadow-lg border border-outline-variant flex items-center justify-center mb-5 text-tertiary-fixed-dim group-hover:text-secondary group-hover:border-secondary/50 transition-colors">
-                        <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
-                    </div>
-                    <h4 class="text-lg font-bold text-on-surface mb-2 tracking-tight group-hover:text-white transition-colors line-clamp-1">Daily Report SM</h4>
-                    <p class="text-sm text-on-surface-variant mb-6 line-clamp-2">Laporan harian service manager terkait kondisi operasional.</p>
-                </div>
-                <div class="p-4 border-t border-outline-variant/30 bg-surface-container-lowest/90 backdrop-blur-md z-10 flex items-center justify-between">
-                    <div class="flex gap-2 status-container">
-                        <span class="px-2 py-1 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant tracking-wider font-semibold">STABLE</span>
-                    </div>
-                    <a class="btn-primary px-4 py-2 rounded-lg text-sm font-semibold text-white flex items-center gap-2 cursor-pointer launch-btn shadow-lg" href="https://sm-reportdaily.netlify.app" data-appid="logistics" data-appname="Daily Report SM" target="_blank">
-                        Buka <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                    </a>
-                </div>
-            </article>
-
-            <!-- App Card 5: Mobile Service -->
-            <article class="app-card carbon-pattern rounded-2xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative animate-fade-up" style="animation-delay: 0.3s;" data-category="service" data-name="mobile service hr">
-                <div id="badge-hr" class="absolute top-4 right-4 z-20"></div>
-                <div class="absolute -right-6 -top-6 p-4 opacity-5 group-hover:opacity-10 transition-opacity transform group-hover:scale-110 duration-500 pointer-events-none">
-                    <span class="material-symbols-outlined text-9xl text-primary">groups</span>
-                </div>
-                <div class="p-6 flex-1 relative z-10">
-                    <div class="w-14 h-14 rounded-xl bg-surface-container-high shadow-lg border border-outline-variant flex items-center justify-center mb-5 text-tertiary-fixed-dim group-hover:text-secondary group-hover:border-secondary/50 transition-colors">
-                        <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">groups</span>
-                    </div>
-                    <h4 class="text-lg font-bold text-on-surface mb-2 tracking-tight group-hover:text-white transition-colors line-clamp-1">Mobile Service</h4>
-                    <p class="text-sm text-on-surface-variant mb-6 line-clamp-2">Monitor secara real time aktifitas mobile service mekanik kunjungan / ERA.</p>
-                </div>
-                <div class="p-4 border-t border-outline-variant/30 bg-surface-container-lowest/90 backdrop-blur-md z-10 flex items-center justify-between">
-                    <div class="flex gap-2 status-container">
-                        <span class="px-2 py-1 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant tracking-wider font-semibold">LIVE</span>
-                    </div>
-                    <a class="btn-primary px-4 py-2 rounded-lg text-sm font-semibold text-white flex items-center gap-2 cursor-pointer launch-btn shadow-lg" href="https://wms-prima.netlify.app" data-appid="hr" data-appname="Mobile Service" target="_blank">
-                        Buka <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                    </a>
-                </div>
-            </article>
-
-            <!-- App Card 6: Service Board -->
-            <article class="app-card carbon-pattern rounded-2xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative animate-fade-up" style="animation-delay: 0.35s;" data-category="service" data-name="service board crm">
-                <div id="badge-board" class="absolute top-4 right-4 z-20"></div>
-                <div class="absolute -right-6 -top-6 p-4 opacity-5 group-hover:opacity-10 transition-opacity transform group-hover:scale-110 duration-500 pointer-events-none">
-                    <span class="material-symbols-outlined text-9xl text-primary">view_timeline</span>
-                </div>
-                <div class="p-6 flex-1 relative z-10">
-                    <div class="w-14 h-14 rounded-xl bg-surface-container-high shadow-lg border border-outline-variant flex items-center justify-center mb-5 text-tertiary-fixed-dim group-hover:text-secondary group-hover:border-secondary/50 transition-colors">
-                        <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">view_timeline</span>
-                    </div>
-                    <h4 class="text-lg font-bold text-on-surface mb-2 tracking-tight group-hover:text-white transition-colors line-clamp-1">Service Board</h4>
-                    <p class="text-sm text-on-surface-variant mb-6 line-clamp-2">Monitoring aktifitas service secara real time dan aktifitas mekanik.</p>
-                </div>
-                <div class="p-4 border-t border-outline-variant/30 bg-surface-container-lowest/90 backdrop-blur-md z-10 flex items-center justify-between">
-                    <div class="flex gap-2 status-container">
-                        <span class="px-2 py-1 rounded text-[10px] font-mono-data bg-tertiary-container text-tertiary-fixed border border-tertiary-fixed/20 tracking-wider font-semibold">LIVE</span>
-                    </div>
-                    <a class="btn-primary px-4 py-2 rounded-lg text-sm font-semibold text-white flex items-center gap-2 cursor-pointer launch-btn shadow-lg" href="https://service-board.netlify.app" data-appid="board" data-appname="Service Board" target="_blank">
-                        Buka <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                    </a>
-                </div>
-            </article>
-
-            <!-- App Card 7: E-Dealer Audit -->
-            <article class="app-card carbon-pattern rounded-2xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative animate-fade-up" style="animation-delay: 0.4s;" data-category="crm" data-name="edealer audit system crm">
-                <div id="badge-audit" class="absolute top-4 right-4 z-20"></div>
-                <div class="absolute -right-6 -top-6 p-4 opacity-5 group-hover:opacity-10 transition-opacity transform group-hover:scale-110 duration-500 pointer-events-none">
-                    <span class="material-symbols-outlined text-9xl text-primary">assignment_turned_in</span>
-                </div>
-                <div class="p-6 flex-1 relative z-10">
-                    <div class="w-14 h-14 rounded-xl bg-surface-container-high shadow-lg border border-outline-variant flex items-center justify-center mb-5 text-tertiary-fixed-dim group-hover:text-secondary group-hover:border-secondary/50 transition-colors">
-                        <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">assignment_turned_in</span>
-                    </div>
-                    <h4 class="text-lg font-bold text-on-surface mb-2 tracking-tight group-hover:text-white transition-colors line-clamp-1">E-Dealer Audit</h4>
-                    <p class="text-sm text-on-surface-variant mb-6 line-clamp-2">Sistem verifikasi kepatuhan operasional dan standar layanan.</p>
-                </div>
-                <div class="p-4 border-t border-outline-variant/30 bg-surface-container-lowest/90 backdrop-blur-md z-10 flex items-center justify-between">
-                    <div class="flex gap-2 status-container">
-                        <span class="px-2 py-1 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant tracking-wider font-semibold">LIVE</span>
-                    </div>
-                    <a class="btn-primary px-4 py-2 rounded-lg text-sm font-semibold text-white flex items-center gap-2 cursor-pointer launch-btn shadow-lg" href="https://dealer-audit.netlify.app" data-appid="audit" data-appname="E-Dealer Audit" target="_blank">
-                        Buka <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                    </a>
-                </div>
-            </article>
-
-            <!-- App Card 8: Overnight Monitoring -->
-            <article class="app-card carbon-pattern rounded-2xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative animate-fade-up" style="animation-delay: 0.45s;" data-category="service" data-name="overnight monitoring system">
-                <div id="badge-overnight" class="absolute top-4 right-4 z-20"></div>
-                <div class="absolute -right-6 -top-6 p-4 opacity-5 group-hover:opacity-10 transition-opacity transform group-hover:scale-110 duration-500 pointer-events-none">
-                    <span class="material-symbols-outlined text-9xl text-primary">nights_stay</span>
-                </div>
-                <div class="p-6 flex-1 relative z-10">
-                    <div class="w-14 h-14 rounded-xl bg-surface-container-high shadow-lg border border-outline-variant flex items-center justify-center mb-5 text-tertiary-fixed-dim group-hover:text-secondary group-hover:border-secondary/50 transition-colors">
-                        <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">nights_stay</span>
-                    </div>
-                    <h4 class="text-lg font-bold text-on-surface mb-2 tracking-tight group-hover:text-white transition-colors line-clamp-1">Overnight Monitoring</h4>
-                    <p class="text-sm text-on-surface-variant mb-6 line-clamp-2">Monitor kendaraan inap yang masih dalam tahap WIP di dealer.</p>
-                </div>
-                <div class="p-4 border-t border-outline-variant/30 bg-surface-container-lowest/90 backdrop-blur-md z-10 flex items-center justify-between">
-                    <div class="flex gap-2 status-container">
-                        <span class="px-2 py-1 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant tracking-wider font-semibold">LIVE</span>
-                    </div>
-                    <a class="btn-primary px-4 py-2 rounded-lg text-sm font-semibold text-white flex items-center gap-2 cursor-pointer launch-btn shadow-lg" href="https://overnight-prima.netlify.app" data-appid="overnight" data-appname="Overnight Monitoring" target="_blank">
-                        Buka <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                    </a>
-                </div>
-            </article>
-
-            <!-- App Card 9: Problem Solving System -->
-            <article class="app-card carbon-pattern rounded-2xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative animate-fade-up" style="animation-delay: 0.5s;" data-category="report" data-name="problem solving system">
-                <div id="badge-psr" class="absolute top-4 right-4 z-20"></div>
-                <div class="absolute -right-6 -top-6 p-4 opacity-5 group-hover:opacity-10 transition-opacity transform group-hover:scale-110 duration-500 pointer-events-none">
-                    <span class="material-symbols-outlined text-9xl text-primary">engineering</span>
-                </div>
-                <div class="p-6 flex-1 relative z-10">
-                    <div class="w-14 h-14 rounded-xl bg-surface-container-high shadow-lg border border-outline-variant flex items-center justify-center mb-5 text-tertiary-fixed-dim group-hover:text-secondary group-hover:border-secondary/50 transition-colors">
-                        <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">engineering</span>
-                    </div>
-                    <h4 class="text-lg font-bold text-on-surface mb-2 tracking-tight group-hover:text-white transition-colors line-clamp-1">Problem Solving System</h4>
-                    <p class="text-sm text-on-surface-variant mb-6 line-clamp-2">Monitor project improvement service manager.</p>
-                </div>
-                <div class="p-4 border-t border-outline-variant/30 bg-surface-container-lowest/90 backdrop-blur-md z-10 flex items-center justify-between">
-                    <div class="flex gap-2 status-container">
-                        <span class="px-2 py-1 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant tracking-wider font-semibold">LIVE</span>
-                    </div>
-                    <a class="btn-primary px-4 py-2 rounded-lg text-sm font-semibold text-white flex items-center gap-2 cursor-pointer launch-btn shadow-lg" href="https://psr-system.netlify.app" data-appid="psr" data-appname="Problem Solving System" target="_blank">
-                        Buka <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                    </a>
-                </div>
-            </article>
-
-            <!-- App Card 10: Retention Monitoring System -->
-            <article class="app-card carbon-pattern rounded-2xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative animate-fade-up" style="animation-delay: 0.55s;" data-category="crm" data-name="retention monitoring system">
-                <div id="badge-retention" class="absolute top-4 right-4 z-20"></div>
-                <div class="absolute -right-6 -top-6 p-4 opacity-5 group-hover:opacity-10 transition-opacity transform group-hover:scale-110 duration-500 pointer-events-none">
-                    <span class="material-symbols-outlined text-9xl text-primary">handshake</span>
-                </div>
-                <div class="p-6 flex-1 relative z-10">
-                    <div class="w-14 h-14 rounded-xl bg-surface-container-high shadow-lg border border-outline-variant flex items-center justify-center mb-5 text-tertiary-fixed-dim group-hover:text-secondary group-hover:border-secondary/50 transition-colors">
-                        <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">handshake</span>
-                    </div>
-                    <h4 class="text-lg font-bold text-on-surface mb-2 tracking-tight group-hover:text-white transition-colors line-clamp-1">Retention Monitoring</h4>
-                    <p class="text-sm text-on-surface-variant mb-6 line-clamp-2">Monitor Customer yang sudah masuk waktunya service dan kinerja CCO.</p>
-                </div>
-                <div class="p-4 border-t border-outline-variant/30 bg-surface-container-lowest/90 backdrop-blur-md z-10 flex items-center justify-between">
-                    <div class="flex gap-2 status-container">
-                        <span class="px-2 py-1 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant tracking-wider font-semibold">LIVE</span>
-                    </div>
-                    <a class="btn-primary px-4 py-2 rounded-lg text-sm font-semibold text-white flex items-center gap-2 cursor-pointer launch-btn shadow-lg" href="https://retension-system.netlify.app" data-appid="retention" data-appname="Retention Monitoring" target="_blank">
-                        Buka <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                    </a>
-                </div>
-            </article>
-
-            <!-- App Card 11: Fleet-Care Monitoring System -->
-            <article class="app-card carbon-pattern rounded-2xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative animate-fade-up" style="animation-delay: 0.6s;" data-category="crm" data-name="fleet care monitoring system">
-                <div id="badge-fleet" class="absolute top-4 right-4 z-20"></div>
-                <div class="absolute -right-6 -top-6 p-4 opacity-5 group-hover:opacity-10 transition-opacity transform group-hover:scale-110 duration-500 pointer-events-none">
-                    <span class="material-symbols-outlined text-9xl text-primary">directions_car</span>
-                </div>
-                <div class="p-6 flex-1 relative z-10">
-                    <div class="w-14 h-14 rounded-xl bg-surface-container-high shadow-lg border border-outline-variant flex items-center justify-center mb-5 text-tertiary-fixed-dim group-hover:text-secondary group-hover:border-secondary/50 transition-colors">
-                        <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">directions_car</span>
-                    </div>
-                    <h4 class="text-lg font-bold text-on-surface mb-2 tracking-tight group-hover:text-white transition-colors line-clamp-1">Fleet-Care Monitoring</h4>
-                    <p class="text-sm text-on-surface-variant mb-6 line-clamp-2">Monitor Customer Fleet untuk waktunya service dan kinerja follow CCO.</p>
-                </div>
-                <div class="p-4 border-t border-outline-variant/30 bg-surface-container-lowest/90 backdrop-blur-md z-10 flex items-center justify-between">
-                    <div class="flex gap-2 status-container">
-                        <span class="px-2 py-1 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant tracking-wider font-semibold">LIVE</span>
-                    </div>
-                    <a class="btn-primary px-4 py-2 rounded-lg text-sm font-semibold text-white flex items-center gap-2 cursor-pointer launch-btn shadow-lg" href="https://fleet-prima.netlify.app" data-appid="fleet" data-appname="Fleet-Care Monitoring" target="_blank">
-                        Buka <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                    </a>
-                </div>
-            </article>
-
-            <!-- App Card 12: Virtual Account System -->
-            <article class="app-card carbon-pattern rounded-2xl border border-outline-variant overflow-hidden flex flex-col card-hover h-full group relative animate-fade-up" style="animation-delay: 0.65s;" data-category="report" data-name="virtual account system va">
-                <div id="badge-va" class="absolute top-4 right-4 z-20"></div>
-                <div class="absolute -right-6 -top-6 p-4 opacity-5 group-hover:opacity-10 transition-opacity transform group-hover:scale-110 duration-500 pointer-events-none">
-                    <span class="material-symbols-outlined text-9xl text-primary">account_balance_wallet</span>
-                </div>
-                <div class="p-6 flex-1 relative z-10">
-                    <div class="w-14 h-14 rounded-xl bg-surface-container-high shadow-lg border border-outline-variant flex items-center justify-center mb-5 text-tertiary-fixed-dim group-hover:text-secondary group-hover:border-secondary/50 transition-colors">
-                        <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
-                    </div>
-                    <h4 class="text-lg font-bold text-on-surface mb-2 tracking-tight group-hover:text-white transition-colors line-clamp-1">Virtual Account System</h4>
-                    <p class="text-sm text-on-surface-variant mb-6 line-clamp-2">Sistem ini dirancang untuk memonitor dana VA dan kapan harus order.</p>
-                </div>
-                <div class="p-4 border-t border-outline-variant/30 bg-surface-container-lowest/90 backdrop-blur-md z-10 flex items-center justify-between">
-                    <div class="flex gap-2 status-container">
-                        <span class="px-2 py-1 rounded text-[10px] font-mono-data bg-surface-container-high text-on-surface-variant border border-outline-variant tracking-wider font-semibold">LIVE</span>
-                    </div>
-                    <a class="btn-primary px-4 py-2 rounded-lg text-sm font-semibold text-white flex items-center gap-2 cursor-pointer launch-btn shadow-lg" href="https://va-inventory.netlify.app" data-appid="va" data-appname="Virtual Account System" target="_blank">
-                        Buka <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                    </a>
-                </div>
-            </article>
-
+        <!-- instrument strip -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 mt-8 pt-8 border-t border-white/10">
+          <div class="rounded-2xl border border-line bg-panel/60 p-4">
+            <p class="text-[10px] uppercase tracking-[.16em] text-muted mb-2">Modul tersedia</p>
+            <p class="font-data text-3xl font-semibold" id="stat-modules">0</p>
+          </div>
+          <div class="rounded-2xl border border-line bg-panel/60 p-4">
+            <p class="text-[10px] uppercase tracking-[.16em] text-muted mb-2">Total akses Anda</p>
+            <p class="font-data text-3xl font-semibold text-parts" id="stat-clicks">0</p>
+          </div>
+          <div class="rounded-2xl border border-line bg-panel/60 p-4">
+            <p class="text-[10px] uppercase tracking-[.16em] text-muted mb-2">Modul favorit</p>
+            <p class="font-data text-3xl font-semibold text-[#FBBF24]" id="stat-fav">0</p>
+          </div>
+          <div class="rounded-2xl border border-line bg-panel/60 p-4">
+            <p class="text-[10px] uppercase tracking-[.16em] text-muted mb-2">Terakhir dibuka</p>
+            <p class="text-sm font-semibold leading-snug mt-1.5 line-2" id="stat-last">—</p>
+          </div>
         </div>
-        
-        <!-- Empty State for Search -->
-        <div id="empty-state" class="hidden text-center py-20 animate-fade-up">
-            <span class="material-symbols-outlined text-6xl text-on-surface-variant/50 mb-4">search_off</span>
-            <h4 class="text-xl font-semibold text-on-surface">Modul Tidak Ditemukan</h4>
-            <p class="text-on-surface-variant mt-2">Coba gunakan kata kunci lain atau pilih kategori "Semua".</p>
-        </div>
-    </section>
+      </div>
 
-    <!-- Footer -->
-    <footer class="mt-auto w-full py-4 px-6 md:px-10 border-t border-outline-variant bg-surface-container-lowest flex flex-col md:flex-row justify-between items-center z-40 gap-4">
-        <span class="font-mono-data text-xs text-on-surface-variant">© 2024 Wuling Motors - PT Prima Wahana Auto Mobil. v3.0-modern</span>
-        <div class="flex gap-6">
-            <a class="text-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Panduan</a>
-            <a class="text-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Support IT</a>
+      <!-- activity -->
+      <div id="activity-card" class="glass rounded-3xl p-5 md:p-6 mt-4 rise" style="animation-delay:.12s">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-sm font-bold flex items-center gap-2">
+            <span class="ms text-[18px] text-brand">history</span> Riwayat akses Anda
+          </h3>
+          <button type="button" id="clear-history" class="font-data text-[10px] uppercase tracking-wider text-muted hover:text-brand transition-colors">Hapus</button>
         </div>
-    </footer>
+        <div id="activity-list" class="max-h-36 overflow-y-auto scroll-thin pr-1"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── MODULE GRID ─── -->
+  <section id="grid-section" class="px-4 md:px-8 lg:px-10 py-8 flex-1">
+    <div class="max-w-[1400px] mx-auto">
+
+      <div class="flex flex-col xl:flex-row xl:items-center justify-between gap-4 pb-6 mb-7 border-b border-line">
+        <div>
+          <h3 class="font-display text-2xl font-bold tracking-[-.03em]">Modul operasional</h3>
+          <p class="text-xs text-muted mt-1"><span id="visible-count">0</span> modul ditampilkan · klik ikon bintang untuk menyematkan favorit</p>
+        </div>
+        <div id="filters" class="flex flex-wrap gap-2"></div>
+      </div>
+
+      <div id="grid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 md:gap-5"></div>
+
+      <div id="empty" class="hidden text-center py-20">
+        <span class="ms text-[56px] text-muted/40">search_off</span>
+        <h4 class="text-lg font-semibold mt-3">Modul tidak ditemukan</h4>
+        <p class="text-sm text-muted mt-1">Coba kata kunci lain, atau pilih kategori “Semua”.</p>
+        <button type="button" id="reset-filter" class="mt-5 px-4 py-2 rounded-full border border-line text-sm text-muted hover:text-fg hover:border-brand/50 transition-colors">Tampilkan semua modul</button>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="border-t border-line bg-panel/40 px-4 md:px-10 py-5">
+    <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
+      <p class="font-data text-[11px] text-muted">© <span id="year"></span> Wuling Motors · PT Prima Wahana Auto Mobil · v4.0</p>
+      <div class="flex gap-5 text-xs text-muted">
+        <a href="#" class="hover:text-brand transition-colors">Panduan</a>
+        <a href="#" class="hover:text-brand transition-colors">Support IT</a>
+      </div>
+    </div>
+  </footer>
 </main>
 
-<!-- Notifications Sidebar -->
-<aside class="fixed top-0 right-0 h-screen w-[340px] bg-surface-container/95 backdrop-blur-2xl border-l border-outline-variant z-50 flex flex-col shadow-2xl" id="notifications-panel">
-    <div class="p-6 border-b border-outline-variant flex items-center justify-between">
-        <h3 class="text-lg font-bold text-on-surface flex items-center gap-2">
-            <span class="material-symbols-outlined text-secondary">notifications_active</span> Notifikasi
-        </h3>
-        <button class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center hover:bg-white/10 transition-colors" onclick="toggleNotifications()">
-            <span class="material-symbols-outlined text-sm">close</span>
-        </button>
-    </div>
-    <div class="flex-1 overflow-y-auto p-4 space-y-3 custom-scroll" id="notifications-list">
-        <!-- Notif Items -->
-        <div class="p-4 rounded-xl bg-surface-container border border-outline-variant hover:border-tertiary/50 transition-colors flex gap-3 group">
-            <div class="w-8 h-8 rounded-full bg-tertiary/10 flex items-center justify-center shrink-0">
-                <span class="material-symbols-outlined text-tertiary text-sm">campaign</span>
-            </div>
-            <div>
-                <p class="text-sm font-bold text-on-surface mb-1">Update Sistem v3.0</p>
-                <p class="text-xs text-on-surface-variant leading-relaxed">Tampilan UI baru dan fitur analitik interaktif telah ditambahkan.</p>
-                <span class="text-[10px] text-on-surface-variant/50 mt-2 block font-mono-data">Baru Saja</span>
-            </div>
+<!-- ══════════ NOTIFIKASI ══════════ -->
+<div id="notif-overlay" class="fixed inset-0 bg-ink/70 backdrop-blur-sm z-40 hidden"></div>
+<aside id="notif-panel" class="fixed top-0 right-0 h-screen w-full max-w-[360px] bg-panel border-l border-line z-50 flex flex-col" role="dialog" aria-label="Notifikasi">
+  <div class="px-5 py-5 border-b border-line flex items-center justify-between">
+    <h3 class="font-bold flex items-center gap-2"><span class="ms text-brand">notifications_active</span> Notifikasi</h3>
+    <button type="button" data-close-notif class="w-9 h-9 rounded-full bg-panel2 border border-line grid place-items-center text-muted hover:text-fg" aria-label="Tutup notifikasi">
+      <span class="ms text-[18px]">close</span>
+    </button>
+  </div>
+  <div id="notif-list" class="flex-1 overflow-y-auto scroll-thin p-4 space-y-3">
+    <article class="rounded-2xl bg-panel2 border border-line p-4">
+      <div class="flex gap-3">
+        <span class="w-8 h-8 rounded-full bg-parts/15 text-parts grid place-items-center shrink-0"><span class="ms text-[18px]">rocket_launch</span></span>
+        <div>
+          <p class="text-sm font-bold mb-1">4 modul baru ditambahkan</p>
+          <p class="text-xs text-muted leading-relaxed">Inventory Stock System, Balance Scorecard Aftersales, End of Shift Report, dan Vehicle Inventory Management sudah bisa diakses.</p>
+          <span class="font-data text-[10px] text-muted/60 mt-2 block">Baru saja</span>
         </div>
-    </div>
-    <div class="p-4 border-t border-outline-variant bg-surface-container-lowest">
-        <button class="w-full py-2.5 rounded-lg text-sm font-semibold text-on-surface-variant hover:text-white hover:bg-surface-container-high transition-all border border-outline-variant/50" onclick="clearNotifications()">Bersihkan Semua</button>
-    </div>
+      </div>
+    </article>
+    <article class="rounded-2xl bg-panel2 border border-line p-4">
+      <div class="flex gap-3">
+        <span class="w-8 h-8 rounded-full bg-crm/15 text-crm grid place-items-center shrink-0"><span class="ms text-[18px]">palette</span></span>
+        <div>
+          <p class="text-sm font-bold mb-1">Tampilan portal diperbarui</p>
+          <p class="text-xs text-muted leading-relaxed">Warna kini menandai kategori modul, plus pencarian cepat dan penyematan favorit.</p>
+          <span class="font-data text-[10px] text-muted/60 mt-2 block">Baru saja</span>
+        </div>
+      </div>
+    </article>
+  </div>
+  <div class="p-4 border-t border-line">
+    <button type="button" id="clear-notif" class="w-full py-2.5 rounded-xl text-sm font-semibold text-muted border border-line hover:text-fg hover:bg-white/5 transition-colors">Bersihkan semua</button>
+  </div>
 </aside>
 
 <script>
-    // --- 1. Dynamic Greeting ---
-    function setDynamicGreeting() {
-        const hour = new Date().getHours();
-        let greeting = "Selamat Datang";
-        if (hour >= 5 && hour < 11) greeting = "Selamat Pagi";
-        else if (hour >= 11 && hour < 15) greeting = "Selamat Siang";
-        else if (hour >= 15 && hour < 18) greeting = "Selamat Sore";
-        else greeting = "Selamat Malam";
-        
-        document.getElementById('dynamic-greeting').innerText = `${greeting} di`;
-    }
+/* ════════════════════════════════════════════════════════════════
+   1. DATA — tambah / ubah modul cukup di dua objek di bawah ini
+   ════════════════════════════════════════════════════════════════ */
 
-    // --- 2. Analytics & Local Storage Tracker ---
-    // Menyimpan klik aplikasi ke local storage untuk simulasi log
-    const STORAGE_KEY_STATS = 'wuling_app_stats';
-    const STORAGE_KEY_LOGS = 'wuling_app_logs';
+const CATEGORIES = {
+  service: { label: 'Service',        color: '#FF8A3D', icon: 'handyman' },
+  parts:   { label: 'Sparepart & Stok', color: '#22D3EE', icon: 'inventory_2' },
+  unit:    { label: 'Unit Kendaraan', color: '#A3E635', icon: 'directions_car' },
+  crm:     { label: 'CRM & Audit',    color: '#C084FC', icon: 'diversity_3' },
+  report:  { label: 'Laporan',        color: '#34D399', icon: 'monitoring' }
+};
 
-    function initAnalytics() {
-        const launchBtns = document.querySelectorAll('.launch-btn');
-        let appStats = JSON.parse(localStorage.getItem(STORAGE_KEY_STATS)) || {};
-        
-        // Update Total Clicks Display
-        const totalClicks = Object.values(appStats).reduce((a, b) => a + b, 0);
-        document.getElementById('total-akses-value').innerText = totalClicks.toLocaleString('id-ID');
+/* id  : dipakai untuk statistik lokal — jangan diubah agar riwayat lama tetap terbaca
+   tags: kata kunci tambahan untuk pencarian
+   status: 'LIVE' | 'STABLE' | 'BARU'                                        */
+const MODULES = [
+  { id:'prod_tracker', name:'Estimasi Non Warranty', cat:'service', icon:'precision_manufacturing',
+    desc:'Buat estimasi biaya non warranty: jasa, sparepart, dan sublet OPL.',
+    url:'https://nonwarranty-estimasi.netlify.app', status:'LIVE', tags:'estimasi biaya opl sublet' },
 
-        launchBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const appId = btn.getAttribute('data-appid');
-                const appName = btn.getAttribute('data-appname');
-                
-                // Track Stats (Most Visited)
-                appStats[appId] = (appStats[appId] || 0) + 1;
-                localStorage.setItem(STORAGE_KEY_STATS, JSON.stringify(appStats));
-                
-                // Track Logs (Recent Activity)
-                let logs = JSON.parse(localStorage.getItem(STORAGE_KEY_LOGS)) || [];
-                logs.unshift({ id: appId, name: appName, time: new Date().getTime() });
-                if (logs.length > 5) logs.pop(); // Keep only last 5
-                localStorage.setItem(STORAGE_KEY_LOGS, JSON.stringify(logs));
-                
-                // Refresh UI (tanpa reload)
-                setTimeout(() => { renderAnalyticsUI(); }, 500);
-            });
-        });
+  { id:'inventory', name:'Estimasi Free Service', cat:'service', icon:'card_membership',
+    desc:'Estimasi khusus perawatan berkala dan pekerjaan bergaransi.',
+    url:'https://estimasi-prima.netlify.app', status:'STABLE', tags:'free service warranty berkala' },
 
-        renderAnalyticsUI();
-    }
+  { id:'quality_control', name:'Gate Pass System', cat:'unit', icon:'fact_check',
+    desc:'Catat keluar-masuk kendaraan di area dealer beserta pelacakannya.',
+    url:'https://gatepass-system.netlify.app', status:'LIVE', tags:'gate pass security keluar masuk' },
 
-    function renderAnalyticsUI() {
-        // Render Recent Logs
-        const logs = JSON.parse(localStorage.getItem(STORAGE_KEY_LOGS)) || [];
-        const logContainer = document.getElementById('activity-log-container');
-        
-        if (logs.length > 0) {
-            logContainer.innerHTML = logs.map(log => {
-                const date = new Date(log.time);
-                const timeStr = `${date.getHours().toString().padStart(2,'0')}:${date.getMinutes().toString().padStart(2,'0')}`;
-                return `
-                    <div class="flex items-center gap-3 py-2 border-b border-outline-variant/30 last:border-0 animate-fade-up">
-                        <div class="w-2 h-2 rounded-full bg-secondary/50"></div>
-                        <div class="flex-1">
-                            <p class="text-sm text-on-surface font-medium">${log.name}</p>
-                            <p class="text-[10px] text-on-surface-variant font-mono-data">Diakses hari ini pukul ${timeStr}</p>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-        }
+  { id:'logistics', name:'Daily Report SM', cat:'report', icon:'assignment',
+    desc:'Laporan harian service manager atas kondisi operasional bengkel.',
+    url:'https://sm-reportdaily.netlify.app', status:'STABLE', tags:'harian service manager laporan' },
 
-        // Highlight Most Popular App
-        const appStats = JSON.parse(localStorage.getItem(STORAGE_KEY_STATS)) || {};
-        if (Object.keys(appStats).length > 0) {
-            const topAppId = Object.keys(appStats).reduce((a, b) => appStats[a] > appStats[b] ? a : b);
-            
-            // Clear existing badges
-            document.querySelectorAll('[id^="badge-"]').forEach(el => el.innerHTML = '');
-            
-            // Set new badge
-            const badgeContainer = document.getElementById(`badge-${topAppId}`);
-            if(badgeContainer) {
-                badgeContainer.innerHTML = `
-                    <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold bg-gradient-to-r from-orange-500 to-secondary text-white shadow-lg animate-pulse">
-                        🔥 POPULER
-                    </span>
-                `;
-            }
-        }
-    }
+  { id:'hr', name:'Mobile Service', cat:'service', icon:'engineering',
+    desc:'Pantau aktivitas mekanik kunjungan / ERA secara real time.',
+    url:'https://wms-prima.netlify.app', status:'LIVE', tags:'era kunjungan mekanik lapangan' },
 
-    // --- 3. Smart Search & Filtering ---
-    function initSearchAndFilter() {
-        const searchInput = document.getElementById('searchInput');
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const cards = document.querySelectorAll('.app-card');
-        const emptyState = document.getElementById('empty-state');
-        let currentFilter = 'all';
+  { id:'board', name:'Service Board', cat:'service', icon:'view_timeline',
+    desc:'Papan monitor progres pekerjaan dan beban kerja mekanik.',
+    url:'https://service-board.netlify.app', status:'LIVE', tags:'papan board progres stall' },
 
-        function filterCards() {
-            const query = searchInput.value.toLowerCase();
-            let visibleCount = 0;
+  { id:'audit', name:'E-Dealer Audit', cat:'crm', icon:'verified',
+    desc:'Verifikasi kepatuhan operasional terhadap standar layanan Wuling.',
+    url:'https://dealer-audit.netlify.app', status:'LIVE', tags:'audit standar kepatuhan compliance' },
 
-            cards.forEach(card => {
-                const name = card.getAttribute('data-name').toLowerCase();
-                const category = card.getAttribute('data-category');
-                
-                const matchesSearch = name.includes(query);
-                const matchesCategory = currentFilter === 'all' || category === currentFilter;
+  { id:'overnight', name:'Overnight Monitoring', cat:'unit', icon:'bedtime',
+    desc:'Pantau kendaraan menginap yang masih berstatus WIP di dealer.',
+    url:'https://overnight-prima.netlify.app', status:'LIVE', tags:'inap wip menginap kendaraan' },
 
-                if (matchesSearch && matchesCategory) {
-                    card.style.display = 'flex';
-                    // Re-trigger animation
-                    card.style.animation = 'none';
-                    card.offsetHeight; // trigger reflow
-                    card.style.animation = null; 
-                    visibleCount++;
-                } else {
-                    card.style.display = 'none';
-                }
-            });
+  { id:'psr', name:'Problem Solving System', cat:'report', icon:'lightbulb',
+    desc:'Kelola project improvement dan tindak lanjut temuan masalah.',
+    url:'https://psr-system.netlify.app', status:'LIVE', tags:'psr improvement kaizen masalah' },
 
-            if (visibleCount === 0) {
-                emptyState.classList.remove('hidden');
-            } else {
-                emptyState.classList.add('hidden');
-            }
-        }
+  { id:'retention', name:'Retention Monitoring', cat:'crm', icon:'handshake',
+    desc:'Pantau pelanggan yang jatuh tempo service beserta kinerja CCO.',
+    url:'https://retension-system.netlify.app', status:'LIVE', tags:'retensi cco follow up pelanggan' },
 
-        // Event Listener Search
-        searchInput.addEventListener('input', filterCards);
+  { id:'fleet', name:'Fleet-Care Monitoring', cat:'crm', icon:'local_shipping',
+    desc:'Kelola jadwal service pelanggan fleet dan follow up CCO.',
+    url:'https://fleet-prima.netlify.app', status:'LIVE', tags:'fleet armada korporat cco' },
 
-        // Event Listener Filter Buttons
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Update Button Styles
-                filterBtns.forEach(b => {
-                    b.classList.remove('bg-secondary', 'text-on-secondary');
-                    b.classList.add('bg-surface-container', 'text-on-surface-variant');
-                });
-                btn.classList.remove('bg-surface-container', 'text-on-surface-variant');
-                btn.classList.add('bg-secondary', 'text-on-secondary');
+  { id:'va', name:'Virtual Account System', cat:'parts', icon:'account_balance_wallet',
+    desc:'Monitor saldo dana VA dan waktu yang tepat untuk order part.',
+    url:'https://va-inventory.netlify.app', status:'LIVE', tags:'va dana saldo order pembayaran' },
 
-                currentFilter = btn.getAttribute('data-filter');
-                filterCards();
-            });
-        });
-    }
+  /* ── Modul baru ── */
+  { id:'sto', name:'Inventory Stock System', cat:'parts', icon:'inventory',
+    desc:'Kelola stok sparepart: penerimaan, pengeluaran, dan stock opname.',
+    url:'https://sto-prima.netlify.app/', status:'BARU', tags:'stok opname sparepart gudang inventory' },
 
-    // --- Core UI Functions ---
-    function toggleNotifications() {
-        document.getElementById('notifications-panel').classList.toggle('active');
-        document.getElementById('notification-dot').classList.add('hidden'); // Hilangkan titik merah saat dibuka
-    }
+  { id:'bsc', name:'Balance Scorecard Aftersales', cat:'report', icon:'speed',
+    desc:'Pantau pencapaian KPI after sales dalam satu papan skor.',
+    url:'https://bsc-prima.netlify.app/', status:'BARU', tags:'bsc kpi scorecard target pencapaian' },
 
-    function toggleSidebar() {
-        // Implementasi sederhana untuk mobile, bisa dikembangkan lebih lanjut
-        alert("Menu Sidebar Mobile di klik!"); 
-    }
+  { id:'eos', name:'End of Shift Report', cat:'report', icon:'checklist',
+    desc:'Serah terima akhir shift: pekerjaan selesai, pending, dan catatan.',
+    url:'https://eos-afsteam.netlify.app/', status:'BARU', tags:'eos shift serah terima handover' },
 
-    function clearNotifications() {
-        document.getElementById('notifications-list').innerHTML = `
-            <div class="text-center py-10 text-on-surface-variant flex flex-col items-center">
-                <span class="material-symbols-outlined text-5xl mb-3 opacity-20">notifications_off</span>
-                <p class="text-sm font-medium">Tidak ada notifikasi baru</p>
-            </div>
-        `;
-    }
+  { id:'stockyard', name:'Vehicle Inventory Management', cat:'unit', icon:'garage',
+    desc:'Kelola posisi dan status unit kendaraan di stockyard dealer.',
+    url:'https://stockyard-prima.netlify.app/', status:'BARU', tags:'stockyard unit kendaraan posisi parkir' }
+];
 
-    // Initialize Everything on Load
-    document.addEventListener('DOMContentLoaded', () => {
-        setDynamicGreeting();
-        initAnalytics();
-        initSearchAndFilter();
-    });
+/* ════════════════════════════════════════════════════════════════
+   2. STORAGE
+   ════════════════════════════════════════════════════════════════ */
+const K_STATS = 'wuling_app_stats';
+const K_LOGS  = 'wuling_app_logs';
+const K_FAV   = 'wuling_app_favs';
 
+const read = (k, fb) => { try { return JSON.parse(localStorage.getItem(k)) ?? fb; } catch { return fb; } };
+const save = (k, v)  => { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} };
+
+let stats = read(K_STATS, {});
+let logs  = read(K_LOGS, []);
+let favs  = read(K_FAV, []);
+
+/* ════════════════════════════════════════════════════════════════
+   3. RENDER
+   ════════════════════════════════════════════════════════════════ */
+const $  = s => document.querySelector(s);
+const $$ = s => Array.from(document.querySelectorAll(s));
+
+const STATUS_STYLE = {
+  LIVE:   'text-report border-report/30 bg-report/10',
+  STABLE: 'text-muted border-line bg-white/5',
+  BARU:   'text-brand border-brand/40 bg-brand/10'
+};
+
+function cardHTML(m, i) {
+  const c = CATEGORIES[m.cat];
+  const isFav = favs.includes(m.id);
+  const hits = stats[m.id] || 0;
+  return `
+  <article class="mod flex flex-col rise" style="--acc:${c.color};animation-delay:${(i * 0.035 + 0.15).toFixed(2)}s"
+           data-id="${m.id}" data-cat="${m.cat}"
+           data-search="${(m.name + ' ' + m.desc + ' ' + m.tags + ' ' + c.label).toLowerCase()}">
+    <span class="ms ms-fill mod-ghost" aria-hidden="true">${m.icon}</span>
+
+    <div class="p-5 pl-6 flex-1 relative">
+      <div class="flex items-start justify-between gap-3 mb-4">
+        <span class="mod-icon w-12 h-12 rounded-2xl grid place-items-center shrink-0">
+          <span class="ms ms-fill text-[24px]">${m.icon}</span>
+        </span>
+        <button type="button" class="star ${isFav ? 'on' : 'text-muted/50'} w-8 h-8 rounded-lg grid place-items-center hover:bg-white/5 transition-colors"
+                data-fav="${m.id}" aria-pressed="${isFav}" aria-label="Sematkan ${m.name} sebagai favorit">
+          <span class="ms text-[19px]">star</span>
+        </button>
+      </div>
+
+      <span class="cat-tag inline-block font-data text-[9px] uppercase tracking-[.14em] px-2 py-1 rounded-md mb-2.5">${c.label}</span>
+      <h4 class="font-display text-[17px] font-bold tracking-[-.02em] leading-snug mb-1.5">${m.name}</h4>
+      <p class="text-[13px] text-muted leading-relaxed line-2">${m.desc}</p>
+    </div>
+
+    <div class="px-5 pl-6 py-3.5 border-t border-line/70 bg-ink/30 flex items-center justify-between gap-3">
+      <div class="flex items-center gap-2 min-w-0">
+        <span class="font-data text-[9px] font-semibold tracking-[.12em] px-2 py-1 rounded border ${STATUS_STYLE[m.status]}">${m.status}</span>
+        <span class="font-data text-[10px] text-muted/70 truncate hits" data-hits="${m.id}">${hits ? hits + '×' : ''}</span>
+      </div>
+      <a href="${m.url}" target="_blank" rel="noopener"
+         class="btn-open open shrink-0 inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-[13px] font-semibold text-white"
+         data-open="${m.id}">
+        Buka <span class="ms text-[16px]">arrow_forward</span>
+      </a>
+    </div>
+  </article>`;
+}
+
+function renderGrid() {
+  const sorted = [...MODULES].sort((a, b) => {
+    const fa = favs.includes(a.id), fb = favs.includes(b.id);
+    if (fa !== fb) return fa ? -1 : 1;
+    return 0;
+  });
+  $('#grid').innerHTML = sorted.map(cardHTML).join('');
+  applyFilter();
+}
+
+function renderFilters() {
+  const counts = {};
+  MODULES.forEach(m => counts[m.cat] = (counts[m.cat] || 0) + 1);
+
+  const chip = (key, label, color, count, pressed) => `
+    <button type="button" class="chip px-3.5 py-1.5 rounded-full text-[13px] font-medium border border-line bg-panel2/60 text-muted hover:text-fg"
+            style="--acc:${color}" data-filter="${key}" aria-pressed="${pressed}">
+      ${label} <span class="font-data text-[10px] opacity-60">${count}</span>
+    </button>`;
+
+  let html = chip('all', 'Semua', '#E10A2F', MODULES.length, true);
+  html += chip('fav', '★ Favorit', '#FBBF24', favs.length, false);
+  for (const [k, c] of Object.entries(CATEGORIES)) html += chip(k, c.label, c.color, counts[k] || 0, false);
+  $('#filters').innerHTML = html;
+
+  const sideItem = (k, c) => `
+    <button type="button" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-muted hover:text-fg hover:bg-white/5 transition-colors" data-filter-jump="${k}">
+      <span class="ms text-[19px]" style="color:${c.color}">${c.icon}</span>
+      <span class="flex-1 text-left truncate">${c.label}</span>
+      <span class="font-data text-[10px] text-muted/60">${counts[k] || 0}</span>
+    </button>`;
+  const sideHTML = Object.entries(CATEGORIES).map(([k, c]) => sideItem(k, c)).join('');
+  $('#side-cats').innerHTML = sideHTML;
+  $('#side-cats-mobile').innerHTML = sideHTML;
+}
+
+/* ── filter + search ── */
+let currentFilter = 'all';
+let query = '';
+
+function applyFilter() {
+  let visible = 0;
+  $$('#grid .mod').forEach(card => {
+    const id = card.dataset.id;
+    const matchCat = currentFilter === 'all'
+      || (currentFilter === 'fav' ? favs.includes(id) : card.dataset.cat === currentFilter);
+    const matchQ = !query || card.dataset.search.includes(query);
+    const show = matchCat && matchQ;
+    card.style.display = show ? '' : 'none';
+    if (show) visible++;
+  });
+  $('#visible-count').textContent = visible;
+  $('#empty').classList.toggle('hidden', visible > 0);
+}
+
+/* ── statistik + riwayat ── */
+function renderStats() {
+  $('#stat-modules').textContent = MODULES.length;
+  $('#stat-fav').textContent = favs.length;
+  const total = Object.values(stats).reduce((a, b) => a + b, 0);
+  countUp($('#stat-clicks'), total);
+  $('#stat-last').textContent = logs.length ? logs[0].name : '—';
+}
+
+function countUp(el, target) {
+  const from = parseInt(el.textContent.replace(/\D/g, '')) || 0;
+  if (from === target) { el.textContent = target.toLocaleString('id-ID'); return; }
+  const start = performance.now(), dur = 700;
+  const step = now => {
+    const p = Math.min((now - start) / dur, 1);
+    el.textContent = Math.round(from + (target - from) * (1 - Math.pow(1 - p, 3))).toLocaleString('id-ID');
+    if (p < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+
+function relTime(ts) {
+  const d = Math.floor((Date.now() - ts) / 1000);
+  if (d < 60) return 'baru saja';
+  if (d < 3600) return Math.floor(d / 60) + ' menit lalu';
+  if (d < 86400) return Math.floor(d / 3600) + ' jam lalu';
+  return new Date(ts).toLocaleDateString('id-ID', { day: '2-digit', month: 'short' });
+}
+
+function renderActivity() {
+  const box = $('#activity-list');
+  if (!logs.length) {
+    box.innerHTML = `<p class="text-sm text-muted/70 py-6 text-center">Belum ada aktivitas. Buka salah satu modul untuk memulai.</p>`;
+    return;
+  }
+  box.innerHTML = logs.map(l => {
+    const m = MODULES.find(x => x.id === l.id);
+    const c = m ? CATEGORIES[m.cat] : { color: '#8B94A7' };
+    return `
+      <div class="flex items-center gap-3 py-2 border-b border-line/60 last:border-0">
+        <span class="w-1.5 h-1.5 rounded-full shrink-0" style="background:${c.color};box-shadow:0 0 8px ${c.color}"></span>
+        <p class="text-[13px] font-medium flex-1 truncate">${l.name}</p>
+        <span class="font-data text-[10px] text-muted/70 shrink-0">${relTime(l.time)}</span>
+      </div>`;
+  }).join('');
+}
+
+/* ════════════════════════════════════════════════════════════════
+   4. EVENTS
+   ════════════════════════════════════════════════════════════════ */
+document.addEventListener('click', e => {
+
+  /* buka modul → catat statistik */
+  const open = e.target.closest('[data-open]');
+  if (open) {
+    const id = open.dataset.open;
+    const m = MODULES.find(x => x.id === id);
+    stats[id] = (stats[id] || 0) + 1;
+    logs = [{ id, name: m.name, time: Date.now() }, ...logs.filter(l => l.id !== id)].slice(0, 8);
+    save(K_STATS, stats); save(K_LOGS, logs);
+    const hitEl = document.querySelector(`[data-hits="${id}"]`);
+    if (hitEl) hitEl.textContent = stats[id] + '×';
+    renderStats(); renderActivity();
+  }
+
+  /* favorit */
+  const fav = e.target.closest('[data-fav]');
+  if (fav) {
+    const id = fav.dataset.fav;
+    favs = favs.includes(id) ? favs.filter(f => f !== id) : [...favs, id];
+    save(K_FAV, favs);
+    renderFilters(); renderGrid(); renderStats();
+    setFilter(currentFilter);
+  }
+
+  /* chip filter */
+  const chip = e.target.closest('[data-filter]');
+  if (chip) setFilter(chip.dataset.filter);
+
+  /* sidebar → lompat ke kategori */
+  const jump = e.target.closest('[data-filter-jump]');
+  if (jump) {
+    setFilter(jump.dataset.filterJump);
+    closeNav();
+    $('#grid-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  const scroll = e.target.closest('[data-scroll]');
+  if (scroll) { setFilter('all'); closeNav(); $(scroll.dataset.scroll).scrollIntoView({ behavior: 'smooth' }); }
+
+  if (e.target.closest('#side-activity')) { closeNav(); $('#activity-card').scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+
+  /* drawer & panel */
+  if (e.target.closest('#open-nav')) openNav();
+  if (e.target.closest('[data-close-nav]') || e.target.closest('#nav-overlay')) closeNav();
+  if (e.target.closest('#open-notif')) openNotif();
+  if (e.target.closest('[data-close-notif]') || e.target.closest('#notif-overlay')) closeNotif();
+
+  if (e.target.closest('#open-search-mobile')) {
+    const box = $('#search-mobile');
+    box.classList.toggle('hidden');
+    if (!box.classList.contains('hidden')) $('#search-m').focus();
+  }
+
+  if (e.target.closest('#reset-filter')) {
+    $('#search').value = ''; $('#search-m').value = ''; query = '';
+    setFilter('all');
+  }
+
+  if (e.target.closest('#clear-history')) {
+    logs = []; save(K_LOGS, logs); renderActivity(); renderStats();
+  }
+
+  if (e.target.closest('#clear-notif')) {
+    $('#notif-list').innerHTML = `
+      <div class="text-center py-14 text-muted">
+        <span class="ms text-[46px] opacity-25">notifications_off</span>
+        <p class="text-sm mt-3">Tidak ada notifikasi</p>
+      </div>`;
+  }
+});
+
+function setFilter(key) {
+  currentFilter = key;
+  $$('#filters [data-filter]').forEach(b => b.setAttribute('aria-pressed', b.dataset.filter === key));
+  applyFilter();
+}
+
+function openNav()  { $('#mobile-nav').classList.add('open'); $('#nav-overlay').classList.remove('hidden'); }
+function closeNav() { $('#mobile-nav').classList.remove('open'); $('#nav-overlay').classList.add('hidden'); }
+function openNotif(){ $('#notif-panel').classList.add('open'); $('#notif-overlay').classList.remove('hidden'); $('#notif-dot').classList.add('hidden'); }
+function closeNotif(){ $('#notif-panel').classList.remove('open'); $('#notif-overlay').classList.add('hidden'); }
+
+['#search', '#search-m'].forEach(sel => {
+  document.addEventListener('input', e => {
+    if (!e.target.matches(sel)) return;
+    query = e.target.value.trim().toLowerCase();
+    const other = sel === '#search' ? '#search-m' : '#search';
+    if ($(other)) $(other).value = e.target.value;
+    applyFilter();
+  });
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === '/' && !/input|textarea/i.test(document.activeElement.tagName)) {
+    e.preventDefault(); $('#search').focus();
+  }
+  if (e.key === 'Escape') { closeNotif(); closeNav(); }
+});
+
+/* jam + salam */
+function tick() {
+  const now = new Date();
+  const t = now.toLocaleTimeString('id-ID', { hour12: false, timeZone: 'Asia/Jakarta' });
+  $('#clock').textContent = t;
+  $('#clock-mobile').textContent = t;
+}
+
+function greet() {
+  const h = new Date().getHours();
+  const g = h < 11 ? 'Selamat pagi' : h < 15 ? 'Selamat siang' : h < 18 ? 'Selamat sore' : 'Selamat malam';
+  $('#greeting').textContent = `${g}, selamat datang di`;
+}
+
+/* init */
+$('#year').textContent = new Date().getFullYear();
+greet(); tick(); setInterval(tick, 1000);
+renderFilters();
+renderGrid();
+renderStats();
+renderActivity();
+setInterval(renderActivity, 60000);
 </script>
 </body>
 </html>
