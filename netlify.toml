@@ -1,0 +1,109 @@
+# netlify.toml — taruh file ini di root project PORTAL HUB (portalhub-prima)
+# Fungsinya: mem-proxy tiap path modul ke site Netlify aslinya, supaya saat
+# domain custom dipasang di site portalhub-prima, semua modul tetap tampil
+# di bawah domain yang sama (tidak lompat ke *.netlify.app lain).
+#
+# Syarat: site portalhub-prima dan ke-17 site modul di bawah ini harus
+# berada di TEAM Netlify yang sama.
+
+[[redirects]]
+  from = "/nonwarranty-estimasi/*"
+  to = "https://nonwarranty-estimasi.netlify.app/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/estimasi-prima/*"
+  to = "https://estimasi-prima.netlify.app/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/gatepass-system/*"
+  to = "https://gatepass-system.netlify.app/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/sm-reportdaily/*"
+  to = "https://sm-reportdaily.netlify.app/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/wms-prima/*"
+  to = "https://wms-prima.netlify.app/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/service-board/*"
+  to = "https://service-board.netlify.app/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/dealer-audit/*"
+  to = "https://dealer-audit.netlify.app/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/overnight-prima/*"
+  to = "https://overnight-prima.netlify.app/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/psr-system/*"
+  to = "https://psr-system.netlify.app/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/retension-system/*"
+  to = "https://retension-system.netlify.app/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/nps-prima/*"
+  to = "https://nps-prima.netlify.app/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/fleet-prima/*"
+  to = "https://fleet-prima.netlify.app/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/va-inventory/*"
+  to = "https://va-inventory.netlify.app/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/sto-prima/*"
+  to = "https://sto-prima.netlify.app/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/bsc-prima/*"
+  to = "https://bsc-prima.netlify.app/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/eos-afsteam/*"
+  to = "https://eos-afsteam.netlify.app/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/stockyard-prima/*"
+  to = "https://stockyard-prima.netlify.app/:splat"
+  status = 200
+  force = true
