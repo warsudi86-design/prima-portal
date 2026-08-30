@@ -113,3 +113,9 @@
   to = "https://cro-booking.netlify.app/:splat"
   status = 200
   force = true
+
+[[redirects]]
+  from = "/revenue-afs/*"
+  to = "https://revenue-afs.netlify.app/:splat"
+  status = 200
+  force = true
