@@ -119,3 +119,9 @@
   to = "https://revenue-afs.netlify.app/:splat"
   status = 200
   force = true
+
+[[redirects]]
+  from = "/inventory-prima/*"
+  to = "https://inventory-prima.netlify.app/:splat"
+  status = 200
+  force = true
