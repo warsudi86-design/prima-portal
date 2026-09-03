@@ -125,3 +125,9 @@
   to = "https://inventory-prima.netlify.app/:splat"
   status = 200
   force = true
+
+[[redirects]]
+  from = "/unit-entry/*"
+  to = "https://unit-entry.netlify.app/:splat"
+  status = 200
+  force = true
