@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html class="dark" lang="id">
+<html lang="id">
 <head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<meta name="theme-color" content="#0B0E14">
+<meta name="theme-color" content="#0F2C4C">
 <title>PRIMA WULING · Aftersales Control Center</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
 <script>
   tailwind.config = {
@@ -18,24 +18,24 @@
     theme: {
       extend: {
         colors: {
-          ink:      "#070910",
-          base:     "#0B0E14",
-          panel:    "#12161F",
-          panel2:   "#171C28",
-          line:     "#232A38",
-          muted:    "#8B94A7",
-          fg:       "#E9EDF5",
-          brand:    "#E10A2F",
-          brandDim: "#8E0018",
-          service:  "#FF8A3D",
-          parts:    "#22D3EE",
-          unit:     "#A3E635",
-          crm:      "#C084FC",
-          report:   "#34D399"
+          ink:      'rgb(var(--c-ink) / <alpha-value>)',
+          base:     'rgb(var(--c-base) / <alpha-value>)',
+          panel:    'rgb(var(--c-panel) / <alpha-value>)',
+          panel2:   'rgb(var(--c-panel2) / <alpha-value>)',
+          line:     'rgb(var(--c-line) / <alpha-value>)',
+          muted:    'rgb(var(--c-muted) / <alpha-value>)',
+          fg:       'rgb(var(--c-fg) / <alpha-value>)',
+          brand:    'rgb(var(--c-brand) / <alpha-value>)',
+          brandDim: 'rgb(var(--c-brand-dim) / <alpha-value>)',
+          service:  "#F59E0B",
+          parts:    "#0EA5A4",
+          unit:     "#6366F1",
+          crm:      "#8B5CF6",
+          report:   "#16A34A"
         },
         fontFamily: {
-          display: ["Archivo", "system-ui", "sans-serif"],
-          body:    ["'Plus Jakarta Sans'", "system-ui", "sans-serif"],
+          display: ["Inter", "system-ui", "sans-serif"],
+          body:    ["Inter", "system-ui", "sans-serif"],
           data:    ["'JetBrains Mono'", "ui-monospace", "monospace"]
         }
       }
@@ -44,7 +44,29 @@
 </script>
 
 <style>
-  :root { --acc: #E10A2F; }
+  :root {
+    --c-ink: 15 23 42;         /* slate-900, dipakai untuk overlay gelap */
+    --c-base: 243 246 250;     /* F3F6FA — latar terang, sama seperti hub */
+    --c-panel: 255 255 255;    /* putih */
+    --c-panel2: 241 245 249;   /* slate-100 */
+    --c-line: 226 232 240;     /* slate-200 */
+    --c-muted: 100 116 139;    /* slate-500 */
+    --c-fg: 15 23 42;          /* slate-900 */
+    --c-brand: 14 165 164;     /* teal 0EA5A4 — warna aksen utama hub */
+    --c-brand-dim: 11 122 121; /* teal-d 0B7A79 */
+    --acc: #0EA5A4;
+  }
+  html.dark {
+    --c-ink: 5 8 14;
+    --c-base: 10 15 29;        /* 0A0F1D */
+    --c-panel: 17 26 46;       /* 111A2E */
+    --c-panel2: 26 39 64;      /* 1A2740 */
+    --c-line: 36 50 80;        /* 243250 */
+    --c-muted: 147 162 184;    /* 93A2B8 */
+    --c-fg: 226 232 240;       /* E2E8F0 */
+    --c-brand: 45 212 191;     /* teal terang untuk latar gelap */
+    --c-brand-dim: 20 184 166;
+  }
 
   .ms {
     font-family: 'Material Symbols Rounded';
@@ -57,95 +79,52 @@
   .ms-fill { font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24; }
 
   html { scroll-behavior: smooth; }
-  body { background-color: #0B0E14; }
-
-  /* ---------- Ambient background ---------- */
-  .aurora { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
-  .aurora span {
-    position: absolute; border-radius: 50%; filter: blur(90px); opacity: .16;
-    animation: drift 26s ease-in-out infinite alternate;
-  }
-  .aurora .a1 { width: 46vw; height: 46vw; background: #E10A2F; top: -14vw; left: -10vw; }
-  .aurora .a2 { width: 38vw; height: 38vw; background: #22D3EE; top: 24vh; right: -12vw; animation-delay: -8s; }
-  .aurora .a3 { width: 34vw; height: 34vw; background: #C084FC; bottom: -14vw; left: 32vw; animation-delay: -15s; }
-  @keyframes drift {
-    from { transform: translate3d(0,0,0) scale(1); }
-    to   { transform: translate3d(4vw,-3vh,0) scale(1.18); }
-  }
-  .grid-mesh {
-    position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: .5;
-    background-image:
-      linear-gradient(to right, rgba(255,255,255,.028) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255,255,255,.028) 1px, transparent 1px);
-    background-size: 56px 56px;
-    mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, #000 40%, transparent 100%);
-    -webkit-mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, #000 40%, transparent 100%);
-  }
+  body { transition: background-color .2s ease, color .2s ease; }
 
   /* ---------- Motion ---------- */
   @keyframes riseIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
-  .rise { opacity: 0; animation: riseIn .55s cubic-bezier(.16,1,.3,1) forwards; }
+  .rise { opacity: 0; animation: riseIn .5s cubic-bezier(.16,1,.3,1) forwards; }
 
   /* ---------- Panels ---------- */
   .glass {
-    background: linear-gradient(150deg, rgba(255,255,255,.05), rgba(255,255,255,.012));
-    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255,255,255,.08);
+    background: rgb(var(--c-panel));
+    border: 1px solid rgb(var(--c-line));
   }
 
   /* ---------- Judul hero: selalu satu baris ---------- */
   .hero-panel { container-type: inline-size; }
-
   .hero-title {
-    white-space: nowrap;          /* kunci: teks dilarang pindah baris */
+    white-space: nowrap;
     letter-spacing: -.045em;
-    font-size: clamp(18px, 5.2vw, 50px);   /* fallback browser lama */
+    font-size: clamp(18px, 5.2vw, 50px);
   }
-  @media (min-width: 1024px) {
-    .hero-title { font-size: clamp(30px, 4vw, 84px); }
-  }
-  /* Browser modern: ukuran huruf dihitung dari lebar panel, bukan lebar layar */
-  @supports (font-size: 1cqi) {
-    .hero-title { font-size: min(6.5cqi, 84px); }
-  }
+  @media (min-width: 1024px) { .hero-title { font-size: clamp(30px, 4vw, 84px); } }
+  @supports (font-size: 1cqi) { .hero-title { font-size: min(6.5cqi, 84px); } }
 
   /* ---------- Module card ---------- */
   .mod {
     position: relative; overflow: hidden; isolation: isolate;
-    background: linear-gradient(165deg, rgba(255,255,255,.045), rgba(255,255,255,0)) , #12161F;
-    border: 1px solid #232A38; border-radius: 18px;
-    transition: transform .35s cubic-bezier(.16,1,.3,1), border-color .3s, box-shadow .35s;
+    background: rgb(var(--c-panel));
+    border: 1px solid rgb(var(--c-line)); border-radius: 16px;
+    transition: transform .25s cubic-bezier(.16,1,.3,1), border-color .25s, box-shadow .25s;
   }
   .mod::before {
-    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
-    background: var(--acc); opacity: .4; transition: opacity .3s, box-shadow .3s;
-  }
-  .mod::after {
-    content: ''; position: absolute; inset: 0; z-index: -1; opacity: 0; transition: opacity .4s;
-    background: radial-gradient(120% 80% at 0% 0%, color-mix(in srgb, var(--acc) 22%, transparent), transparent 60%);
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+    background: var(--acc); opacity: .85;
   }
   .mod:hover, .mod:focus-within {
-    transform: translateY(-5px);
-    border-color: color-mix(in srgb, var(--acc) 45%, #232A38);
-    box-shadow: 0 22px 48px -22px color-mix(in srgb, var(--acc) 70%, transparent);
+    transform: translateY(-3px);
+    border-color: color-mix(in srgb, var(--acc) 40%, rgb(var(--c-line)));
+    box-shadow: 0 12px 28px -16px color-mix(in srgb, var(--acc) 45%, transparent);
   }
-  .mod:hover::before, .mod:focus-within::before { opacity: 1; box-shadow: 0 0 16px var(--acc); }
-  .mod:hover::after, .mod:focus-within::after { opacity: 1; }
 
   .mod-icon {
-    background: linear-gradient(145deg, color-mix(in srgb, var(--acc) 26%, transparent), rgba(255,255,255,.02));
-    border: 1px solid color-mix(in srgb, var(--acc) 32%, transparent);
+    background: color-mix(in srgb, var(--acc) 14%, transparent);
+    border: 1px solid color-mix(in srgb, var(--acc) 30%, transparent);
     color: var(--acc);
-    transition: transform .35s cubic-bezier(.16,1,.3,1);
+    transition: transform .3s cubic-bezier(.16,1,.3,1);
   }
-  .mod:hover .mod-icon { transform: scale(1.06) rotate(-3deg); }
-
-  .mod-ghost {
-    position: absolute; right: -18px; top: -18px; font-size: 128px; line-height: 1;
-    color: var(--acc); opacity: .06; pointer-events: none;
-    transition: opacity .4s, transform .5s;
-  }
-  .mod:hover .mod-ghost { opacity: .13; transform: scale(1.08) rotate(6deg); }
+  .mod:hover .mod-icon { transform: scale(1.05); }
 
   .cat-tag {
     color: var(--acc);
@@ -155,20 +134,13 @@
 
   /* ---------- Buttons ---------- */
   .btn-open {
-    position: relative; overflow: hidden;
-    background: linear-gradient(135deg, #E10A2F, #8E0018);
-    box-shadow: 0 6px 18px -8px rgba(225,10,47,.9);
-    transition: filter .25s, transform .25s, box-shadow .25s;
+    background: linear-gradient(135deg, #0EA5A4, #0B7A79);
+    box-shadow: 0 6px 16px -8px rgba(14,165,164,.55);
+    transition: filter .2s, transform .2s;
   }
-  .btn-open::after {
-    content: ''; position: absolute; top: 0; left: -110%; width: 55%; height: 100%;
-    background: linear-gradient(to right, transparent, rgba(255,255,255,.35), transparent);
-    transform: skewX(-20deg); transition: left .55s;
-  }
-  .mod:hover .btn-open::after { left: 160%; }
-  .btn-open:hover { filter: brightness(1.12); transform: translateY(-1px); }
+  .btn-open:hover { filter: brightness(1.08); transform: translateY(-1px); }
 
-  .chip { transition: background-color .25s, color .25s, border-color .25s, box-shadow .25s; }
+  .chip { transition: background-color .2s, color .2s, border-color .2s, box-shadow .2s; }
   .chip[aria-pressed="true"] {
     background: color-mix(in srgb, var(--acc) 16%, transparent);
     border-color: color-mix(in srgb, var(--acc) 55%, transparent);
@@ -176,11 +148,11 @@
     box-shadow: 0 0 0 1px color-mix(in srgb, var(--acc) 22%, transparent) inset;
   }
 
-  .star.on { color: #FBBF24; }
+  .star.on { color: #F59E0B; }
   .star.on .ms { font-variation-settings: 'FILL' 1, 'wght' 500; }
 
   /* ---------- Panels / drawers ---------- */
-  #notif-panel, #mobile-nav { transition: transform .4s cubic-bezier(.4,0,.2,1); }
+  #notif-panel, #mobile-nav { transition: transform .35s cubic-bezier(.4,0,.2,1); }
   #notif-panel { transform: translateX(105%); }
   #notif-panel.open { transform: none; }
   #mobile-nav { transform: translateX(-105%); }
@@ -188,12 +160,17 @@
 
   /* ---------- Misc ---------- */
   .scroll-thin::-webkit-scrollbar { width: 5px; height: 5px; }
-  .scroll-thin::-webkit-scrollbar-thumb { background: #2C3446; border-radius: 8px; }
+  .scroll-thin::-webkit-scrollbar-thumb { background: rgb(var(--c-line)); border-radius: 8px; }
   .scroll-thin::-webkit-scrollbar-track { background: transparent; }
 
-  :focus-visible { outline: 2px solid #22D3EE; outline-offset: 3px; border-radius: 6px; }
-
+  :focus-visible { outline: 2px solid #0EA5A4; outline-offset: 3px; border-radius: 6px; }
   .line-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+  /* ---------- Dark mode toggle (sama seperti modul lain di hub) ---------- */
+  #themeToggle{ width:36px;height:20px;border-radius:999px;background:rgb(var(--c-panel2));position:relative;transition:background .2s; }
+  #themeToggle .knob{ position:absolute; top:2px; left:2px; width:16px; height:16px; border-radius:999px; background:#fff; transition:transform .2s; }
+  html.dark #themeToggle{ background:linear-gradient(90deg,#0EA5A4,#F59E0B); }
+  html.dark #themeToggle .knob{ transform:translateX(16px); }
 
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
@@ -204,69 +181,72 @@
 
 <body class="bg-base text-fg font-body antialiased overflow-x-hidden selection:bg-brand/30">
 
-<div class="aurora" aria-hidden="true"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
-<div class="grid-mesh" aria-hidden="true"></div>
-
 <!-- ══════════ SIDEBAR (desktop) ══════════ -->
-<aside class="hidden lg:flex flex-col fixed left-0 top-0 h-screen w-[264px] border-r border-line bg-panel/80 backdrop-blur-xl z-40">
+<aside class="hidden lg:flex flex-col fixed left-0 top-0 h-screen w-[264px] border-r border-line z-40" style="background:linear-gradient(180deg,#0F2C4C 0%,#0A1D33 100%)">
   <div class="px-6 pt-7 pb-6">
     <img src="https://www.prima-portal.com/images/prima.png" alt="Logo PT Prima Wahana Auto Mobil"
          class="h-9 w-auto object-contain object-left mb-6 opacity-95">
-    <h1 class="font-display text-[26px] font-extrabold tracking-[-.04em] leading-none">
-      WULING<span class="text-brand">.</span>
+    <h1 class="font-display text-[26px] font-extrabold tracking-[-.04em] leading-none text-white">
+      WULING<span class="text-[#2DD4BF]">.</span>
     </h1>
-    <p class="font-data text-[10px] tracking-[.28em] text-muted uppercase mt-2">Aftersales Control</p>
+    <p class="font-data text-[10px] tracking-[.28em] text-slate-400 uppercase mt-2">Aftersales Control</p>
   </div>
 
   <nav class="px-3 flex-1 overflow-y-auto scroll-thin" aria-label="Kategori modul">
-    <p class="px-3 pb-2 font-data text-[10px] tracking-[.2em] text-muted/70 uppercase">Kategori</p>
-    <div id="side-cats" class="space-y-1"><!-- diisi JS --></div>
+  <div id="side-cats" class="space-y-4"><!-- diisi JS, grup per kategori berisi daftar modul --></div>
 
-    <p class="px-3 pt-6 pb-2 font-data text-[10px] tracking-[.2em] text-muted/70 uppercase">Pintasan</p>
-    <button type="button" data-scroll="#grid-section"
-            class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-muted hover:text-fg hover:bg-white/5 transition-colors">
-      <span class="ms text-[20px]">apps</span> Semua modul
+    <p class="px-3 pt-6 pb-2 font-data text-[10px] tracking-[.2em] text-slate-500 uppercase">Pintasan</p>
+    <button type="button" id="side-dashboard"
+            class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors">
+      <span class="ms text-[20px]">dashboard</span> Dashboard
     </button>
     <button type="button" id="side-activity"
-            class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-muted hover:text-fg hover:bg-white/5 transition-colors">
+            class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors">
       <span class="ms text-[20px]">history</span> Riwayat akses
     </button>
   </nav>
 
-  <div class="p-4 border-t border-line">
-    <div class="rounded-xl bg-panel2 border border-line px-3 py-3">
+  <div class="px-3 pb-2">
+    <button type="button" id="themeToggleBtn" class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm text-slate-300 hover:bg-white/5 transition-colors">
+      <span class="flex items-center gap-2"><span class="ms text-[19px]">dark_mode</span> Mode gelap</span>
+      <span id="themeToggle"><span class="knob"></span></span>
+    </button>
+  </div>
+
+  <div class="p-4 border-t border-white/10">
+    <div class="rounded-xl border border-white/10 px-3 py-3" style="background:rgba(255,255,255,.04)">
       <div class="flex items-center gap-2 mb-1.5">
-        <span class="w-2 h-2 rounded-full bg-report shadow-[0_0_10px_rgba(52,211,153,.9)]"></span>
-        <span class="text-xs font-semibold text-fg">Semua modul aktif</span>
+        <span class="w-2 h-2 rounded-full bg-[#16A34A] shadow-[0_0_10px_rgba(22,163,74,.9)]"></span>
+        <span class="text-xs font-semibold text-white">Semua modul aktif</span>
       </div>
-      <p class="font-data text-[11px] text-muted"><span id="clock">--:--:--</span> WIB</p>
+      <p class="font-data text-[11px] text-slate-400"><span id="clock">--:--:--</span> WIB</p>
     </div>
   </div>
 </aside>
 
 <!-- ══════════ SIDEBAR (mobile drawer) ══════════ -->
 <div id="nav-overlay" class="fixed inset-0 bg-ink/70 backdrop-blur-sm z-40 hidden lg:hidden"></div>
-<aside id="mobile-nav" class="lg:hidden fixed left-0 top-0 h-screen w-[272px] bg-panel border-r border-line z-50 flex flex-col">
+<aside id="mobile-nav" class="lg:hidden fixed left-0 top-0 h-screen w-[272px] z-50 flex flex-col" style="background:linear-gradient(180deg,#0F2C4C 0%,#0A1D33 100%)">
   <div class="px-5 pt-6 pb-5 flex items-start justify-between">
     <div>
-      <h1 class="font-display text-2xl font-extrabold tracking-[-.04em]">WULING<span class="text-brand">.</span></h1>
-      <p class="font-data text-[10px] tracking-[.24em] text-muted uppercase mt-1.5">Aftersales Control</p>
+      <h1 class="font-display text-2xl font-extrabold tracking-[-.04em] text-white">WULING<span class="text-[#2DD4BF]">.</span></h1>
+      <p class="font-data text-[10px] tracking-[.24em] text-slate-400 uppercase mt-1.5">Aftersales Control</p>
     </div>
-    <button type="button" data-close-nav class="w-9 h-9 rounded-full bg-panel2 border border-line grid place-items-center text-muted" aria-label="Tutup menu">
+    <button type="button" data-close-nav class="w-9 h-9 rounded-full border border-white/10 grid place-items-center text-slate-300" aria-label="Tutup menu">
       <span class="ms text-[18px]">close</span>
     </button>
   </div>
   <nav class="px-3 flex-1 overflow-y-auto scroll-thin" aria-label="Kategori modul (mobile)">
     <div id="side-cats-mobile" class="space-y-1"></div>
   </nav>
-  <div class="p-4 border-t border-line font-data text-[11px] text-muted">
+  <div class="p-4 border-t border-white/10 font-data text-[11px] text-slate-400">
     <span id="clock-mobile">--:--:--</span> WIB · semua modul aktif
   </div>
 </aside>
 
 <!-- ══════════ TOP BAR ══════════ -->
-<header class="fixed top-0 right-0 left-0 lg:left-[264px] h-16 z-30 bg-base/75 backdrop-blur-xl border-b border-line flex items-center gap-3 px-4 md:px-6">
-  <button type="button" id="open-nav" class="lg:hidden w-10 h-10 rounded-xl grid place-items-center text-fg hover:bg-white/5" aria-label="Buka menu">
+<header class="fixed top-0 right-0 left-0 lg:left-[264px] h-16 z-30 bg-base/90 backdrop-blur-xl border-b border-line flex items-center gap-3 px-4 md:px-6">
+  <button type="button" id="open-nav" class="lg:hidden w-10 h-10 rounded-xl grid place-items-center text-fg hover:bg-panel2" aria-label="Buka menu">
     <span class="ms">menu</span>
   </button>
   <span class="lg:hidden font-display font-extrabold tracking-[-.03em] text-base">WULING<span class="text-brand">.</span></span>
@@ -275,23 +255,22 @@
     <div class="relative group">
       <span class="ms absolute left-4 top-1/2 -translate-y-1/2 text-muted text-[20px] group-focus-within:text-brand transition-colors">search</span>
       <input id="search" type="search" autocomplete="off"
-             class="w-full bg-panel2/80 border border-line rounded-full py-2.5 pl-12 pr-16 text-sm placeholder:text-muted/80 focus:outline-none focus:border-brand/60 focus:bg-panel2 transition-colors"
+             class="w-full bg-panel2 border border-line rounded-full py-2.5 pl-12 pr-16 text-sm placeholder:text-muted/80 focus:outline-none focus:border-brand/60 transition-colors"
              placeholder="Cari modul — estimasi, stok, retensi, laporan…">
       <kbd class="absolute right-3 top-1/2 -translate-y-1/2 font-data text-[10px] text-muted border border-line rounded px-1.5 py-0.5 hidden md:block">/</kbd>
     </div>
   </div>
 
   <div class="flex items-center gap-1 ml-auto">
-    <button type="button" id="open-search-mobile" class="sm:hidden w-10 h-10 rounded-xl grid place-items-center text-muted hover:text-fg hover:bg-white/5" aria-label="Cari modul">
+    <button type="button" id="open-search-mobile" class="sm:hidden w-10 h-10 rounded-xl grid place-items-center text-muted hover:text-fg hover:bg-panel2" aria-label="Cari modul">
       <span class="ms">search</span>
     </button>
-    <button type="button" id="open-notif" class="relative w-10 h-10 rounded-xl grid place-items-center text-muted hover:text-fg hover:bg-white/5 transition-colors" aria-label="Buka notifikasi">
+    <button type="button" id="open-notif" class="relative w-10 h-10 rounded-xl grid place-items-center text-muted hover:text-fg hover:bg-panel2 transition-colors" aria-label="Buka notifikasi">
       <span class="ms">notifications</span>
       <span id="notif-dot" class="absolute top-2 right-2 w-2 h-2 rounded-full bg-brand ring-2 ring-base"></span>
     </button>
-    <div class="w-9 h-9 rounded-full overflow-hidden border border-line ml-2 shrink-0">
-      <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDp8prlTDpFWp7pvYKNGCxdmMFRHPVUa6bSz-bgbsYalTqjGjOjhNx6KgGUURKlwA3AEUgkKsitmvZgBxH2_O38rmT9LfrjWw5r3x1z5t4CQv4vWur-XNmRNTLwoFqLLYvtGm_uH-PVSA-mdWRGhFO2pqfbz2Vdo406PPaw4PLZEs0e9BhYKvJ2RCczavWnsCC6sPdJq1rCatHcmEovtGdeAgHGJ4H3Fx5O9BZlgAHbipkUSLth0iUfd0Er1Ay98M74fPK4wsZtDgPz"
-           alt="Foto profil pengguna" class="w-full h-full object-cover">
+    <div class="w-9 h-9 rounded-full overflow-hidden border border-line ml-2 shrink-0 bg-panel2 grid place-items-center">
+      <span class="ms text-muted">person</span>
     </div>
   </div>
 </header>
@@ -309,13 +288,14 @@
 <!-- ══════════ MAIN ══════════ -->
 <main class="relative z-10 lg:ml-[264px] pt-16 min-h-screen flex flex-col">
 
+<div id="dashboardView">
   <!-- ─── HERO ─── -->
   <section class="px-4 md:px-8 lg:px-10 pt-8 pb-2">
     <div class="max-w-[1400px] mx-auto">
 
       <div class="hero-panel glass rounded-3xl p-6 md:p-9 rise" style="animation-delay:.05s">
-        <div class="inline-flex items-center gap-2 rounded-full border border-line bg-panel2/70 px-3 py-1.5 mb-6">
-          <span class="w-1.5 h-1.5 rounded-full bg-report animate-pulse"></span>
+        <div class="inline-flex items-center gap-2 rounded-full border border-line bg-panel2 px-3 py-1.5 mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#16A34A] animate-pulse"></span>
           <span class="font-data text-[10px] uppercase tracking-[.18em] text-muted">One Stop System · Aftersales Dept</span>
         </div>
 
@@ -329,20 +309,20 @@
         </p>
 
         <!-- instrument strip -->
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 mt-8 pt-8 border-t border-white/10">
-          <div class="rounded-2xl border border-line bg-panel/60 p-4">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 mt-8 pt-8 border-t border-line">
+          <div class="rounded-2xl border border-line bg-panel2/60 p-4">
             <p class="text-[10px] uppercase tracking-[.16em] text-muted mb-2">Modul tersedia</p>
             <p class="font-data text-3xl font-semibold" id="stat-modules">0</p>
           </div>
-          <div class="rounded-2xl border border-line bg-panel/60 p-4">
+          <div class="rounded-2xl border border-line bg-panel2/60 p-4">
             <p class="text-[10px] uppercase tracking-[.16em] text-muted mb-2">Total akses Anda</p>
             <p class="font-data text-3xl font-semibold text-parts" id="stat-clicks">0</p>
           </div>
-          <div class="rounded-2xl border border-line bg-panel/60 p-4">
+          <div class="rounded-2xl border border-line bg-panel2/60 p-4">
             <p class="text-[10px] uppercase tracking-[.16em] text-muted mb-2">Modul favorit</p>
-            <p class="font-data text-3xl font-semibold text-[#FBBF24]" id="stat-fav">0</p>
+            <p class="font-data text-3xl font-semibold text-[#F59E0B]" id="stat-fav">0</p>
           </div>
-          <div class="rounded-2xl border border-line bg-panel/60 p-4">
+          <div class="rounded-2xl border border-line bg-panel2/60 p-4">
             <p class="text-[10px] uppercase tracking-[.16em] text-muted mb-2">Terakhir dibuka</p>
             <p class="text-sm font-semibold leading-snug mt-1.5 line-2" id="stat-last">—</p>
           </div>
@@ -387,7 +367,7 @@
     </div>
   </section>
 
-  <footer class="border-t border-line bg-panel/40 px-4 md:px-10 py-5">
+  <footer class="border-t border-line bg-panel2/40 px-4 md:px-10 py-5">
     <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
       <p class="font-data text-[11px] text-muted">© <span id="year"></span> Wuling Motors · PT Prima Wahana Auto Mobil · v4.0</p>
       <div class="flex gap-5 text-xs text-muted">
@@ -396,6 +376,24 @@
       </div>
     </div>
   </footer>
+</div>
+
+<!-- ─── MODULE VIEW (iframe, tampil saat sebuah modul dibuka) ─── -->
+<div id="moduleView" class="hidden flex-1 flex flex-col">
+  <div class="flex items-center gap-3 px-4 md:px-6 py-3 border-b border-line bg-panel">
+    <button type="button" id="backToDashboard" class="flex items-center gap-1.5 text-sm font-semibold text-muted hover:text-brand transition-colors">
+      <span class="ms text-[20px]">arrow_back</span> Dashboard
+    </button>
+    <span class="text-line">/</span>
+    <span id="moduleViewIcon" class="ms text-[18px]" style="color:var(--acc)"></span>
+    <h2 id="moduleViewTitle" class="text-sm font-bold truncate">—</h2>
+    <div class="ml-auto flex items-center gap-2">
+      <button type="button" id="moduleViewReload" title="Muat ulang" class="w-8 h-8 rounded-lg grid place-items-center text-muted hover:text-fg hover:bg-panel2"><span class="ms text-[18px]">refresh</span></button>
+      <a id="moduleViewNewTab" href="#" target="_blank" rel="noopener" title="Buka di tab baru" class="w-8 h-8 rounded-lg grid place-items-center text-muted hover:text-fg hover:bg-panel2"><span class="ms text-[18px]">open_in_new</span></a>
+    </div>
+  </div>
+  <iframe id="moduleFrame" class="flex-1 w-full border-0" title="Modul aktif"></iframe>
+</div>
 </main>
 
 <!-- ══════════ NOTIFIKASI ══════════ -->
@@ -423,28 +421,44 @@
         <span class="w-8 h-8 rounded-full bg-crm/15 text-crm grid place-items-center shrink-0"><span class="ms text-[18px]">palette</span></span>
         <div>
           <p class="text-sm font-bold mb-1">Tampilan portal diperbarui</p>
-          <p class="text-xs text-muted leading-relaxed">Warna kini menandai kategori modul, plus pencarian cepat dan penyematan favorit.</p>
+          <p class="text-xs text-muted leading-relaxed">Warna kini menandai kategori modul, plus mode gelap/terang, pencarian cepat, dan penyematan favorit.</p>
           <span class="font-data text-[10px] text-muted/60 mt-2 block">Baru saja</span>
         </div>
       </div>
     </article>
   </div>
   <div class="p-4 border-t border-line">
-    <button type="button" id="clear-notif" class="w-full py-2.5 rounded-xl text-sm font-semibold text-muted border border-line hover:text-fg hover:bg-white/5 transition-colors">Bersihkan semua</button>
+    <button type="button" id="clear-notif" class="w-full py-2.5 rounded-xl text-sm font-semibold text-muted border border-line hover:text-fg hover:bg-panel2 transition-colors">Bersihkan semua</button>
   </div>
 </aside>
 
 <script>
 /* ════════════════════════════════════════════════════════════════
+   0. TEMA (dark/light) — konsisten dengan modul lain di hub
+   ════════════════════════════════════════════════════════════════ */
+(function(){
+  var dark = localStorage.getItem('portal_dark') === 'true';
+  if(dark) document.documentElement.classList.add('dark');
+})();
+function toggleTheme(){
+  document.documentElement.classList.toggle('dark');
+  localStorage.setItem('portal_dark', document.documentElement.classList.contains('dark'));
+}
+document.addEventListener('DOMContentLoaded', function(){
+  var btn = document.getElementById('themeToggleBtn');
+  if(btn) btn.addEventListener('click', toggleTheme);
+});
+
+/* ════════════════════════════════════════════════════════════════
    1. DATA — tambah / ubah modul cukup di dua objek di bawah ini
    ════════════════════════════════════════════════════════════════ */
 
 const CATEGORIES = {
-  service: { label: 'Service',        color: '#FF8A3D', icon: 'handyman' },
-  parts:   { label: 'Sparepart & Stok', color: '#22D3EE', icon: 'inventory_2' },
-  unit:    { label: 'Unit Kendaraan', color: '#A3E635', icon: 'directions_car' },
-  crm:     { label: 'CRM & Audit',    color: '#C084FC', icon: 'diversity_3' },
-  report:  { label: 'Laporan',        color: '#34D399', icon: 'monitoring' }
+  service: { label: 'Service',        color: '#F59E0B', icon: 'handyman' },
+  parts:   { label: 'Sparepart & Stok', color: '#0EA5A4', icon: 'inventory_2' },
+  unit:    { label: 'Unit Kendaraan', color: '#6366F1', icon: 'directions_car' },
+  crm:     { label: 'CRM & Audit',    color: '#8B5CF6', icon: 'diversity_3' },
+  report:  { label: 'Laporan',        color: '#16A34A', icon: 'monitoring' }
 };
 
 /* id  : dipakai untuk statistik lokal — jangan diubah agar riwayat lama tetap terbaca
@@ -559,7 +573,7 @@ const $$ = s => Array.from(document.querySelectorAll(s));
 
 const STATUS_STYLE = {
   LIVE:   'text-report border-report/30 bg-report/10',
-  STABLE: 'text-muted border-line bg-white/5',
+  STABLE: 'text-muted border-line bg-panel2',
   BARU:   'text-brand border-brand/40 bg-brand/10'
 };
 
@@ -568,17 +582,16 @@ function cardHTML(m, i) {
   const isFav = favs.includes(m.id);
   const hits = stats[m.id] || 0;
   return `
-  <article class="mod flex flex-col rise" style="--acc:${c.color};animation-delay:${(i * 0.035 + 0.15).toFixed(2)}s"
+  <article class="mod flex flex-col rise" style="--acc:${c.color};animation-delay:${(i * 0.03 + 0.1).toFixed(2)}s"
            data-id="${m.id}" data-cat="${m.cat}"
            data-search="${(m.name + ' ' + m.desc + ' ' + m.tags + ' ' + c.label).toLowerCase()}">
-    <span class="ms ms-fill mod-ghost" aria-hidden="true">${m.icon}</span>
 
     <div class="p-5 pl-6 flex-1 relative">
       <div class="flex items-start justify-between gap-3 mb-4">
         <span class="mod-icon w-12 h-12 rounded-2xl grid place-items-center shrink-0">
           <span class="ms ms-fill text-[24px]">${m.icon}</span>
         </span>
-        <button type="button" class="star ${isFav ? 'on' : 'text-muted/50'} w-8 h-8 rounded-lg grid place-items-center hover:bg-white/5 transition-colors"
+        <button type="button" class="star ${isFav ? 'on' : 'text-muted/50'} w-8 h-8 rounded-lg grid place-items-center hover:bg-panel2 transition-colors"
                 data-fav="${m.id}" aria-pressed="${isFav}" aria-label="Sematkan ${m.name} sebagai favorit">
           <span class="ms text-[19px]">star</span>
         </button>
@@ -589,16 +602,16 @@ function cardHTML(m, i) {
       <p class="text-[13px] text-muted leading-relaxed line-2">${m.desc}</p>
     </div>
 
-    <div class="px-5 pl-6 py-3.5 border-t border-line/70 bg-ink/30 flex items-center justify-between gap-3">
+    <div class="px-5 pl-6 py-3.5 border-t border-line bg-panel2/40 flex items-center justify-between gap-3">
       <div class="flex items-center gap-2 min-w-0">
         <span class="font-data text-[9px] font-semibold tracking-[.12em] px-2 py-1 rounded border ${STATUS_STYLE[m.status]}">${m.status}</span>
         <span class="font-data text-[10px] text-muted/70 truncate hits" data-hits="${m.id}">${hits ? hits + '×' : ''}</span>
       </div>
-      <a href="${m.url}" target="_blank" rel="noopener"
+      <button type="button"
          class="btn-open open shrink-0 inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-[13px] font-semibold text-white"
          data-open="${m.id}">
         Buka <span class="ms text-[16px]">arrow_forward</span>
-      </a>
+      </button>
     </div>
   </article>`;
 }
@@ -618,23 +631,31 @@ function renderFilters() {
   MODULES.forEach(m => counts[m.cat] = (counts[m.cat] || 0) + 1);
 
   const chip = (key, label, color, count, pressed) => `
-    <button type="button" class="chip px-3.5 py-1.5 rounded-full text-[13px] font-medium border border-line bg-panel2/60 text-muted hover:text-fg"
+    <button type="button" class="chip px-3.5 py-1.5 rounded-full text-[13px] font-medium border border-line bg-panel2 text-muted hover:text-fg"
             style="--acc:${color}" data-filter="${key}" aria-pressed="${pressed}">
       ${label} <span class="font-data text-[10px] opacity-60">${count}</span>
     </button>`;
 
-  let html = chip('all', 'Semua', '#E10A2F', MODULES.length, true);
-  html += chip('fav', '★ Favorit', '#FBBF24', favs.length, false);
+  let html = chip('all', 'Semua', '#0EA5A4', MODULES.length, true);
+  html += chip('fav', '★ Favorit', '#F59E0B', favs.length, false);
   for (const [k, c] of Object.entries(CATEGORIES)) html += chip(k, c.label, c.color, counts[k] || 0, false);
   $('#filters').innerHTML = html;
 
-  const sideItem = (k, c) => `
-    <button type="button" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-muted hover:text-fg hover:bg-white/5 transition-colors" data-filter-jump="${k}">
-      <span class="ms text-[19px]" style="color:${c.color}">${c.icon}</span>
-      <span class="flex-1 text-left truncate">${c.label}</span>
-      <span class="font-data text-[10px] text-muted/60">${counts[k] || 0}</span>
-    </button>`;
-  const sideHTML = Object.entries(CATEGORIES).map(([k, c]) => sideItem(k, c)).join('');
+  const sideGroup = (k, c) => {
+    const mods = MODULES.filter(m => m.cat === k);
+    return `
+    <div>
+      <p class="px-3 pb-1 flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider" style="color:${c.color}">
+        <span class="ms text-[16px]">${c.icon}</span> ${c.label}
+      </p>
+      ${mods.map(m => `
+        <button type="button" data-open="${m.id}" data-sidebar="1"
+                class="w-full flex items-center gap-3 pl-8 pr-3 py-2 rounded-xl text-[13px] text-slate-300 hover:text-white hover:bg-white/5 transition-colors text-left">
+          <span class="flex-1 truncate">${m.name}</span>
+        </button>`).join('')}
+    </div>`;
+  };
+  const sideHTML = Object.entries(CATEGORIES).map(([k, c]) => sideGroup(k, c)).join('');
   $('#side-cats').innerHTML = sideHTML;
   $('#side-cats-mobile').innerHTML = sideHTML;
 }
@@ -697,7 +718,7 @@ function renderActivity() {
     const m = MODULES.find(x => x.id === l.id);
     const c = m ? CATEGORIES[m.cat] : { color: '#8B94A7' };
     return `
-      <div class="flex items-center gap-3 py-2 border-b border-line/60 last:border-0">
+      <div class="flex items-center gap-3 py-2 border-b border-line last:border-0">
         <span class="w-1.5 h-1.5 rounded-full shrink-0" style="background:${c.color};box-shadow:0 0 8px ${c.color}"></span>
         <p class="text-[13px] font-medium flex-1 truncate">${l.name}</p>
         <span class="font-data text-[10px] text-muted/70 shrink-0">${relTime(l.time)}</span>
@@ -710,7 +731,7 @@ function renderActivity() {
    ════════════════════════════════════════════════════════════════ */
 document.addEventListener('click', e => {
 
-  /* buka modul → catat statistik */
+  /* buka modul → catat statistik lalu tampilkan di panel iframe */
   const open = e.target.closest('[data-open]');
   if (open) {
     const id = open.dataset.open;
@@ -721,6 +742,8 @@ document.addEventListener('click', e => {
     const hitEl = document.querySelector(`[data-hits="${id}"]`);
     if (hitEl) hitEl.textContent = stats[id] + '×';
     renderStats(); renderActivity();
+    if (open.dataset.sidebar) closeNav();
+    openModule(id);
   }
 
   /* favorit */
@@ -748,13 +771,15 @@ document.addEventListener('click', e => {
   const scroll = e.target.closest('[data-scroll]');
   if (scroll) { setFilter('all'); closeNav(); $(scroll.dataset.scroll).scrollIntoView({ behavior: 'smooth' }); }
 
-  if (e.target.closest('#side-activity')) { closeNav(); $('#activity-card').scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+  if (e.target.closest('#side-activity')) { closeNav(); showDashboard(); $('#activity-card').scrollIntoView({ behavior: 'smooth', block: 'center' }); }
 
   /* drawer & panel */
   if (e.target.closest('#open-nav')) openNav();
   if (e.target.closest('[data-close-nav]') || e.target.closest('#nav-overlay')) closeNav();
   if (e.target.closest('#open-notif')) openNotif();
   if (e.target.closest('[data-close-notif]') || e.target.closest('#notif-overlay')) closeNotif();
+  if (e.target.closest('#backToDashboard') || e.target.closest('#side-dashboard')) { closeNav(); showDashboard(); }
+  if (e.target.closest('#moduleViewReload')) { const f=$('#moduleFrame'); if(f) f.src = f.src; }
 
   if (e.target.closest('#open-search-mobile')) {
     const box = $('#search-mobile');
@@ -790,6 +815,29 @@ function openNav()  { $('#mobile-nav').classList.add('open'); $('#nav-overlay').
 function closeNav() { $('#mobile-nav').classList.remove('open'); $('#nav-overlay').classList.add('hidden'); }
 function openNotif(){ $('#notif-panel').classList.add('open'); $('#notif-overlay').classList.remove('hidden'); $('#notif-dot').classList.add('hidden'); }
 function closeNotif(){ $('#notif-panel').classList.remove('open'); $('#notif-overlay').classList.add('hidden'); }
+
+/* ── Panel modul (iframe) — dimuat dalam halaman yang sama berkat proxy rewrite Netlify ── */
+function openModule(id){
+  const m = MODULES.find(x => x.id === id);
+  if (!m) return;
+  const c = CATEGORIES[m.cat];
+  $('#moduleViewTitle').textContent = m.name;
+  $('#moduleViewIcon').textContent = m.icon;
+  $('#moduleViewIcon').style.color = c.color;
+  $('#moduleView').style.setProperty('--acc', c.color);
+  $('#moduleViewNewTab').href = m.url;
+  $('#moduleFrame').src = m.url;
+  $('#dashboardView').classList.add('hidden');
+  $('#moduleView').classList.remove('hidden');
+  $('#moduleView').classList.add('flex');
+  window.scrollTo(0,0);
+}
+function showDashboard(){
+  $('#moduleView').classList.add('hidden');
+  $('#moduleView').classList.remove('flex');
+  $('#dashboardView').classList.remove('hidden');
+  $('#moduleFrame').src = 'about:blank';
+}
 
 ['#search', '#search-m'].forEach(sel => {
   document.addEventListener('input', e => {
