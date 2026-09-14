@@ -172,6 +172,16 @@
   html.dark #themeToggle{ background:linear-gradient(90deg,#0EA5A4,#F59E0B); }
   html.dark #themeToggle .knob{ transform:translateX(16px); }
 
+  /* ---------- Lipat/tampilkan sidebar utama ---------- */
+  #mainSidebar, #topHeader, main { transition: transform .25s ease, left .25s ease, margin-left .25s ease; }
+  body.sidebar-hidden #mainSidebar { transform: translateX(-100%); }
+  body.sidebar-hidden #topHeader { left: 0 !important; }
+  body.sidebar-hidden main { margin-left: 0 !important; }
+  #showSidebarBtn { display: none; }
+  @media (min-width: 1024px) {
+    body.sidebar-hidden #showSidebarBtn { display: grid; }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
     .rise { opacity: 1; }
@@ -182,7 +192,7 @@
 <body class="bg-base text-fg font-body antialiased overflow-x-hidden selection:bg-brand/30">
 
 <!-- ══════════ SIDEBAR (desktop) ══════════ -->
-<aside class="hidden lg:flex flex-col fixed left-0 top-0 h-screen w-[264px] border-r border-line z-40" style="background:linear-gradient(180deg,#0F2C4C 0%,#0A1D33 100%)">
+<aside id="mainSidebar" class="hidden lg:flex flex-col fixed left-0 top-0 h-screen w-[264px] border-r border-line z-40" style="background:linear-gradient(180deg,#0F2C4C 0%,#0A1D33 100%)">
   <div class="px-6 pt-7 pb-6">
     <img src="https://www.prima-portal.com/images/prima.png" alt="Logo PT Prima Wahana Auto Mobil"
          class="h-9 w-auto object-contain object-left mb-6 opacity-95">
@@ -214,15 +224,23 @@
   </div>
 
   <div class="p-4 border-t border-white/10">
-    <div class="rounded-xl border border-white/10 px-3 py-3" style="background:rgba(255,255,255,.04)">
+    <div class="rounded-xl border border-white/10 px-3 py-3 mb-2" style="background:rgba(255,255,255,.04)">
       <div class="flex items-center gap-2 mb-1.5">
         <span class="w-2 h-2 rounded-full bg-[#16A34A] shadow-[0_0_10px_rgba(22,163,74,.9)]"></span>
         <span class="text-xs font-semibold text-white">Semua modul aktif</span>
       </div>
       <p class="font-data text-[11px] text-slate-400"><span id="clock">--:--:--</span> WIB</p>
     </div>
+    <button type="button" id="toggleSidebarBtn" class="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl border border-white/10 text-slate-300 hover:bg-white/5 hover:text-white transition-colors text-xs font-semibold">
+      <span class="ms text-[18px]">left_panel_close</span> Sembunyikan Sidebar
+    </button>
   </div>
 </aside>
+
+<!-- tombol kecil untuk memunculkan lagi sidebar utama saat sedang disembunyikan -->
+<button type="button" id="showSidebarBtn" class="hidden fixed left-2 top-1/2 -translate-y-1/2 z-40 w-9 h-9 rounded-full bg-panel border border-line shadow-lg grid place-items-center text-muted hover:text-brand transition-colors" title="Tampilkan sidebar">
+  <span class="ms text-[20px]">chevron_right</span>
+</button>
 
 <!-- ══════════ SIDEBAR (mobile drawer) ══════════ -->
 <div id="nav-overlay" class="fixed inset-0 bg-ink/70 backdrop-blur-sm z-40 hidden lg:hidden"></div>
@@ -245,7 +263,7 @@
 </aside>
 
 <!-- ══════════ TOP BAR ══════════ -->
-<header class="fixed top-0 right-0 left-0 lg:left-[264px] h-16 z-30 bg-base/90 backdrop-blur-xl border-b border-line flex items-center gap-3 px-4 md:px-6">
+<header id="topHeader" class="fixed top-0 right-0 left-0 lg:left-[264px] h-16 z-30 bg-base/90 backdrop-blur-xl border-b border-line flex items-center gap-3 px-4 md:px-6">
   <button type="button" id="open-nav" class="lg:hidden w-10 h-10 rounded-xl grid place-items-center text-fg hover:bg-panel2" aria-label="Buka menu">
     <span class="ms">menu</span>
   </button>
@@ -447,7 +465,15 @@ function toggleTheme(){
 document.addEventListener('DOMContentLoaded', function(){
   var btn = document.getElementById('themeToggleBtn');
   if(btn) btn.addEventListener('click', toggleTheme);
+
+  if(localStorage.getItem('portal_sidebar_hidden') === 'true') document.body.classList.add('sidebar-hidden');
+  var ts = document.getElementById('toggleSidebarBtn'); if(ts) ts.addEventListener('click', toggleSidebar);
+  var ss = document.getElementById('showSidebarBtn'); if(ss) ss.addEventListener('click', toggleSidebar);
 });
+function toggleSidebar(){
+  document.body.classList.toggle('sidebar-hidden');
+  localStorage.setItem('portal_sidebar_hidden', document.body.classList.contains('sidebar-hidden'));
+}
 
 /* ════════════════════════════════════════════════════════════════
    1. DATA — tambah / ubah modul cukup di dua objek di bawah ini
@@ -557,6 +583,7 @@ const MODULES = [
 const K_STATS = 'wuling_app_stats';
 const K_LOGS  = 'wuling_app_logs';
 const K_FAV   = 'wuling_app_favs';
+const K_SIDEBAR = 'wuling_sidebar_collapsed';
 
 const read = (k, fb) => { try { return JSON.parse(localStorage.getItem(k)) ?? fb; } catch { return fb; } };
 const save = (k, v)  => { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} };
@@ -564,6 +591,7 @@ const save = (k, v)  => { try { localStorage.setItem(k, JSON.stringify(v)); } ca
 let stats = read(K_STATS, {});
 let logs  = read(K_LOGS, []);
 let favs  = read(K_FAV, []);
+let sidebarCollapsed = read(K_SIDEBAR, []);
 
 /* ════════════════════════════════════════════════════════════════
    3. RENDER
@@ -643,16 +671,23 @@ function renderFilters() {
 
   const sideGroup = (k, c) => {
     const mods = MODULES.filter(m => m.cat === k);
+    const collapsed = sidebarCollapsed.includes(k);
     return `
     <div>
-      <p class="px-3 pb-1 flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider" style="color:${c.color}">
-        <span class="ms text-[16px]">${c.icon}</span> ${c.label}
-      </p>
-      ${mods.map(m => `
-        <button type="button" data-open="${m.id}" data-sidebar="1"
-                class="w-full flex items-center gap-3 pl-8 pr-3 py-2 rounded-xl text-[13px] text-slate-300 hover:text-white hover:bg-white/5 transition-colors text-left">
-          <span class="flex-1 truncate">${m.name}</span>
-        </button>`).join('')}
+      <button type="button" data-collapse="${k}"
+              class="w-full flex items-center gap-2 px-3 pb-1 text-[11px] font-bold uppercase tracking-wider hover:opacity-80 transition-opacity" style="color:${c.color}">
+        <span class="ms text-[16px]">${c.icon}</span>
+        <span class="flex-1 text-left">${c.label}</span>
+        <span class="font-data text-[10px] opacity-70">${mods.length}</span>
+        <span class="ms text-[16px] transition-transform" style="transform:rotate(${collapsed?'-90deg':'0deg'})">expand_more</span>
+      </button>
+      <div class="${collapsed?'hidden':''}" data-group="${k}">
+        ${mods.map(m => `
+          <button type="button" data-open="${m.id}" data-sidebar="1"
+                  class="w-full flex items-center gap-3 pl-8 pr-3 py-2 rounded-xl text-[13px] text-slate-300 hover:text-white hover:bg-white/5 transition-colors text-left">
+            <span class="flex-1 truncate">${m.name}</span>
+          </button>`).join('')}
+      </div>
     </div>`;
   };
   const sideHTML = Object.entries(CATEGORIES).map(([k, c]) => sideGroup(k, c)).join('');
@@ -780,6 +815,16 @@ document.addEventListener('click', e => {
   if (e.target.closest('[data-close-notif]') || e.target.closest('#notif-overlay')) closeNotif();
   if (e.target.closest('#backToDashboard') || e.target.closest('#side-dashboard')) { closeNav(); showDashboard(); }
   if (e.target.closest('#moduleViewReload')) { const f=$('#moduleFrame'); if(f) f.src = f.src; }
+
+  /* lipat / buka grup kategori di sidebar */
+  const collapseBtn = e.target.closest('[data-collapse]');
+  if (collapseBtn) {
+    const k = collapseBtn.dataset.collapse;
+    sidebarCollapsed = sidebarCollapsed.includes(k) ? sidebarCollapsed.filter(x => x !== k) : [...sidebarCollapsed, k];
+    save(K_SIDEBAR, sidebarCollapsed);
+    renderFilters();
+    setFilter(currentFilter);
+  }
 
   if (e.target.closest('#open-search-mobile')) {
     const box = $('#search-mobile');
