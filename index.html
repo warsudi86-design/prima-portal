@@ -501,11 +501,11 @@ const MODULES = [
 
   { id:'quality_control', name:'Gate Pass System', cat:'unit', icon:'fact_check',
     desc:'Catat keluar-masuk kendaraan di area dealer beserta pelacakannya.',
-    url:'/gatepass-system', status:'LIVE', tags:'gate pass security keluar masuk' },
+    url:'/gatepass-system', status:'LIVE', tags:'gate pass security keluar masuk', apiUrl:null },
 
   { id:'logistics', name:'Daily Report SM', cat:'report', icon:'assignment',
     desc:'Laporan harian service manager atas kondisi operasional bengkel.',
-    url:'/sm-reportdaily', status:'STABLE', tags:'harian service manager laporan' },
+    url:'/sm-reportdaily', status:'STABLE', tags:'harian service manager laporan', apiUrl:null },
 
   { id:'hr', name:'Mobile Service', cat:'service', icon:'engineering',
     desc:'Pantau aktivitas mekanik kunjungan / ERA secara real time.',
@@ -517,64 +517,64 @@ const MODULES = [
 
   { id:'audit', name:'E-Dealer Audit', cat:'crm', icon:'verified',
     desc:'Verifikasi kepatuhan operasional terhadap standar layanan Wuling.',
-    url:'/dealer-audit', status:'LIVE', tags:'audit standar kepatuhan compliance' },
+    url:'/dealer-audit', status:'LIVE', tags:'audit standar kepatuhan compliance', apiUrl:null },
 
   { id:'overnight', name:'Overnight Monitoring', cat:'unit', icon:'bedtime',
     desc:'Pantau kendaraan menginap yang masih berstatus WIP di dealer.',
-    url:'/overnight-prima', status:'LIVE', tags:'inap wip menginap kendaraan' },
+    url:'/overnight-prima', status:'LIVE', tags:'inap wip menginap kendaraan', apiUrl:null },
 
   { id:'psr', name:'Problem Solving System', cat:'report', icon:'lightbulb',
     desc:'Kelola project improvement dan tindak lanjut temuan masalah.',
-    url:'/psr-system', status:'LIVE', tags:'psr improvement kaizen masalah' },
+    url:'/psr-system', status:'LIVE', tags:'psr improvement kaizen masalah', apiUrl:null },
 
   { id:'retention', name:'Retention Monitoring', cat:'crm', icon:'handshake',
     desc:'Pantau pelanggan yang jatuh tempo service beserta kinerja CCO.',
-    url:'/retension-system', status:'LIVE', tags:'retensi cco follow up pelanggan' },
+    url:'/retension-system', status:'LIVE', tags:'retensi cco follow up pelanggan', apiUrl:null },
 
   { id:'NPS', name:'NPS Monitoring', cat:'crm', icon:'handshake',
     desc:'Pantau suara pelanggan dan tuntaskan setiap detractor.',
-    url:'/nps-prima', status:'LIVE', tags:'NPS menjaga customer selalu senyum' },
+    url:'/nps-prima', status:'LIVE', tags:'NPS menjaga customer selalu senyum', apiUrl:'https://script.google.com/macros/s/AKfycbxDD73oGC3-IUrAU-HJiQ_WcBmx1xaNN6QVUo4y3sDFRXFcMz6_5OcXk4NPrXhfJWIT/exec' },
 
   { id:'fleet', name:'Fleet-Care Monitoring', cat:'crm', icon:'local_shipping',
     desc:'Kelola jadwal service pelanggan fleet dan follow up CCO.',
-    url:'/fleet-prima', status:'LIVE', tags:'fleet armada korporat cco' },
+    url:'/fleet-prima', status:'LIVE', tags:'fleet armada korporat cco', apiUrl:null },
 
   { id:'va', name:'Virtual Account System', cat:'parts', icon:'account_balance_wallet',
     desc:'Monitor saldo dana VA dan waktu yang tepat untuk order part.',
-    url:'/va-inventory', status:'LIVE', tags:'va dana saldo order pembayaran' },
+    url:'/va-inventory', status:'LIVE', tags:'va dana saldo order pembayaran', apiUrl:null },
 
   /* ── Modul baru ── */
   { id:'sto', name:'Inventory Stock System', cat:'parts', icon:'inventory',
     desc:'Kelola stok sparepart: penerimaan, pengeluaran, dan stock opname.',
-    url:'/sto-prima', status:'BARU', tags:'stok opname sparepart gudang inventory' },
+    url:'/sto-prima', status:'BARU', tags:'stok opname sparepart gudang inventory', apiUrl:null },
 
   { id:'bsc', name:'Balance Scorecard Aftersales', cat:'report', icon:'speed',
     desc:'Pantau pencapaian KPI after sales dalam satu papan skor.',
-    url:'/bsc-prima', status:'BARU', tags:'bsc kpi scorecard target pencapaian' },
+    url:'/bsc-prima', status:'BARU', tags:'bsc kpi scorecard target pencapaian', apiUrl:null },
 
   { id:'eos', name:'End of Shift Report', cat:'report', icon:'checklist',
     desc:'Serah terima akhir shift: pekerjaan selesai, pending, dan catatan.',
-    url:'/eos-afsteam', status:'BARU', tags:'eos shift serah terima handover' },
+    url:'/eos-afsteam', status:'BARU', tags:'eos shift serah terima handover', apiUrl:null },
 
   { id:'stockyard', name:'Vehicle Inventory Management', cat:'unit', icon:'garage',
     desc:'Kelola posisi dan status unit kendaraan di stockyard dealer.',
-    url:'/stockyard-prima', status:'BARU', tags:'stockyard unit kendaraan posisi parkir' },
+    url:'/stockyard-prima', status:'BARU', tags:'stockyard unit kendaraan posisi parkir', apiUrl:null },
 
   { id:'cro_booking', name:'CRO Booking', cat:'crm', icon:'calendar_month',
     desc:'Kelola booking dan jadwal customer relationship officer (CRO).',
-    url:'/cro-booking', status:'BARU', tags:'booking cro jadwal customer janji temu' },
+    url:'/cro-booking', status:'BARU', tags:'booking cro jadwal customer janji temu', apiUrl:null },
 
   { id:'revenue', name:'Revenue Report', cat:'report', icon:'payments',
     desc:'Pantau pencapaian dan tren revenue aftersales secara berkala.',
-    url:'/revenue-afs', status:'BARU', tags:'revenue pendapatan laporan tren omzet' },
+    url:'/revenue-afs', status:'BARU', tags:'revenue pendapatan laporan tren omzet', apiUrl:null },
 
   { id:'inventory_master', name:'Inventory Master Data', cat:'parts', icon:'category',
     desc:'Kelola data master inventory: kategori, kode item, dan referensi stok.',
-    url:'/inventory-prima', status:'BARU', tags:'master data kategori kode item referensi stok' },
+    url:'/inventory-prima', status:'BARU', tags:'master data kategori kode item referensi stok', apiUrl:null },
 
   { id:'unit_entry', name:'Unit Entry', cat:'unit', icon:'app_registration',
     desc:'Input data awal unit kendaraan baru sebelum masuk sistem inventory.',
-    url:'/unit-entry', status:'BARU', tags:'unit entry input data masuk kendaraan baru' }
+    url:'/unit-entry', status:'BARU', tags:'unit entry input data masuk kendaraan baru', apiUrl:null }
 ];
 
 /* ════════════════════════════════════════════════════════════════
@@ -584,6 +584,7 @@ const K_STATS = 'wuling_app_stats';
 const K_LOGS  = 'wuling_app_logs';
 const K_FAV   = 'wuling_app_favs';
 const K_SIDEBAR = 'wuling_sidebar_collapsed';
+const K_LASTSEEN = 'wuling_lastseen';
 
 const read = (k, fb) => { try { return JSON.parse(localStorage.getItem(k)) ?? fb; } catch { return fb; } };
 const save = (k, v)  => { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} };
@@ -592,6 +593,8 @@ let stats = read(K_STATS, {});
 let logs  = read(K_LOGS, []);
 let favs  = read(K_FAV, []);
 let sidebarCollapsed = read(K_SIDEBAR, []);
+let lastSeen = read(K_LASTSEEN, {});
+let pendingUpdates = {};
 
 /* ════════════════════════════════════════════════════════════════
    3. RENDER
@@ -686,6 +689,7 @@ function renderFilters() {
           <button type="button" data-open="${m.id}" data-sidebar="1"
                   class="w-full flex items-center gap-3 pl-8 pr-3 py-2 rounded-xl text-[13px] text-slate-300 hover:text-white hover:bg-white/5 transition-colors text-left">
             <span class="flex-1 truncate">${m.name}</span>
+            <span class="notif-dot hidden w-2 h-2 rounded-full bg-[#EF4444] shadow-[0_0_6px_rgba(239,68,68,.9)] shrink-0" data-notif="${m.id}"></span>
           </button>`).join('')}
       </div>
     </div>`;
@@ -789,6 +793,7 @@ document.addEventListener('click', e => {
     save(K_FAV, favs);
     renderFilters(); renderGrid(); renderStats();
     setFilter(currentFilter);
+    applyNotifDots();
   }
 
   /* chip filter */
@@ -824,6 +829,7 @@ document.addEventListener('click', e => {
     save(K_SIDEBAR, sidebarCollapsed);
     renderFilters();
     setFilter(currentFilter);
+    applyNotifDots();
   }
 
   if (e.target.closest('#open-search-mobile')) {
@@ -876,6 +882,13 @@ function openModule(id){
   $('#moduleView').classList.remove('hidden');
   $('#moduleView').classList.add('flex');
   window.scrollTo(0,0);
+
+  /* tandai sudah dilihat → hilangkan titik notif */
+  lastSeen[id] = Date.now();
+  save(K_LASTSEEN, lastSeen);
+  pendingUpdates[id] = false;
+  const dot = document.querySelector(`[data-notif="${id}"]`);
+  if (dot) dot.classList.add('hidden');
 }
 function showDashboard(){
   $('#moduleView').classList.add('hidden');
@@ -915,6 +928,30 @@ function greet() {
   $('#greeting').textContent = `${g}, selamat datang di`;
 }
 
+/* ════════════════════════════════════════════════════════════════
+   5. NOTIFIKASI DATA BARU — tanya tiap modul (yang sudah punya apiUrl)
+      kapan terakhir datanya diubah, bandingkan dengan kapan terakhir dilihat
+   ════════════════════════════════════════════════════════════════ */
+async function checkModuleUpdates(){
+  const targets = MODULES.filter(m => m.apiUrl);
+  await Promise.all(targets.map(async m => {
+    try{
+      const res = await fetch(m.apiUrl + '?action=lastUpdate');
+      const json = await res.json();
+      if(!json.success) return;
+      const seen = lastSeen[m.id] || 0;
+      pendingUpdates[m.id] = json.lastUpdate > seen;
+    }catch(err){ /* modul belum siap / offline, abaikan diam-diam */ }
+  }));
+  applyNotifDots();
+}
+function applyNotifDots(){
+  Object.keys(pendingUpdates).forEach(id => {
+    const dot = document.querySelector(`[data-notif="${id}"]`);
+    if (dot) dot.classList.toggle('hidden', !pendingUpdates[id]);
+  });
+}
+
 /* init */
 $('#year').textContent = new Date().getFullYear();
 greet(); tick(); setInterval(tick, 1000);
@@ -923,6 +960,8 @@ renderGrid();
 renderStats();
 renderActivity();
 setInterval(renderActivity, 60000);
+checkModuleUpdates();
+setInterval(checkModuleUpdates, 5 * 60000);
 </script>
 </body>
 </html>
