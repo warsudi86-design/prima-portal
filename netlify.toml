@@ -131,3 +131,15 @@
   to = "https://unit-entry.netlify.app/:splat"
   status = 200
   force = true
+
+[[redirects]]
+  from = "/transferflow-prima/*"
+  to = "https://transferflow-prima.netlify.app/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/vrc-prima/*"
+  to = "https://vrc-prima.netlify.app/:splat"
+  status = 200
+  force = true  
