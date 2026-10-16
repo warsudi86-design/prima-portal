@@ -3,7 +3,7 @@
 # domain custom dipasang di site portalhub-prima, semua modul tetap tampil
 # di bawah domain yang sama (tidak lompat ke *.netlify.app lain).
 #
-# Syarat: site portalhub-prima dan ke-17 site modul di bawah ini harus
+# Syarat: site portalhub-prima dan semua site modul di bawah ini harus
 # berada di TEAM Netlify yang sama.
 
 [[redirects]]
@@ -143,3 +143,9 @@
   to = "https://vrc-prima.netlify.app/:splat"
   status = 200
   force = true  
+
+[[redirects]]
+  from = "/estimasi-part/*"
+  to = "https://estimasi-part.netlify.app/:splat"
+  status = 200
+  force = true
