@@ -426,6 +426,16 @@
   <div id="notif-list" class="flex-1 overflow-y-auto scroll-thin p-4 space-y-3">
     <article class="rounded-2xl bg-panel2 border border-line p-4">
       <div class="flex gap-3">
+        <span class="w-8 h-8 rounded-full bg-parts/15 text-parts grid place-items-center shrink-0"><span class="ms text-[18px]">request_quote</span></span>
+        <div>
+          <p class="text-sm font-bold mb-1">Modul baru: Estimasi & Info Stok Part</p>
+          <p class="text-xs text-muted leading-relaxed">Cek ketersediaan dan harga part, buat estimasi, cetak PDF, dan lihat riwayat estimasi per dealer.</p>
+          <span class="font-data text-[10px] text-muted/60 mt-2 block">Baru saja</span>
+        </div>
+      </div>
+    </article>
+    <article class="rounded-2xl bg-panel2 border border-line p-4">
+      <div class="flex gap-3">
         <span class="w-8 h-8 rounded-full bg-parts/15 text-parts grid place-items-center shrink-0"><span class="ms text-[18px]">rocket_launch</span></span>
         <div>
           <p class="text-sm font-bold mb-1">4 modul baru ditambahkan</p>
@@ -582,7 +592,11 @@ const MODULES = [
 
   { id:'vrc', name:'Vehicle Report Card (VRC)', cat:'service', icon:'car_repair',
     desc:'Inspeksi kendaraan ICE dan EV dengan laporan digital (VRC).',
-    url:'/vrc-prima', status:'BARU', tags:'vrc inspeksi kendaraan ice ev report card' }
+    url:'/vrc-prima', status:'BARU', tags:'vrc inspeksi kendaraan ice ev report card' },
+
+  { id:'estimasi_part', name:'Estimasi & Info Stok Part', cat:'parts', icon:'request_quote',
+    desc:'Cari part, cek ketersediaan, buat estimasi harga dan cetak PDF; lengkap dengan riwayat estimasi per dealer.',
+    url:'/estimasi-part', status:'BARU', tags:'estimasi part sparepart harga ketersediaan stok pdf riwayat dealer sales guidance' }
 ];
 
 /* ════════════════════════════════════════════════════════════════
