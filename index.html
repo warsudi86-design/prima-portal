@@ -494,7 +494,8 @@ const CATEGORIES = {
   parts:   { label: 'Sparepart & Stok', color: '#0EA5A4', icon: 'inventory_2' },
   unit:    { label: 'Unit Kendaraan', color: '#6366F1', icon: 'directions_car' },
   crm:     { label: 'CRM & Audit',    color: '#8B5CF6', icon: 'diversity_3' },
-  report:  { label: 'Laporan',        color: '#16A34A', icon: 'monitoring' }
+  report:  { label: 'Laporan',        color: '#34D399', icon: 'monitoring' },
+  sop:     { label: 'Panduan & SOP',  color: '#6366F1', icon: 'menu_book' }
 };
 
 /* id  : dipakai untuk statistik lokal — jangan diubah agar riwayat lama tetap terbaca
@@ -552,6 +553,11 @@ const MODULES = [
   { id:'va', name:'Virtual Account System', cat:'parts', icon:'account_balance_wallet',
     desc:'Monitor saldo dana VA dan waktu yang tepat untuk order part.',
     url:'/va-inventory', status:'LIVE', tags:'va dana saldo order pembayaran', apiUrl:null },
+
+  { id:'sop', name:'SOP & Job Description', cat:'sop', icon:'account_tree',
+    desc:'Panduan kerja tiap posisi dalam bentuk flowchart beserta uraian tugasnya.',
+    url:'https://sop-service.netlify.app/', status:'BARU',
+    tags:'sop job description flowchart mekanik cro sa part admin panduan onboarding' },
 
   /* ── Modul baru ── */
   { id:'sto', name:'Inventory Stock System', cat:'parts', icon:'inventory',
