@@ -149,3 +149,9 @@
   to = "https://estimasi-part.netlify.app/:splat"
   status = 200
   force = true
+
+[[redirects]]
+  from = "/binlabel/*"
+  to = "https://binbox-label.netlify.app/:splat"
+  status = 200
+  force = true
