@@ -5,6 +5,10 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta name="theme-color" content="#0F2C4C">
 <title>PRIMA WULING · Aftersales Control Center</title>
+<link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16.png">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -194,12 +198,16 @@
 <!-- ══════════ SIDEBAR (desktop) ══════════ -->
 <aside id="mainSidebar" class="hidden lg:flex flex-col fixed left-0 top-0 h-screen w-[264px] border-r border-line z-40" style="background:linear-gradient(180deg,#0F2C4C 0%,#0A1D33 100%)">
   <div class="px-6 pt-7 pb-6">
-    <img src="https://www.prima-portal.com/images/prima.png" alt="Logo PT Prima Wahana Auto Mobil"
-         class="h-9 w-auto object-contain object-left mb-6 opacity-95">
-    <h1 class="font-display text-[26px] font-extrabold tracking-[-.04em] leading-none text-white">
-      WULING<span class="text-[#2DD4BF]">.</span>
-    </h1>
-    <p class="font-data text-[10px] tracking-[.28em] text-slate-400 uppercase mt-2">Aftersales Control</p>
+    <div class="flex items-center gap-3">
+      <img src="/assets/img/wuling-logo.png" alt="Logo Wuling"
+           class="w-11 h-11 rounded-xl shrink-0 shadow-lg shadow-black/30">
+      <div class="min-w-0">
+        <h1 class="font-display text-[17px] font-extrabold tracking-[-.02em] leading-tight text-white">
+          PRIMA Wuling<span class="text-[#2DD4BF]">.</span>
+        </h1>
+        <p class="font-data text-[10px] tracking-[.2em] text-slate-400 uppercase mt-1">Aftersales Control</p>
+      </div>
+    </div>
   </div>
 
   <nav class="px-3 flex-1 overflow-y-auto scroll-thin" aria-label="Kategori modul">
@@ -246,9 +254,12 @@
 <div id="nav-overlay" class="fixed inset-0 bg-ink/70 backdrop-blur-sm z-40 hidden lg:hidden"></div>
 <aside id="mobile-nav" class="lg:hidden fixed left-0 top-0 h-screen w-[272px] z-50 flex flex-col" style="background:linear-gradient(180deg,#0F2C4C 0%,#0A1D33 100%)">
   <div class="px-5 pt-6 pb-5 flex items-start justify-between">
-    <div>
-      <h1 class="font-display text-2xl font-extrabold tracking-[-.04em] text-white">WULING<span class="text-[#2DD4BF]">.</span></h1>
-      <p class="font-data text-[10px] tracking-[.24em] text-slate-400 uppercase mt-1.5">Aftersales Control</p>
+    <div class="flex items-center gap-3">
+      <img src="/assets/img/wuling-logo.png" alt="Logo Wuling" class="w-10 h-10 rounded-xl shrink-0">
+      <div>
+        <h1 class="font-display text-[17px] font-extrabold tracking-[-.02em] leading-tight text-white">PRIMA Wuling<span class="text-[#2DD4BF]">.</span></h1>
+        <p class="font-data text-[10px] tracking-[.2em] text-slate-400 uppercase mt-1">Aftersales Control</p>
+      </div>
     </div>
     <button type="button" data-close-nav class="w-9 h-9 rounded-full border border-white/10 grid place-items-center text-slate-300" aria-label="Tutup menu">
       <span class="ms text-[18px]">close</span>
